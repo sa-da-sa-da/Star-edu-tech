@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-gradual-tree">
+	<view slot="content">Star 教育技术</view>
+</cu-custom>
+<view class="main">
+	<view class="servic_top">
+		<view>
+			<view class="servic_top_Wz1">前路无涯</view>
+			<view>路漫漫其修远兮，吾将上下而求索 </view>
+		</view>
+		<view class="servic_top_Img">
+			<image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/zx_top.png"></image>
+		</view>
+	</view>
+	<van-tabs active="{{active}}" swipeable sticky offset-top="{{CustomBar}}" color="#d69c63" bind:change="onClick">
+		<van-tab title="精选">
+			<van-sticky offset-top="{{ CustomBar+44 }}" wx:if="{{active==0}}">
+				<view class="tab_list shadow">
+					<view class="tab_list_view" style="height:{{ height}}">
+						<view class="padding-xs" wx:for="{{tab}}" wx:key="index" wx:for-item="items" bindtap="onChange"
+							data-type="{{items.id}}">
+							<view class="cu-tag line-{{item.name}}     {{type==items.id?' study_bg':' study_tag' }} ">{{items.name}}
+							</view>
+						</view>
+					</view>
+					<view bindtap="show_xl" class="xl_show">
+						<van-icon name="wap-nav" />
+					</view>
+				</view>
+			</van-sticky>
+			<scroll list="{{tz_list}}"></scroll>
+			<view class="study_list">
+				<list list="{{list}}" loding="{{loding}}"></list>
+			</view>
+		</van-tab>
+		<van-tab title="热榜">
+			<view class="study_list">
+				<list list="{{rb_list}}" phb="{{true}}" loding="{{loding}}"></list>
+			</view>
+		</van-tab>
+		<van-tab title="历史">
+			<history/>
+		</van-tab>
+		<van-tab title="专栏">
+			<val></val>
+		</van-tab>
+	</van-tabs>
+</view>
+

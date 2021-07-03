@@ -1,0 +1,13 @@
+@import "style/color_ui.wxss";
+@import "style/Treeworld_ui.wxss";
+@import "style/icon.wxss";
+
+image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+.main {
+  animation: fadeIn .8s;
+  background-color:  #f8f8f8;
+}

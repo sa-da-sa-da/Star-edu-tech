@@ -1,0 +1,7 @@
+var time = 	function format(ts) {
+	var d = getDate(ts)
+	return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('/')
+	}
+
+
+module.exports.time = time;

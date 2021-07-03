@@ -1,0 +1,15 @@
+
+.study_tag2 {
+  color: #d69c63;
+  border: 1px solid #d69c63;
+  border-left-color: #122640;
+}
+.ls_but {
+  float: right;
+}
+.ls_but view {
+  padding: 10rpx 15rpx;
+}
+.cu-timeline {
+  margin-bottom: 60px;
+}

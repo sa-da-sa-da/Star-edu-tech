@@ -1,0 +1,33 @@
+<wxs src="../timeHelper.wxs" module="t" />
+<view class="scroll_box">
+  <scroll-view scroll-x>
+    <navigator hover-class="item-hover" url="/pages/details/details_html/index?id={{items._id}}" class="item_list"
+      wx:for="{{list}}" wx:key="this" wx:for-item="items">
+      <view class="item_list_ds">
+        <view>
+          <view class="dis2">
+            <view class="item_top_Wz">荐</view>
+            <view class="item_top_Wz2"> {{items.tille}}</view>
+          </view>
+          <view class="home-list-bottom">
+            <view class="dis">
+              <view>
+                <van-icon name="clock-o" />
+                <view class="icon_wz">{{t.time(items.add_time)}}</view>
+              </view>
+              <view>
+                <van-icon name="fire" />
+                <view class="icon_wz">{{items.browse||0}}</view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+        <view class="ikl">
+
+          <image mode='scaleToFill' src="{{items.img}}"></image>
+        </view>
+      </view>
+    </navigator>
+  </scroll-view>
+</view>

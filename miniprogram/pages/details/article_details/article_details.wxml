@@ -1,0 +1,73 @@
+<cu-custom bgColor="bg-gradual-tree" isCustom="{{true}}" wx:if="{{fx_show}}">
+	<view slot="backText">返回</view>
+	<view slot="content">文章</view>
+</cu-custom>
+<view class="loding_bg" wx:if="{{loding}}">
+	<view>
+		<image class="loding_img"
+			src="/images/loding.gif"></image>
+	</view>
+	<view class="mt10"> 数据加载中</view>
+
+</view>
+
+<view style="background-color: #fff;padding: 20px;" wx:if="{{loding}}">
+	<van-skeleton title row="3" wx:if="{{loding}}" wx:for="{{5}}" wx:key="this" />
+</view>
+
+<view class="main" wx:if="{{!loding}}">
+	<view >
+		<view wx:if="{{article.img}}" class="de_Img">
+			<image src="{{article.img}}" alt="" />
+		</view>
+		<view class="tree_article_tl">
+			{{ article.tille}}
+		</view>
+		<view>
+			<view class="tree_article_time ">
+				<view>时间：{{article.add_time}}</view>
+				<view>{{article.type}}</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="tree_artice">
+		<view class="cu-capsule">
+			<view class="cu-tag bg-gradual-tree">
+				数据来源
+			</view>
+			<view class="cu-tag line-tree">
+				{{article.ly||'掘金'}}
+			</view>
+		</view>
+
+	</view>
+
+	<view class="detil">
+		<mp-html showLanguageName="{{true}}" content="{{html}}" selectable="{{true}}" />
+	</view>
+	<view class="dbu">
+		<view class="search-form search-round search-index " bindtap="tz" data-id="{{article._id}}"
+			data-url="user/note/add/index">
+			<text class="cuIcon-write text-bold text-lg "> </text>
+			<input disabled="{{true}}" type="text" placeholder="添加笔记" confirm-type="search" placeholder-style="color:#000"
+				class="" />
+		</view>
+		<view bindtap="statr_sc" data-id="Article_collect" class=" {{sc_show?'cg_sp':''}}">
+			<van-icon name="star-o" size="20px" />
+			<view class="dbu_wz ">{{article.collect}}</view>
+		</view>
+		<view bindtap="statr_sc" data-id="Article_statr" class=" {{dz_show?'cg_sp':''}}">
+			<van-icon name="good-job-o" size="20px" />
+			<view class="dbu_wz ">{{article.statr}}</view>
+		</view>
+		<view bindtap="statr_sc" data-id="statr" class=" cg_sp">
+			<van-icon name="fire" size="20px" />
+			<view class="dbu_wz ">{{article.browse}}</view>
+		</view>
+	</view>
+	<view class="share">
+		<button  class="btn1" open-type="share" data-index="1"> <text class="cuIcon-share  "> </text> </button>
+	</view>
+</view>

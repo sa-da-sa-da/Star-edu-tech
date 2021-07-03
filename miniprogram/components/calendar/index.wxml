@@ -1,0 +1,33 @@
+<view class="contant"  wx:if="{{!signinNow}}">
+      <!-- 日历年月 -->
+      <view class='calendar_title layer_center'>
+        <view bindtap='lastMonth'>
+          <van-icon class="icon_xz" name="arrow-left" />
+        </view>
+        <view class="nowDtae ">{{year}}年{{month}}月</view>
+        <view bindtap='nextMonth'>
+          <van-icon class="icon_xz" name="arrow" />
+        </view>
+      </view>
+      <!-- 日历主体 -->
+      <view class='calendar'>
+        <view class='header'>
+          <view wx:for='{{date}}' wx:key='index' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}} '>
+            {{item}}
+            <view></view>
+          </view>
+				</view>
+
+        <view class='date-box'>
+          <block wx:for='{{dateArr}}' wx:key='index'>
+            <view class='{{isToday == item.isToday ? "nowDay":""}}'>
+              <view class='date-head font28' data-year='{{year}}' data-month='{{month}}'
+                data-datenum='{{item.dateNum}}'>
+                <span wx:if='{{item.choose?"nowsDay":""}}' class="cuIcon-yiqiandao"></span>
+                <view>{{item.dateNum}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>

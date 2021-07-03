@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/dictionaries/dictionaries",
+    "pages/home/book/book",
+    "pages/study/study",
+    "pages/user/user",
+    "pages/details/article_details/article_details",
+    "pages/user/favorite/favorite",
+    "pages/user/sign/sign",
+    "pages/question/question"
+  ],
+  "window": {
+    "backgroundColor": "#f7f7f7",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#122640",
+    "navigationBarTitleText": "教育技术",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-button": "@vant/weapp/button",
+    "van-row": "@vant/weapp/row/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "calendar": "/components/calendar/index",
+    "list": "/components/tree_list/index",
+    "scroll": "/components/scroll/index",
+    "cu-custom": "/components/cu-custom/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

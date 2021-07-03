@@ -1,0 +1,35 @@
+.fixedc {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.tab_color {
+  background: linear-gradient(to top right, #f4c998, #d69c63);
+  color: #fff;
+  width: 100rpx;
+  position: absolute;
+  display: block;
+  height: auto;
+  margin: 0 auto 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+  top: -35rpx;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+
+.checked {
+  color: #d69c63
+}
+.tab_icon{
+
+  position: relative;
+  display: block;
+  height: auto;
+  margin: 0 auto 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+}

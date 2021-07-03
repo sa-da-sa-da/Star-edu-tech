@@ -1,0 +1,31 @@
+<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
+	<view slot="content">世树书库</view>
+</cu-custom>
+<view class="Book_hint">
+	<van-notice-bar color="#d69c63" background="#fff" wrapable left-icon="info-o"
+		text="书籍预览由微信文件助手提供服务，如果需要更好的浏览体验请下载pdf阅读器" />
+	<view class="tree_mt10">
+		<van-row gutter="10" >
+			<van-col span="8" wx:for="{{list}}" wx:for-index="index" wx:for-item="Books" wx:key="index" bindtap="look"
+				data-url="{{Books.url}}" data-tille="{{Books.tille}}">
+				<view class="Book_list" style="animation: fadeInRight {{index<1?1:index+0.3}}s;">
+					<image class="Book-img" src="{{Books.cover}}" mode="aspectFill"></image>
+					<view>
+						<van-progress wx:if="{{urlshow==Books.url}}" color="#f4c998" percentage="{{tl}}" />
+						<view class="Book-title-box">
+							<view url="url" class="Book-title">{{Books.tille}}</view>
+						</view>
+						<view class="cu-capsule radius">
+							<view class="cu-tag line-brown sm">
+								{{Books.mb}}
+							</view>
+							<view class="cu-tag   bg-brown  sm">
+								MB
+							</view>
+						</view>
+					</view>
+				</view>
+			</van-col>
+		</van-row>
+	</view>
+</view>

@@ -1,0 +1,132 @@
+
+
+
+.calendar_title {
+  color: #fff;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+
+.calendar_title .icon {
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 0;
+}
+
+.icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.nowDtae {
+  color: #4aa0ff;
+  margin: 0 20rpx;
+}
+
+/* 日历 */
+.calendar {
+  background: linear-gradient(94deg, rgba(192, 160, 105, 1), rgba(233, 213, 172, 1));
+  box-shadow: 0px 3px 12px 0px rgba(195, 164, 110, 0.23);
+  border-radius: 20rpx;
+  padding: 0 0 20rpx;
+  margin: 20px;
+  margin-bottom: 50rpx;
+}
+
+
+.header {
+  font-size: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header>view {
+  display: inline-block;
+  width: 14.285%;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  border-bottom: 1px solid #D0D0D0;
+  padding: 20rpx 0;
+}
+
+.weekMark {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.weekMark view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #69f;
+}
+
+.date-box {
+  padding: 10rpx 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.date-box>view {
+  position: relative;
+  display: inline-block;
+  width: 14.285%;
+  color: #666;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.date-head {
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+}
+
+.nowDay .date-head {
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to top, #1D4259, #122640);
+  margin: 0 auto;
+}
+.nowsDay .date-head{
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background-color: #47c46d;
+  margin: 0 auto;
+}
+/* 签到 */
+.center {
+  background: #fff;
+  padding: 80rpx 0;
+  box-sizing: border-box;
+  margin: 20rpx 0;
+}
+
+.center_text {
+  margin-top: 20rpx;
+  color: #4aa0ff;
+}
+.center_texts{
+  color: #999999;
+}
+.bottom_text {
+  font-weight: normal;
+  line-height: 60rpx;
+}
+
+.bottom_text text {
+  color: #66afff;
+}
+
+.bottom {
+  background: #fff;
+  padding: 60rpx 0;
+  box-sizing: border-box;
+}

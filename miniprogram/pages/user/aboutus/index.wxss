@@ -1,0 +1,126 @@
+/* .common {
+    display: flex;
+    flex-direction: column;
+    padding: 34rpx;
+    margin-bottom: 18rpx;
+    background-color: #fff;
+}
+
+.format_text {
+    color: #3EB89C;
+}
+
+
+.name {
+    font-size: 20px;
+    margin-bottom: 20rpx;
+}
+
+.sex {
+    margin-bottom: 28rpx;
+}
+
+
+.icon-shouji {
+    font-size: 16px;
+    margin-right: 10rpx;
+}
+
+.icon-weixin {
+    font-size: 13px;
+    margin-right: 13rpx;
+}
+
+.icon-youxiang {
+    font-size: 11px;
+    margin-right: 15rpx;
+}
+
+.last {
+    padding-bottom: 100rpx;
+}
+
+.edu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.icon-xueli {
+    font-size: 30px;
+    color: #3EB89C;
+    margin-right: 60rpx;
+    margin-left: 20rpx;
+}
+
+.school {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.first {
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.second {
+    margin-left: 4rpx;
+}
+
+.icon-right-fill {
+    margin-right: 10rpx;
+} */
+@import "../../../components/animation.wxss";
+
+.cu-time {
+    padding-left:20rpx !important;
+}
+
+.cuIcon-weixin,
+.cuIcon-phone,
+.cuIcon-addressbook {
+    vertical-align: -3rpx;
+}
+
+.edu,
+.evaluate,
+.medalfill {
+    height: 1px;
+    border-top: 1px solid #ddd;
+}
+
+.edu::before,
+.evaluate::before,
+.medalfill::before {
+    position: relative;
+    top: -25rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    background: #fff;
+    padding: 0 20rpx;
+}
+
+.edu::before {
+    content: '教育经历';
+}
+
+.medalfill::before {
+    content: '认证';
+}
+
+.evaluate::before {
+    content: '自我评价';
+}
+
+.evaluate-cont {
+    text-align: justify;
+}
+
+.evaluate-cont text {
+    display: block;
+}
+
+.last-panel {
+    margin-bottom: 100rpx;
+}

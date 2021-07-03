@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "history": "./history/index",
+    
+    "val": "./warehouse/index"
+
+  }
+}

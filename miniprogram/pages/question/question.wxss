@@ -1,0 +1,21 @@
+.ans_bst{
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.cu-bar {
+  min-height: 90rpx;
+}
+.ans_xzt{
+  margin: 10px;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding-bottom: 5px;
+
+}
+.bg-tree{
+  background-color: #d69c63;
+  color:#d69c63;
+}

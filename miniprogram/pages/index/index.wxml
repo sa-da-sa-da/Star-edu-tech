@@ -1,0 +1,23 @@
+<view class="main">
+
+  <van-notify id="van-notify" top="{{180}}" />
+  <guide />
+  <view>
+    <home popr="{{hd_op}}" wx:if="{{id==0}}" />
+    <!-- <question wx:if="{{id==1}}" /> -->
+    <study wx:if="{{id==1}}" list="{{list}}" bind:tab_xz="tab_xz" loding="{{  loding}}" />
+    <!-- <warehouse wx:if="{{id==3}}" /> -->
+    <user wx:if="{{id==2}}" />
+  </view>
+  <view class="cu-bar tabbar  bg-white fixedc">
+    <view wx:for="{{tab}}" wx:key="this" wx:index="index" wx:for-item="items" bindtap="tab_checked" data-id="{{index}}"
+      class="action {{items.main?'add-action':''}}  text-gray {{id==index?'checked':''}}" hover-class="item-hover"
+      hover-stay-time="100">
+      <view class="" wx:if="{{!items.main}}">
+        <span class="tab_icon iconfont icon-shouye shadow"></span>
+      </view>
+      <span class="cu-btn cuIcon-shuye tab_color shadow" wx:else />
+      {{items.name}}
+    </view>
+  </view>
+</view>

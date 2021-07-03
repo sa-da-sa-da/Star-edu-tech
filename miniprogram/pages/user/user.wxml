@@ -1,0 +1,112 @@
+<view class="user">
+<view class="cu-modal show" wx:if="{{show}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">微信登录</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding">
+			<view class="logo">
+				<image  src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/head_photo.jpg"></image>
+			</view>
+        <view class='content2'>
+            <view>颯龘申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+    </view>
+    <view class="cu-bar bg-white ">
+      <view class="actic">
+        <button   class="cu-btn bg_kl3" bindtap="hideModal">取消</button>
+        <button  bindtap="getUserProfile"  size="default"  class="cu-btn b_kl4" >确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+	<view class="user-section" style="padding-top:{{CustomBar-10}}px;">
+		<view class="user-info-box">
+			<view class="portrait-box">
+				<image class="portrait" src="{{avatarUrl}}"></image>
+			</view>
+			<view class="info-box">
+				<text class="username">{{nickName||'游客'}}</text>
+				<view class="username2">学友 Lv1</view>
+			</view>
+
+
+		</view>
+		<view class="tj-sction ">
+			<view class="tj-item" bindtap="tz" data-a="user/note/index"><text class="num">{{  nt ||0}}</text><text
+					class="num2">笔记</text>
+			</view>
+			<view class="tj-item" bindtap="tz" data-a="user/favorite/favorite"><text class="num">{{sc||0}}</text><text
+					class="num2">收藏</text>
+			</view>
+			<view class="tj-item" bindtap="tz" data-a="user/collect/index">
+				<text class="num">{{dz||0}}</text>
+				<text class="num2">点赞</text>
+			</view>
+			<view class="tj-item" bindtap="tz" data-a="user/problem_list/index"><text class="num">{{tk||0}}</text><text
+					class="num2">题库</text>
+			</view>
+		</view>
+		<view class="vip-card-box">
+			<view class="b-btn" bindtap="tz" data-a="user/sign/sign">立刻签到</view>
+			<view class="tit"><text class="yticon icon-iLinkapp-"></text>您已签到{{userin.sign||0}}天</view><text class="e-m">Star 教育技术
+			</text><text class="e-b">为美好世界而学习</text>
+		</view>
+	</view>
+
+
+	<view class="cover-container " style="{{'transform:'+(coverTransform)+';'+('transition:'+(coverTransition)+';')}}"
+		bindtouchstart="coverTouchstart" bindtouchmove="coverTouchmove" bindtouchend="coverTouchend">
+		<view class="min_height cu-bar">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-tree">Star 助手</text>
+				<text class="text-ABC text-tree">Boutique </text>
+			</view>
+		</view>
+		<view class="user_jx">
+			<navigator hover-class='none' url="/pages/user/note/add/index" class="nav-li bg_te">
+				<view class="nav-title">笔记温习</view>
+				<view class="nav-name">温故而知新</view>
+				<text class='cuIcon-writefill'></text>
+			</navigator>
+			<navigator hover-class='none' url="/pages/user/plan/index" class="nav-li bg_fe">
+				<view class="nav-title">学习计划</view>
+				<view class="nav-name">了解自我</view>
+				<text class='cuIcon-newshotfill'></text>
+			</navigator>
+		</view>
+
+		<view class="cu-list menu  ">
+			<view class="cu-item arrow">
+				<navigator class="content" url="/pages/user/aboutus/index" hover-class="none">
+					<text class="cuIcon-evaluate  text-tree"></text>
+					<text class="text-grey">关于颯龘</text>
+				</navigator>
+			</view>
+
+			<view class="cu-item arrow">
+				<button class="cu-btn content" open-type="contact">
+					<text class="cuIcon-safe  text-tree"></text>
+					<text class="text-grey">加入群聊</text>
+				</button>
+			</view>
+			<view class="cu-item arrow">
+				<button class="cu-btn content" open-type="feedback">
+					<text class="cuIcon-writefill  text-tree"></text>
+					<text class="text-grey">意见反馈</text>
+				</button>
+			</view>
+			<view class="cu-item arrow" bindtap="ql">
+				<view class="content" url="/pages/about/test/list" hover-class="none">
+					<text class="cuIcon-creativefill text-tree"></text>
+					<text class="text-grey">清理缓存</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

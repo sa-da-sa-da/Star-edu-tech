@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tlist":"/components/tree_list/index",
+    "tree_swiper": "/components/swiper/swiper"
+  }
+}
