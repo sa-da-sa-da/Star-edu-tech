@@ -1,0 +1,72 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/home/book/book",
+          "pathName": "pages/home/book/book",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/collect/index",
+          "pathName": "pages/user/collect/index",
+          "query": "id=undefined",
+          "scene": null
+        },
+        {
+          "name": "pages/user/favorite/favorite",
+          "pathName": "pages/user/favorite/favorite",
+          "query": "id=undefined",
+          "scene": null
+        },
+        {
+          "name": "pages/details/details_html/index",
+          "pathName": "pages/details/details_html/index",
+          "query": "id=b00064a760c804cd203632d232081460",
+          "scene": null
+        },
+        {
+          "name": "pages/details/article_details/article_details",
+          "pathName": "pages/details/article_details/article_details",
+          "query": "id=b00064a760c804cd203632d232081460",
+          "scene": null
+        },
+        {
+          "name": "pages/user/sign/index",
+          "pathName": "pages/user/sign/index",
+          "query": "id=undefined",
+          "scene": null
+        },
+        {
+          "name": "pages/user/sign/sign",
+          "pathName": "pages/user/sign/sign",
+          "query": "id=undefined",
+          "scene": null
+        },
+        {
+          "name": "pages/home/dictionaries/dictionaries",
+          "pathName": "pages/home/dictionaries/dictionaries",
+          "query": "id=b00064a760c804cd203632d232081460",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

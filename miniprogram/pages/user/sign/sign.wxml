@@ -1,0 +1,52 @@
+<!--pages/signin/signin.wxml-->
+
+
+
+<view class="main2" style="  height:100vh">
+
+  <view class="sign_top" wx:if="{{!signinNow}}">
+    <view class="sign_wz">{{time}}
+      <text class="sign_wz2">{{week}}</text>
+    </view>
+    <view class="sign_wz3">{{wh_tl}}</view>
+    <view class='sign_wz4'>{{cityDatas.basic.location || '您未开启定位'}}</view>
+    <view class="dis">
+      <view class='sign_wz5' decode='true'>{{cityDatas.now.tmp || '-'}}<text style=''>℃</text></view>
+      <view class='sign_wz5'>{{cityDatas.now.cond_txt || '--'}}</view>
+      <view class='sign_wz5'>
+        <text>能见度 {{cityDatas.now.vis}}</text>
+      </view>
+    </view>
+  </view>
+<calendar id='calendar1'  yesDate='{{yesdate}}' />
+
+  <view class="user_phb" wx:if="{{signinNow}}">
+    <view class="tille-1">
+      签到排行榜
+    </view>
+    <van-cell-group>
+      <van-cell wx:for='{{userlist}}' wx:key='index'>
+        <view slot="title" class="userlist">
+          <view class="user_dix">
+            <view class="van-cell-text">{{index+1}}</view>
+            <view class="user_img">
+              <image src="{{item.avatarUrl}}"></image>
+            </view>
+            <view>{{item.nickName}}</view>
+          </view>
+          <view>签到{{item.sign||0}}天</view>
+        </view>
+      </van-cell>
+    </van-cell-group>
+
+  </view>
+
+
+  <view class="flex_center">
+    <view class="center_text font32" bindtap="activeSign" wx:if="{{!signinNow}}">立即签到</view>
+  </view>
+
+
+
+
+</view>

@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}" >
+  <view slot="content"></view>
+</cu-custom>
+<view class="main">
+	<van-dialog id="van-dialog" />
+	<van-tabs active="{{active}}" bind:change="onChange" color="#d69c63">
+		<van-tab title="{{items}}" wx:for="{{tab}}" wx:key="this" wx:for-item="items">
+			<view wx:if="{{loding}}" class="loding">
+				<van-loading />
+				<view>树树正在加急，请耐心等待 </view>
+			</view>
+			<van-transition show="{{!loding }}" name="slide-left" custom-class="block">
+				<view class="home-jcly">
+					<van-empty image="search"  wx:if="{{xw_list.length==0}}" description="暂无内容" />
+					<list list="{{ xw_list}}" loding="{{loding}}"></list>
+				</view>
+			</van-transition>
+		</van-tab>
+	</van-tabs>
+</view>
+<wxs module="m1">
+	function format(ts) {
+		var d = getDate(ts)
+		return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+	}
+	module.exports.format = format
+</wxs>
