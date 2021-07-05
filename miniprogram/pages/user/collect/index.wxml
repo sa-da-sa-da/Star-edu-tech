@@ -7,7 +7,7 @@
 		<van-tab title="{{items}}" wx:for="{{tab}}" wx:key="this" wx:for-item="items">
 			<view wx:if="{{loding}}" class="loding">
 				<van-loading />
-				<view>Star 正在加急，请耐心等待 </view>
+				<view>树树正在加急，请耐心等待 </view>
 			</view>
 			<van-transition show="{{!loding }}" name="slide-left" custom-class="block">
 				<view class="home-jcly">

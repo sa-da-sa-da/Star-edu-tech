@@ -6,7 +6,7 @@ const app = getApp()
 Component({
   data: {
     loding: true,
-    active: 0,
+    active: 1,
     type: "小程序",
     tab: [
       "收藏",
