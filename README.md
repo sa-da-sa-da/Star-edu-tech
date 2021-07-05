@@ -1,16 +1,16 @@
 
-
 ## 项目介绍
 
-世树博客项目是一套基于成熟的创新个人博客小程序，基于微信原生+微信云开发+vant+colorui+码云以及相关技术栈开发。  
-世书为什么快，因为不需要**后端java，php** 等语言去写接口，也不需要**购买服务器，买域名，甚至不用你备案 **。
-只要你安装部署教程，完成每一步就能在短短半小时类，获得一个上线的**小程序**。 
+Star edu-tech项目是一套基于成熟的高校专业小程序，基于微信原生+微信云开发+vant+colorui+码云以及相关技术栈开发。  
+小程序为什么快，因为不需要后端java，php 等语言去写接口，也不需要单独购买服务器，买域名，甚至不用你备案。
+只要你安装部署教程，完成每一步就能在短短半小时内，获得一个上线的小程序。 
 
 
-## 项目模块介绍 （这是dev版本）
+## 项目模块介绍 （这是main版本）
 
-### 开发版——建议初学者使用（dev部署很简单，强烈推荐），只需要在cms后台加点文章就很好看了。（面试加分项呢）
-地址：https://gitee.com/KyotoKing_tree/treeworld_Applets/tree/dev/
+### 开发版——建议初学者使用（main部署很简单，强烈推荐），只需要在 cms 后台加点文章就很好看了。（面试加分项呢）
+地址：https://gitee.com/sakay/Star-edu-tech.git
+
 - 基于腾讯云服务开发，微信云开发，原生微信，使用vant，colorui为UI的开发的小程序，后台基于微信云开项目。
 - [文章模块]包含（点赞，收藏，笔记，列表，图文，代码块，分享，分享朋友圈，热点监控）。
 - [签到模块]包含（每日签到，签到排行榜）。
@@ -20,15 +20,15 @@
 ### 小程序
 **预览地址**  
 
-<img width="500" alt="vue3-admin" src="https://treeworld-1258962601.cos.ap-guangzhou.myqcloud.com/md/xctp">
+<img width="500" alt="vue3-admin" src="https://jiaojiziyuan.oss-cn-beijing.aliyuncs.com/gh_2cbc1f991078_258%20%281%29.jpg">
 
 ### 后台cms系统
 
-**预览地址：**  https://demo-8gww0qau03b0af5a-1259429368.tcloudbaseapp.com/wx-cms/#/login  
-账号：treeworld  （该账号只有初级权限只可查看，不开放编辑等功能）
-密码：a1234567
+**预览地址：**  https://demo-8gww0qau03b0af5a-1304763314.tcloudbaseapp.com/wx-cms/#/login  
+账号：sakaay  （该账号只有初级权限只可查看，不开放编辑等功能）
+密码：Qq123456
 
-关注小程序：**世树前端**，
+关注小程序：**Star 教技**，
 
 
 **代码不易，您如果觉得项目不错的话可以给项目一个 Star 嘛，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。**
