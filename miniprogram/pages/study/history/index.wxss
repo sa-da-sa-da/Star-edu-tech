@@ -1,4 +1,4 @@
-
+@import "../../../style/main.wxss";
 .study_tag2 {
   color: #d69c63;
   border: 1px solid #d69c63;

@@ -11,13 +11,9 @@ Component({
     tab: [
       "收藏",
       "点赞",
-<<<<<<< HEAD
 
     ]
 
-=======
-    ]
->>>>>>> f7e3c4207c09bfbb73c34006e6c6e0f2a090abf1
   },
   pageLifetimes: {
     show: function () {
@@ -39,7 +35,6 @@ Component({
     },
     onChange(event) {
       this.setData({
-<<<<<<< HEAD
 
         loding: true
       })
@@ -58,25 +53,6 @@ Component({
 
     },
 
-=======
-
-        loding: true
-      })
-      var db2
-      if (event.detail.title == "收藏") {
-        db2 = "collect"
-      } else {
-        db2 = 'statr'
-      }
-      db.collection(db2).limit(10).orderBy('add_time', 'asc').get().then(res => {
-        this.setData({
-          xw_list: res.data,
-          loding: false
-        })
-      })
-
-    },
->>>>>>> f7e3c4207c09bfbb73c34006e6c6e0f2a090abf1
 
     tz: function (e) {
       console.log(e.currentTarget.dataset.id)

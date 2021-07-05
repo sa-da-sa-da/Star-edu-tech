@@ -1,3 +1,9 @@
+// miniprogram/pages/details/index.js
+const db = wx.cloud.database({
+  env: "demo-8gww0qau03b0af5a"
+})
+
+const _ = db.command
 const app = getApp()
 import api from "../../../utils/api.js"
 import task from "../../../utils/request.js"
@@ -9,6 +15,7 @@ Page({
    */
   data: {
     id: "",
+    deta: {},
     html: "",
     sc_show: false,
     dz_show: false,
@@ -19,7 +26,7 @@ Page({
     this.setData({
       loding: true
     })
-    task.Tree_cloud("Article_details2", {
+    task.Tree_cloud("details", {
       id: this.data.id,
     }).then(res => {
       let result = res.details.html
@@ -29,14 +36,13 @@ Page({
       result = f.replace(result)
       this.setData({
         html: result,
-        article: res.details
+        xw_list: res.details
       })
-      console.log(this.data.article)
     })
 
   },
   initial_tx: function () {
-    task.Tree_cloud("Article_details", {
+    task.Tree_cloud("details_cs", {
       id: this.data.id,
       bl: true
     }).then(res => {
@@ -44,51 +50,53 @@ Page({
       this.setData({
         sc_show: res.collect,
         dz_show: res.statr,
-        article: res.data,
+        xw_list: res.collect_data,
       })
     })
   },
 
-  tz(e) {
+  tz (e) {
     wx.navigateTo({
       url: "../../../pages/" + e.currentTarget.dataset.url + "?wzid=" + e.currentTarget.dataset.id
     })
   },
-  details_cs(bl) {
+  details_cs() {
     console.log(this.data.id)
-    task.Tree_cloud('Article_details', {
-      id: this.data.id,
-      bl
+    wx.cloud.callFunction({
+      name: "details_cs",
+      data: {
+        id: this.data.id,
+        bl: true,
+      },
     }).then(res => {
-      if (bl) {
+      console.log(res)
+ 
         this.setData({
 
-          article: res.data,
+          xw_list: res.collect_data,
         })
-      }
-
+   
       this.setData({
-        sc_show: res.collect,
-        dz_show: res.statr
+        sc_show: res.result.collect,
+        dz_show: res.result.statr
       })
     })
   },
   statr_sc(e) {
-    let userInfo = wx.getStorageSync("userInfo")
-    if (userInfo._openid) {
+    let openid = wx.getStorageSync("openid")
+    if (openid) {
       let that = this
       wx.showToast({
-        title: "Star加载中",
+        title: "加载中",
         icon: 'loading',
         mask: true,
         duration: 2000
       })
-      let data = this.data.article
+      let data = this.data.xw_list
       data.press_id = data._id
-      console.log(data)
-
+      console.log(data._id)
       task.Tree_cloud(e.currentTarget.dataset.id, {
-        press: this.data.article
+        press: this.data.xw_list
       }).then(res => {
         wx.showToast({
           title: res,
@@ -96,7 +104,7 @@ Page({
           icon: 'none',
           mask: true
         })
-        this.details_cs(true)
+        this.initial_tx()
 
       })
     } else {
@@ -124,14 +132,14 @@ Page({
 
   },
   onShareAppMessage: function (res) {
-    console.log(this.data.article.img)
+    console.log(this.data.xw_list.img)
     this.setData({
       fx_show: false
     })
     return {
-      title: this.data.article.tille,
+      title: this.data.xw_list.tille,
       path: '/pages/index/index?id=' + this.data.id + "&share=true",
-      imageUrl: this.data.article.img || "",
+      imageUrl: this.data.xw_list.img || "",
 
     }
   },
@@ -140,8 +148,8 @@ Page({
     console.log(res)
 
     return {
-      title: this.data.article.tille,
-      imageUrl: this.data.article.img
+      title: this.data.xw_list.tille,
+      imageUrl: this.data.xw_list.img
     }
   },
 

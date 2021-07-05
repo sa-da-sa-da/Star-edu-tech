@@ -29,7 +29,7 @@
 			</van-sticky>
 			<scroll list="{{tz_list}}"></scroll>
 			<view class="study_list">
-				<list list="{{list}}" loding="{{loding}}"></list>
+				<list list="{{tz_list}}" loding="{{loding}}"></list>
 			</view>
 		</van-tab>
 		<van-tab title="热榜">

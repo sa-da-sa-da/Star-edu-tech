@@ -48,9 +48,9 @@
 				<text class="num">{{dz||0}}</text>
 				<text class="num2">点赞</text>
 			</view>
-			<view class="tj-item" bindtap="tz" data-a="user/problem_list/index"><text class="num">{{tk||0}}</text><text
+			<!--<view class="tj-item" bindtap="tz" data-a="user/problem_list/index"><text class="num">{{tk||0}}</text><text
 					class="num2">题库</text>
-			</view>
+			</view>-->
 		</view>
 		<view class="vip-card-box">
 			<view class="b-btn" bindtap="tz" data-a="user/sign/sign">立刻签到</view>

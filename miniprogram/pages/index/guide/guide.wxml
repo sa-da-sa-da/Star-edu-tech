@@ -1,18 +1,18 @@
 <view >
 	<view class='tree'  wx:if="{{guide}}" >
 	<view class='tree_top' >
-		<image class="tree_top_image" src='../../../images/jt.png'></image>
-		<view class='tree_wz'>添加前端联盟，编程无忧</view>
+		<image class="tree_top_image" src='cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/jt.png'></image>
+		<view class='tree_wz'>添加Star 教技小程序</view>
 	</view>
 	<view class='tree_cont_list'>
 		<view class='tree_cont'>
 			<text class='tree_cont_text'>1</text>
 			<view>点击右上角</view>
-			<image class="tree_image2" src='../../../images/dian.png'></image>
+			<image class="tree_image2" src='cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/dian.png'></image>
 		</view>
 		<view class='tree_cont'>
 			<text class='tree_cont_text'>2</text>
-			<view>点击“添加我的小程序”</view>
+			<view>点击 “ 添加我的小程序 ” </view>
 		</view>
 		<view class='tree_cont'>
 			<text class='tree_cont_text'>3</text>
@@ -21,13 +21,13 @@
 		<view class='tree_lib'>
 			<text class='tree_cont_text' style='opacity:0;'>3</text>
 
-			<view>从“我的小程序”里打开“世树_前端联盟”</view>
+			<view>从 “ 我的小程序 ” 里打开 “ Star 教技 ”</view>
 		</view>
 		<view class='tree_three'>
 			<view class='tree_right'>
 				<view class='tree_left'>
 					<view class='title'>我的小程序</view>
-					世树_前端联盟
+					Star 教技
 				</view>
 				<view class='tree_left'>
 					<view class='title' style='opacity:0;'>我的小程序</view>

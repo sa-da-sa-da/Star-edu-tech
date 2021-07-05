@@ -22,12 +22,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
-list(){
-  task.Tree_get(  api.GET_History_list) .then(res => {
-    this.setData({
-      ls_list: res
-    })
-  })
-}
-  }
+    list(){
+      task.Tree_get(  api.GET_History_list) .then(res => {
+        this.setData({
+          ls_list: res
+        })
+      })
+    },
+    tz: function (e) {
+      console.log(e.currentTarget.dataset.id)
+      wx.navigateTo({
+        url: "../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
+      })
+    },
+    
+    }
 })
