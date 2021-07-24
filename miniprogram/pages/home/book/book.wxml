@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
-	<view slot="content">世树书库</view>
+	<view slot="content">教技书库</view>
 </cu-custom>
 <view class="Book_hint">
 	<van-notice-bar color="#d69c63" background="#fff" wrapable left-icon="info-o"

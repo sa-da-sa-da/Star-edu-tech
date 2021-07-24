@@ -2,7 +2,6 @@ const app = getApp()
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
 Component({
-
   options: {
     addGlobalClass: true
   },
@@ -46,7 +45,6 @@ Component({
   },
   created() {
     this.list()
-
   },
   properties: {
     list: {

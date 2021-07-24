@@ -1,0 +1,57 @@
+<!--公告列表-->
+<wxs src="../../../components/timeHelper.wxs" module="t" />
+<view class="pd" wx:if="{{loding}}">
+    <van-skeleton title row="3" wx:for="{{3}}" wx:key="this" />
+</view>
+<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
+    <view slot="content">公告</view>
+</cu-custom>
+<view class="home">
+    <navigator class="home-list" wx:if="{{!loding}}" wx:for="{{nt_list}}" wx:key="this" wx:index="index"
+        wx:for-item="items" bindtap="tz" url="/pages/details/notice/notice?id={{items._id}}" hover-class="item-hover"
+        hover-stay-time="100">
+        <view class="home-list_df" wx:if="{{items.img}}">
+            <view class="home-list-right">
+                <view class="home-list-right_tille">{{items.tille}}</view>
+                <view class="home-list-right_mec">
+                    {{items.mec}}
+                </view>
+            </view>
+            <view class="home-list-left shadow">
+                <view class="">
+                    <image src="{{items.img}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="home-list-dlimg" wx:if="{{!items.img}}">
+            <view class="home-list-dlimg_tl">
+                {{items.tille}}
+            </view>
+            <view class="home-list-dlimg_mc">
+                {{items.mec}}
+            </view>
+        </view>
+        <view class="home-list-bottom">
+            <view class="dis">
+                <view class="home-list-type2">{{items.Type}}</view>
+                <view>
+                    <van-icon name="clock-o" />
+                    <view class="icon_wz">{{m1.format(items.add_time)}}</view>
+                </view>
+                <view>
+                    <van-icon name="fire" />
+                    <view class="icon_wz">{{items.browse||0}}</view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <view><van-divider contentPosition="center">到底啦！再去看看别的吧！</van-divider></view>
+</view>
+
+<wxs module="m1">
+    function format(ts) {
+        var d = getDate(ts)
+        return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('/')
+    }
+    module.exports.format = format
+</wxs>

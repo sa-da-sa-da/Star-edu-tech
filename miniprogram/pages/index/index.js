@@ -1,4 +1,5 @@
 const app = getApp()
+
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
 Page({
@@ -9,7 +10,8 @@ Page({
     id: 0,
     tab: [{
         name: "首页",
-        icon: ""
+        icon: "",
+        main: true
       },
 {
         name: "学习",
@@ -18,7 +20,8 @@ Page({
 
       }, {
         name: "我的",
-        icon: ""
+        icon: "",
+        main: true
       },
 
     ]
@@ -46,8 +49,6 @@ Page({
       })
 
     }
-
-
   },
 
 
@@ -84,7 +85,7 @@ Page({
       size: 10,
       page: this.data.page,
       Type: e ? e.detail : "",
-      database: "Article"
+      database: "press"
     }
 
     task.Tree_cloud("list", data).then(res => {
@@ -108,6 +109,7 @@ Page({
       }
 
     })
+
   },
 
   /**
@@ -122,14 +124,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -157,43 +158,25 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-
-    if (this.data.id == 2) {
-      if (app.globalData.type == 0) {
-        if (this.data.count >= this.data.page * 10) {
-          this.setData({
-            page: this.data.page + 1,
-          })
-          this.initial_study()
-        }
-      }
-    }
-    if (this.data.id == 1) {
-      let that = this
-      Notify({
-        background: '#f4c998',
-        message: '到底啦，2秒后自动跳转学习页面',
-        top: app.globalData.CustomBar
-      });
-      setTimeout(funcName, 2000);
-
-      function funcName() {
-        that.setData({
-          id: 3
-        })
-        wx.pageScrollTo({
-          scrollTop: 0
-        })
-      }
-    }
-
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    if (this.data.id == 2) {
+      return {
+        path: '/pages/index/index?id_index=' + this.data.id,
+        imageUrl: "cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/1.jpg",
+
+      }
+    } else {
+      return {
+        imageUrl: "cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/1.jpg",
+
+      }
+    }
+
 
   }
 })

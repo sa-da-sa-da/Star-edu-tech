@@ -1,5 +1,6 @@
 @import "/style/animated.wxss";
 @import "../../style/main.wxss";
+
 .page_edu {
   width: 100%;
 }
@@ -93,8 +94,33 @@
 
 }
 
-.bg-gradual-tree {
+.se {
   background: #122640
+}
+
+.servic_top {
+
+  padding-top: 14px;
+  background: linear-gradient(to top, #1D4259, #122640);
+
+
+  display: flex;
+  color: #Fff;
+  padding: 15px 15px;
+  padding-top: 10px;
+  border-radius: 0px 0px 10px 10px;
+  justify-content: space-between;
+}
+
+.servic_top_Img {
+  width: 100px;
+  height: 35px;
+}
+
+.servic_top_Wz1 {
+  font-size: 16px;
+  margin-bottom: 5px;
+
 }
 
 .study_list {
@@ -112,9 +138,23 @@ border-radius: 6px;
   background-color: #fff;
 }
 
+.dis2 {
+  display: flex;
+  height: 40px;
+}
 
-
-
+.item_top_Wz {
+  background-color: #fbbd08;
+  width: 19px;
+  text-align: center;
+  height: 19px;
+  display: inline-block;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+  font-weight: 700;
+  padding: 2rpx;
+}
 
 .scroll_box {
   width: 100%;
@@ -153,6 +193,18 @@ border-radius: 6px;
   justify-content: space-between;
 }
 
+.item_top_Wz2 {
+  margin-left: 10rpx;
+  word-break: break-all;
+  height: 76rpx;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  width: calc(100% - 27px);
+}
 
 .ikl {
   width: 70px;
@@ -210,30 +262,4 @@ border-radius: 6px;
   margin-top: 1px;
   padding-top: 2.5px;
   font-family: PingFang;
-}
-
-
-.servic_top {
-
-  padding-top: 14px;
-  background: linear-gradient(to top, #1D4259, #122640);
-
-
-  display: flex;
-  color: #Fff;
-  padding: 15px 15px;
-  padding-top: 10px;
-  border-radius: 0px 0px 10px 10px;
-  justify-content: space-between;
-}
-
-.servic_top_Img {
-  width: 100px;
-  height: 35px;
-}
-
-.servic_top_Wz1 {
-  font-size: 16px;
-  margin-bottom: 5px;
-
 }

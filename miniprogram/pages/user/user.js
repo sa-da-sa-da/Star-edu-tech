@@ -19,18 +19,23 @@ Component({
     show: function () {
       this.authorizer()
     },
-
   },
   options: {
     addGlobalClass: true
   },
   created() {
     this.authorizer()
-
   },
 
 
   methods: {
+    showQrcode: function () {
+      wx.previewImage({
+        current: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png',
+        urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png']
+      })
+    },
+
     sz() {
       wx.openSetting({
         success: function (res) {}
@@ -68,7 +73,6 @@ Component({
             })
             this.authorizer()
           })
-
         }
       })
     },
@@ -149,7 +153,6 @@ Component({
           dz: res.dz,
           sc: res.sc,
           nt: res.nt,
-          tk: res.tk
         })
       })
     },

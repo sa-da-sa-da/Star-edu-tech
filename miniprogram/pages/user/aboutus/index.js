@@ -15,14 +15,14 @@ Page({
    */
   showQrcode1: function () {
     wx.previewImage({
-      current: 'cloud://wehalo-4gixuvqs398a2c3b.7765-wehalo-4gixuvqs398a2c3b-1304300181/微信二维码.png',
-      urls: ['cloud://wehalo-4gixuvqs398a2c3b.7765-wehalo-4gixuvqs398a2c3b-1304300181/微信二维码.png']
+      current: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png',
+      urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png']
     })
   },
   showQrcode2: function () {
     wx.previewImage({
-      current: 'cloud://wehalo-4gixuvqs398a2c3b.7765-wehalo-4gixuvqs398a2c3b-1304300181/钉钉二维码.jpg',
-      urls: ['cloud://wehalo-4gixuvqs398a2c3b.7765-wehalo-4gixuvqs398a2c3b-1304300181/钉钉二维码.jpg']
+      current: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/钉钉二维码.jpg',
+      urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/钉钉二维码.jpg']
     })
   },
   //电话拨打

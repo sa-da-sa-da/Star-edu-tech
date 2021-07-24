@@ -11,14 +11,15 @@
 			<image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/zx_top.png"></image>
 		</view>
 	</view>
-	<van-tabs active="{{active}}" swipeable sticky offset-top="{{CustomBar}}" color="#d69c63" bind:change="onClick">
+	<van-tabs active="{{active}}" swipeable sticky offset-top="{{CustomBar}}" color="#d69c63" bind:chanqe="onClick">
 		<van-tab title="精选">
-			<van-sticky offset-top="{{ CustomBar+44 }}" wx:if="{{active==0}}">
+			<van-sticky offset-top="{{CustomBar+44}}" wx:if="{{active==0}}">
 				<view class="tab_list shadow">
-					<view class="tab_list_view" style="height:{{ height}}">
+					<view class="tab_list_view" style="height:{{height}}">
 						<view class="padding-xs" wx:for="{{tab}}" wx:key="index" wx:for-item="items" bindtap="onChange"
 							data-type="{{items.id}}">
-							<view class="cu-tag line-{{item.name}}     {{type==items.id?' study_bg':' study_tag' }} ">{{items.name}}
+							<view class="cu-tag line-{{item.name}} {{type==items.id?'study_bg':'study_tag'}} ">
+								{{items.name}}
 							</view>
 						</view>
 					</view>
@@ -27,22 +28,66 @@
 					</view>
 				</view>
 			</van-sticky>
+			<view class="scroll_box">
+				<scroll-view scroll-x>
+					<navigator hover-class="item-hover" url="/pages/details/details_html/index?id={{items._id}}"
+						class="item_list" wx:for="{{tz_list}}" wx:key="this" wx:for-item="items">
+						<view class="item_list_ds">
+							<view>
+								<view class="dis2">
+									<view class="item_top_Wz">荐</view>
+									<view class="item_top_Wz2"> {{items.tille}}</view>
+								</view>
+								<view class="home-list-bottom">
+									<view class="dis">
+										<view>
+											<van-icon name="clock-o" />
+											<view class="icon_wz">{{m1.format(items.add_time)}}</view>
+										</view>
+										<view>
+											<van-icon name="fire" />
+											<view class="icon_wz">{{items.browse||0}}</view>
+										</view>
+
+									</view>
+								</view>
+							</view>
+							<view class="ikl">
+								<image mode='scaleToFill' src="{{items.img}}"></image>
+							</view>
+						</view>
+					</navigator>
+				</scroll-view>
+			</view>
+			<view class="study_list">
+				<list list="{{list}}" loding="{{loding}}"></list>
+			</view>
+			
+		</van-tab>
+		<!--
 			<scroll list="{{tz_list}}"></scroll>
 			<view class="study_list">
-				<list list="{{tz_list}}" loding="{{loding}}"></list>
-			</view>
-		</van-tab>
+				<list list="{{tz_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
+			</view>-->
+		
 		<van-tab title="热榜">
 			<view class="study_list">
-				<list list="{{rb_list}}" phb="{{true}}" loding="{{loding}}"></list>
+				<list list="{{rb_list}}" phb="{{true}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
 			</view>
 		</van-tab>
 		<van-tab title="历史">
-			<history/>
+			<history />
 		</van-tab>
 		<van-tab title="专栏">
-			<val></val>
+			<val />
 		</van-tab>
 	</van-tabs>
+	<van-divider contentPosition="center">到底啦！再去看看别的吧！</van-divider>
 </view>
-
+<wxs module="m1">
+	function format(ts) {
+		var d = getDate(ts)
+		return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+	}
+	module.exports.format = format
+</wxs>

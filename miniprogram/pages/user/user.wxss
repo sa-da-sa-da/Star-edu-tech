@@ -1,12 +1,11 @@
+@import "/style/animated.wxss";
+@import "../../style/main.wxss";
+@import '/style/icon.wxss';
 
 .user {
   background: #f8f8f8;
-
-
   width: 100%;
   animation: fadeIn .9s;
-
-
 }
 
 .cu-dialog{

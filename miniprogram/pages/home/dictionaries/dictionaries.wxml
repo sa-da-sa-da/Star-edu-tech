@@ -37,7 +37,6 @@
     </view>
   </scroll-view>
 </view>
-
 <wxs module="spl">
 	function format(ts) {
 	

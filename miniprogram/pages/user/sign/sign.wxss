@@ -32,7 +32,7 @@
 .main2{
   padding: 1px;
   color: white;
-  background-image:url('cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/use_bg.png');
+  background-image:url('https://7472-treeworld-2g5yvz9s899bf4a6-1259429368.tcb.qcloud.la/sin_bg.png?sign=de9d6ea379af989cbf4891d10462b909&t=1619749513');
   background-size: cover;
   background-position: center;
   position: relative;

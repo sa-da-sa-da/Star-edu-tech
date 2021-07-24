@@ -1,84 +1,87 @@
 <cu-custom bgColor="bg-gradual-tree">
-	<view slot="content">Star 教育技术</view>
+	<view slot="content">Star 教技</view>
 </cu-custom>
-<view>
-	<view class="home">
-		<view class="home-top">
-		</view>
-		<tree_swiper></tree_swiper>
-		<swiper class='home_board' autoplay="true" vertical='true' circular='true' interval='8000'>
-			<block wx:for="{{tz_list}}" wx:key="this" wx:for-item="items">
-				<swiper-item class="home_board_list">
-					<view class="home_board_wz">
-						<view class="home_board_wz_tr">公告</view>
-					</view>
-					<navigator  url="/pages/details/article_details/article_details?id={{items._id}}" class="home_board_wz2" data-id="{{items._id}}">
-						{{items.tille}}</navigator >
-				</swiper-item>
-			</block>
-		</swiper>
-		<view class="home_sign">
-			<van-cell url="/pages/user/sign/sign">
-				<view slot="title">
-					<view class="tree_list_dis_b">
-						<view class="cu-avatar-group">
-							<view class="cu-avatar round " wx:for="{{userlist}}" wx:if="{{index<4}}" wx:key="this" wx:index="index"
-								wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
-							</view>
-
-						</view>
-						<view class="tree_dis_c">等 <text class="text-yellow"> {{total}}</text> 名用户今天活跃
-							<van-icon name="arrow" />
-						</view>
-					</view>
+<view class="home">
+	<view class="home-top">
+	</view>
+	<tree_swiper></tree_swiper>
+	<swiper class='home-gg' autoplay="true" vertical='true' circular='true' interval='3000'>
+		<block wx:for="{{nt_list}}" wx:key="this" wx:for-item="items">
+		<navigator url="/pages/home/circular/index">
+			<swiper-item class="home-gg2">
+				<view>
+					<view data-id="{{items._id}}" bindtap="tz" data-a="details/notice/notice?id={{items._id}}">{{items.Type}}</view>
 				</view>
-			</van-cell>
-		</view>
+				<view data-id="{{items._id}}"  data-a="details/notice/notice">{{items.tille}}</view>
+				
+			</swiper-item>
+		</navigator>
+		</block>
+	</swiper>
+	<view class="home_sign">
+		<van-cell  url="/pages/user/sign/sign">
+			<view slot="title">
+				<view class="dis_fl">
+					<view class="cu-avatar-group">
+						<view class="cu-avatar round " wx:for="{{userlist}}" wx:if="{{index<4}}" wx:key="this" wx:index="index"
+							wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
+						</view>
 
-		<view class='nav-list_df'>
-			<view class="nav-list-left">
-				<navigator hover-class='none' url="/pages/home/dictionaries/dictionaries" style="height:96%;"
-					class="nav-li bg_kl">
-					<view class="nav-title">教技字典</view>
-					<view class="mt10 nav-name ">
-						千里之行<view>始于足下</view>
 					</view>
-				</navigator>
-			</view>
-			<view class="nav-list-right">
-				<navigator hover-class='none' url="/pages/home/book/book" class="nav-li bg-cyan bg_kl2">
-					<view class="nav-title">教技书籍</view>
-					<view class="nav-name">
-						天生我材必有用
-					</view>
-					<text class='cuIcon-newshotfill'></text>
-				</navigator>
-				<navigator hover-class='none' url="/pages/home/answer/answer" class="nav-li  bg_kl3">
-					<view class="nav-title">难点问答</view>
-					<view class="nav-name">
-						人事有代谢，往来成古今
-					</view>
-					<text class='cuIcon-{{item.icon}}'></text>
-				</navigator>
-			</view>
-		</view>
-		<view class="main_title">
-			<view class="min_height cu-bar">
-				<view class="action sub-title">
-					<text class="text-xl text-bold text-tree">精选Top </text>
-					<text class="text-ABC text-tree">Boutique </text>
+					<view class="tree_dis_c">等 <text class="text-yellow"> {{total}}</text> 名用户今天活跃 <van-icon name="arrow" /></view>
 				</view>
 
 			</view>
-			<view>
-			</view>
-		</view>
-		<view class="home-list">
-			<tlist list="{{xw_list}}"></tlist>
-		</view>
-		<van-divider contentPosition="center">到底啦，更多数据请跳转学习模块</van-divider>
 
+		</van-cell>
 	</view>
 
-
+	<view class='nav-list_df'>
+		<view class="nav-list-left">
+			<navigator hover-class='none' url="/pages/home/dictionaries/dictionaries" style="height:96%;" class="nav-li bg_kl">
+				<view class="nav-title">教技字典</view>
+				<view class="mt10 nav-name ">
+					千里之行<view>始于足下</view>
+				</view>
+			</navigator>
+		</view>
+		<view class="nav-list-right">
+			<navigator hover-class='none' url="/pages/home/book/book" class="nav-li bg-cyan bg_kl2">
+				<view class="nav-title">教技书籍</view>
+				<view class="nav-name">
+					天生我材必有用
+				</view>
+				<text class='cuIcon-newshotfill'></text>
+			</navigator>
+			<navigator hover-class='none' url="/pages/home/answer/answer" class="nav-li  bg_kl3">
+				<view class="nav-title">难点问答</view>
+				<view class="nav-name">
+					人事有代谢，往来成古今
+				</view>
+				<text class='cuIcon-{{item.icon}}'></text>
+			</navigator>
+		</view>
+	</view>
+	<view class="main_title">
+		<view class="min_height cu-bar">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-tree">推荐Top </text>
+				<text class="text-ABC text-tree">推荐Top</text>
+			</view>
+		</view>
+		<view>
+		</view>
+	</view>
+	<view class="home-jcly">
+		<list list="{{tz_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
+	</view>
+	<van-divider contentPosition="center">到底啦，更多学习相关的内容请您跳转学习模块</van-divider>
+	<van-divider contentPosition="center"></van-divider>
 </view>
+<wxs module="m1">
+	function format(ts) {
+		var d = getDate(ts)
+		return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+	}
+	module.exports.format = format
+</wxs>

@@ -1,12 +1,15 @@
 <cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
-	<view slot="content">前端问答</view>
+	<view slot="content">教技问答</view>
 </cu-custom>
 
-<!-- <van-notice-bar left-icon="volume-o" text="请规范提问的问题，提问后会在24小时内解答，请耐心等待" /> -->
+<van-notice-bar left-icon="volume-o" text="请规范提问的问题，提问后会在24小时内解答，请耐心等待" />
 <view class="as_dlf">
 	<button   open-type="contact"  style="width: 48%;" class="nav-li bg-purple">
 		<view class="nav-title">我要提问</view>
 	</button >
+	<!--<navigator url="/pages/home/answer/chatbot/index">
+		<view class="nav-title">我要回答</view>
+	</navigator>-->
 	<button   open-type="contact"  style="width: 48%;" class="nav-li bg-purple">
 		<view class="nav-title">我要回答</view>
 	</button >
@@ -30,7 +33,7 @@
 			
 				</view>
 				<view class="text_lk ">
-						{{items.reply?"以回答":"未回答"}}
+						{{items.reply?"已回答":"未回答"}}
 					</view>
 					<!-- <navigator hover-class='none' url="/pages/home/history/add/index?id={{items._id}}"  wx:if="{{!items.reply}}" class="tex">回答问题</navigator> -->
 			</view>

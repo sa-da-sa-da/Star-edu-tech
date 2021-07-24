@@ -1,0 +1,25 @@
+
+
+.weui-cell {
+  padding: 15px;
+}
+
+.app_desc {
+  padding-bottom: 30px;
+}
+.weui-btn-area{
+  margin-top: 20px;
+}
+.weui-btn_primary{
+  background-color: #122640!important;
+}
+.weui-cell{
+  background-color:#fff
+}
+.weui-cells {
+  margin: 0px 20px;
+}
+
+.page__bd{
+  padding-top: 20px;
+}

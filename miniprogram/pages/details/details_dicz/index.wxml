@@ -4,10 +4,11 @@
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
 	<view>
-		<image class="loding_img" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/loding.gif"></image>
+		<image class="loding_img" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/loding.gif">
+		</image>
 	</view>
 
-	<view class="mt10">	数据加载中</view>
+	<view class="mt10"> 数据加载中</view>
 
 </view>
 
@@ -17,13 +18,7 @@
 			{{ xw_list.tille}}
 		</view>
 	</view>
-
-
-
 	<view class="detil">
 		<mp-html showLanguageName="{{true}}" content="{{html}}" selectable="{{true}}" />
 	</view>
-
-
-
 </view>

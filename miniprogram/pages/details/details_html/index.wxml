@@ -34,7 +34,7 @@
 	<view class="home-jcly">
 		<view class="cu-capsule">
 			<view class="cu-tag bg-gradual-tree">
-				数据来源
+				文章来源
 			</view>
 			<view class="cu-tag line-tree">
 				{{xw_list.ly||'掘金'}}
