@@ -1,6 +1,3 @@
-
-
-
 var time = require('time.js');
 function userInfo  (env) {
   const db = wx.cloud.database({  env })

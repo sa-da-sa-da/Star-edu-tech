@@ -1,13 +1,7 @@
-
 const app = getApp()
 const db =app.config.db
 const _ = db.command
-
-
 var orderBy = ['_createTime', 'desc']
-
-
-
 module.exports = {
   GET_Book: {collec: 'Book' },
   GET_Article: {
@@ -16,14 +10,7 @@ module.exports = {
   GET_history: {
     collec: 'history'
   },
-  GET_Interview_ms: {
-    collec: 'interview',
-    orderBy,
-    where: {
-      select: _.neq(true),
-    },
-    limit: 4
-  },
+
   GET_Article_ms: {
     collec: 'press',
     limit: 4,
@@ -57,8 +44,6 @@ module.exports = {
     orderBy
   },
 
-
-
   GET_History_list: {
     collec: 'history',
     orderBy
@@ -79,4 +64,17 @@ module.exports = {
     limit: 20,
     orderBy: ['browse', 'desc']
   },
+  
+  GET_notice: {
+    collec: 'notice',
+    limit: 20,
+    orderBy: ['add_time', 'desc']
+  },
+
+  GET_note: {
+    collec: 'note',
+    limit: 20,
+    orderBy
+  },
+
 }
