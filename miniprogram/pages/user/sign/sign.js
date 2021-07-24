@@ -1,11 +1,12 @@
 // pages/signin/signin.js
+var {config} = require('../../../utils/config.js');
 const db = wx.cloud.database({
-  env: "demo-8gww0qau03b0af5a"
+  env: config.env
 })
 const _ = db.command
 var util = require('../../../utils/time.js');
 let app = getApp()
-const key = app.globalData.key
+const key =app. globalData.key
 Page({
 
   /**
@@ -30,24 +31,21 @@ Page({
     signinNow: false
   },
   // 签到
-
   // 获取用户当前地理位置
-
-
   // 是否可以签到
   activeSign() {
     let t = this;
     let nowdate = t.data.isToday;
     let dateArr = t.data.dateArr;
     let yesDate = t.data.yesDate;
-
     wx.requestSubscribeMessage({
-      tmplIds: ['V5gACL03pwa1MU4Skm1yIIvyZYz5hE2sXxNSy4xw304'],
-      success(res) {
+      tmplIds: ['V5gACL03pwa1MU4Skm1yIIvyZYz5hE2sXxNSy4xw304'],  //替换成自己的模板ID
+      success (res) { 
         for (var i = 0; i < dateArr.length; i++) {
-          console.log(nowdate)
-          if (Number(dateArr[i].isToday) == Number(nowdate)) {
+          console.log(nowdate )
+          if (Number(dateArr[i].isToday)  ==Number(nowdate) ) {
             dateArr[i].choose = true;
+     
             if (wx.getStorageSync("userid")) {
               console.log("asd")
               db.collection('User').doc(wx.getStorageSync("userid")).update({
@@ -62,9 +60,9 @@ Page({
                     title: '签到成功',
                     icon: 'none',
                   })
-                  db.collection('user').doc(wx.getStorageSync("userid")).get().then(res => {
+                  db.collection('User').doc(wx.getStorageSync("userid")).get().then(res=>{
 
-                    function getCurrentTime() {
+                    function getCurrentTime () {
                       let date = new Date()
                       let Y = date.getFullYear()
                       let M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
@@ -83,7 +81,7 @@ Page({
                         name: res.data.nickName,
                         date: getCurrentTime(),
                       },
-                      success: function (res) {
+                      success: function(res) {
                         console.log(res.result.sum) // 3
                       },
                       fail: console.error
@@ -107,8 +105,11 @@ Page({
         t.setData({
           dateArr: dateArr
         })
+
       }
-    })
+     })
+
+   
   },
   // 签到过
 
@@ -126,15 +127,15 @@ Page({
   yesdate() {
     let t = this;
     if (wx.getStorageSync("userid")) {
-      db.collection('user').doc(wx.getStorageSync("userid")).get().then(res => {
+      db.collection('User').doc(wx.getStorageSync("userid")).get().then(res => {
         let yesdate = res.data.sign_data
         let dateArr = t.data.dateArr;
         let now = new Date();
         let year = now.getFullYear();
         let month = now.getMonth() + 1 < 10 ? "0" + String(now.getMonth() + 1) : now.getMonth() + 1;
-        let day = now.getDate() + 1 < 10 ? "0" + String(now.getDate()) : now.getDate();
-        let newdoy = '' + year + month + day
-        if (res.data.sign_data) {
+        let day =  now.getDate()+ 1 < 10 ? "0" + String( now.getDate()) :  now.getDate() ;
+        let newdoy = '' + year + month + day 
+        if(res.data.sign_data){
           res.data.sign_data.forEach(function (e) {
             if (Number(e) == Number(newdoy)) {
               t.setData({
@@ -143,7 +144,7 @@ Page({
             }
           });
         }
-
+  
         for (var i = 0; i < dateArr.length; i++) {
           for (var j = 0; j < yesdate.length; j++) {
             if (dateArr[i].isToday == yesdate[j]) {
@@ -154,8 +155,13 @@ Page({
         t.setData({
           dateArr: dateArr
         })
+
       })
+
     }
+
+
+
   },
   // 日历
   dateInit: function (setYear, setMonth) {
@@ -256,7 +262,7 @@ Page({
   },
   getWeather(location) {
     wx.request({
-      url: `${app.globalData.requestUrl.Weather}`,
+      url: `${app.globalData.requestUrl.weather}`,
       data: {
         location,
         key,
@@ -273,7 +279,7 @@ Page({
       },
       fail: () => {
         wx.showToast({
-          title: '查询失败',
+          title: '天气查询失败!',
           icon: 'none',
         })
       },
@@ -315,8 +321,8 @@ Page({
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1 < 10 ? "0" + String(now.getMonth() + 1) : now.getMonth() + 1;
-    let day = now.getDate() + 1 < 10 ? "0" + String(now.getDate()) : now.getDate();
-    var time = year + '年' + month + '月' + day + '日';
+    let day =  now.getDate()+ 1 < 10 ? "0" + String( now.getDate()) :  now.getDate() ;
+    var time = year  + '年' +  month  + '月' + day  + '日';
 
     this.time_get()
     var time2 = util.formatTime(new Date());
@@ -333,12 +339,14 @@ Page({
     t.yesdate()
     this.userlist()
     this.getLocation();
+
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    function getCurrentTime() {
+    function getCurrentTime () {
       let date = new Date()
       let Y = date.getFullYear()
       let M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
@@ -349,5 +357,10 @@ Page({
       date = Y + '.' + M + '.' + D + ' ' + hours + ':' + minutes + ':' + seconds
       return date
     }
+
   },
+
+
+
+
 })

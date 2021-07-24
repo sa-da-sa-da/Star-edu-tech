@@ -35,8 +35,8 @@
   display: flex;
   line-height: 38rpx;
 }
-.home-list-bottom>view:nth-child(1) {
 
+.home-list-bottom>view:nth-child(1) {
   color: rgba(153, 153, 153, 1);
   text-align: center;
   margin: 6px;

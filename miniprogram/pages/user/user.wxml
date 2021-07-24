@@ -3,14 +3,14 @@
 		<view class="cu-dialog">
 			<view class="cu-bar bg-white justify-end">
 				<view class="content">微信登录</view>
-				<button class="action" bindtap="hideModal">
+				<view class="action" bindtap="hideModal">
 					<text class="cuIcon-close text-red"></text>
-				</button>
+				</view>
 			</view>
 			<view class="padding">
 				<view class="logo">
 					<image
-						src="cloud://treeworld-2g5yvz9s899bf4a6.7472-treeworld-2g5yvz9s899bf4a6-1259429368/未命名的设计.png">
+						src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/方形logo.png">
 					</image>
 				</view>
 				<view class='content2'>
@@ -53,15 +53,13 @@
 			</view>
 		</view>
 		<view class="vip-card-box">
-			<view class="b-btn" bindtap="tz" data-a="user/sign/sign">立刻签到</view>
-			<view class="tit"><text class="yticon icon-iLinkapp-"></text>您已签到{{userin.sign||0}}天</view><text
-				class="e-m">Star 教育技术
-			</text>
-			<text class="e-b">为美好世界而学习</text>
+			<view class="b-btn" bindtap="tz" data-a="">立刻分享</view>
+			<view class="tit"><text class="yticon icon-iLinkapp"></text>您已来到{{userin.sign||1}}天</view>
+			<text class="e-m">Star 教育技术</text>
+			<text class="e-b">用技术改变教育未来</text>
+			<text class="e-b">掌握技术，辅助教育</text>
 		</view>
 	</view>
-
-
 	<view class="cover-container " style="{{'transform:'+(coverTransform)+';'+('transition:'+(coverTransition)+';')}}"
 		bindtouchstart="coverTouchstart" bindtouchmove="coverTouchmove" bindtouchend="coverTouchend">
 		<view class="min_height cu-bar">
@@ -76,20 +74,15 @@
 				<view class="nav-name">温故而知新</view>
 				<text class='cuIcon-writefill'></text>
 			</navigator>
-			<navigator hover-class='none' url="/pages/user/plan/index" class="nav-li bg_fe">
-				<view class="nav-title">学习计划</view>
+			<navigator hover-class='none' url="/pages/question/question" class="nav-li bg_fe">
+				<view class="nav-title">模拟题库</view>
 				<view class="nav-name">了解自我</view>
 				<text class='cuIcon-newshotfill'></text>
 			</navigator>
 		</view>
 
 		<view class="cu-list menu  ">
-			<view class="cu-item arrow">
-				<navigator class="content" url="/pages/user/aboutus/index" hover-class="none">
-					<text class="cuIcon-evaluate  text-tree"></text>
-					<text class="text-grey">关于颯龘</text>
-				</navigator>
-			</view>
+			
 			<view class="cu-item arrow">
 				<view class="content" bindtap="showQrcode">
 					<text class="cuIcon-appreciatefill text-tree"></text>
@@ -100,6 +93,12 @@
 				<navigator class="content" url="" bindtap="gitee_tz" hover-class="none">
 					<text class="cuIcon-evaluate text-tree"></text>
 					<text class="text-gtey">码云仓库</text>
+				</navigator>
+			</view>
+			<view class="cu-item arrow">
+				<navigator class="content" url="/pages/user/aboutus/index" hover-class="none">
+					<text class="cuIcon-evaluate  text-tree"></text>
+					<text class="text-grey">关于颯龘</text>
 				</navigator>
 			</view>
 			<view class="cu-item arrow">

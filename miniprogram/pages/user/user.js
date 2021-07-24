@@ -2,7 +2,6 @@ const app = getApp()
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
 Component({
-
   data: {
     show3: true,
     avatarUrl: "https://s1.ax1x.com/2020/07/28/aAdel6.jpg",
@@ -26,13 +25,11 @@ Component({
   created() {
     this.authorizer()
   },
-
-
   methods: {
     showQrcode: function () {
       wx.previewImage({
-        current: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png',
-        urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/微信二维码.png']
+        current: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/78D917437FB9E50C5AE0259FFBF09105.jpg',
+        urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/78D917437FB9E50C5AE0259FFBF09105.jpg']
       })
     },
 
@@ -40,7 +37,6 @@ Component({
       wx.openSetting({
         success: function (res) {}
       })
-
     },
     ql() {
       wx.showToast({
@@ -153,6 +149,7 @@ Component({
           dz: res.dz,
           sc: res.sc,
           nt: res.nt,
+          ld: res.ld,
         })
       })
     },

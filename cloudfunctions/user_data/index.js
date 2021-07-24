@@ -21,6 +21,6 @@ exports.main = async (event, context) => {
   return {
     sc: sc.total,
     dz: dz.total,
-    nt: nt.total
+    nt: nt.total,
   }
 }

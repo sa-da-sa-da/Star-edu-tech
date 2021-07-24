@@ -15,14 +15,17 @@ Component({
       type: String,
       default: ''
     },
+
     isCustom: {
       type: [Boolean, String],
       default: true
     },
+
     isBack: {
       type: [Boolean, String],
       default: false
     },
+    
     bgImage: {
       type: String,
       default: ''
@@ -57,6 +60,7 @@ Component({
       }
     })
   },
+
   methods: {
     BackPage() {
       wx.navigateBack({

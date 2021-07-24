@@ -10,7 +10,7 @@
 
     "pages/study/study",
     "pages/study/warehouse/index",
-    "pages/user/user",
+    
 
     "pages/details/article_details/article_details",
     "pages/details/notice/notice",
@@ -19,6 +19,7 @@
     "pages/details/details_dicz/index",
 
     "pages/user/favorite/favorite",
+    "pages/user/user",
     "pages/user/sign/sign"
 
   ],

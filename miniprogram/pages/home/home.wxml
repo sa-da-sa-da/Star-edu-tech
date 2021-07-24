@@ -19,7 +19,7 @@
 		</block>
 	</swiper>
 	<view class="home_sign">
-		<van-cell  url="/pages/user/sign/sign">
+		<van-cell  url="">
 			<view slot="title">
 				<view class="dis_fl">
 					<view class="cu-avatar-group">

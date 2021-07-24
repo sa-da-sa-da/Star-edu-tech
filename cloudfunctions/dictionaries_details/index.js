@@ -1,10 +1,10 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 cloud.init({
-  env: "demo-8gww0qau03b0af5a",
+  env: event.env
 })
 const db = cloud.database({
-  env: "demo-8gww0qau03b0af5a",
+  env: event.env
 })
 const _ = db.command
 cloud.init()

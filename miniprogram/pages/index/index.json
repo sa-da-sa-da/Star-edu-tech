@@ -2,7 +2,6 @@
   "usingComponents": {
     "guide": "./guide/guide",
     "home": "../home/home",
-    "question": "../question/question",
     "study":"../study/study",
     "user":"../user/user"
   }

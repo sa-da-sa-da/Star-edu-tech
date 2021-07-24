@@ -1,8 +1,8 @@
 import api from "../../../utils/api.js"
 import task from "../../../utils/request.js"
-
+var {config} = require('../../../utils/config.js');
 const db = wx.cloud.database({
-  env: "demo-8gww0qau03b0af5a"
+  env: config.env
 })
 
 const app = getApp()
@@ -24,7 +24,7 @@ Component({
     initial(){
       task.Tree_get(api.GET_note).then(res => {
         this.setData({
-          note_list1: res
+          note_list: res
         })
       })
     },
@@ -39,12 +39,18 @@ Component({
     Load_list(){
       let openid = wx.getStorageSync("openid")
       db.collection('note').where({
-        _openid:openid
+        _openid: openid
       }).get().then(res=>{
       this.setData({
         note_list: res
       })
       })
     },
+    delete_list(){
+      let openid = wx.getStorageSync("openid")
+      db.collection('note').where({
+        _openid: openid
+      })
+    }
   },
 })

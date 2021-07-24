@@ -1,6 +1,7 @@
 // pages/answer/index.js
+var {config} = require('../../utils/config.js');
 const db = wx.cloud.database({
-  env: "demo-8gww0qau03b0af5a"
+  env: config.env
 })
 const app = getApp()
 

@@ -1,32 +1,32 @@
 // components/tree_list/index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
+  
   properties: {
-
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-
-  },
-  properties: {
-   list: {
-    type: Object,
+    list: {
+      type: Object,
       default: ''
     }, 
+    
     loding: {
       type:Boolean,
-        default: true
-      }, 
-     phb: {
-        type:Boolean,
-          default: false
-        }, 
+      default: true
+    }, 
+    phb: {
+      type:Boolean,
+      default: false
+    }, 
+    circular_type: {
+      type:Boolean,
+      default:false
+    },
+    star: {
+      type:Boolean,
+      default:true
+    },
+    collect: {
+      type: Boolean,
+      default:true
+    },
   },
   observers: {
     'list': function (list) {
@@ -35,7 +35,7 @@ Component({
           loding:false
         })
       }
-
+    
     }
   },
 

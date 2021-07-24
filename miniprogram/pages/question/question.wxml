@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-tree">
-  <view slot="content">世树书库</view>
+<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
+  <view slot="content">教技书库</view>
 </cu-custom>
 <view class="page-box">
   <view class="ans_bst">
