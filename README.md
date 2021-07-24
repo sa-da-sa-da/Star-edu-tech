@@ -73,13 +73,7 @@ Star edu-tech项目是一套基于成熟的高校专业小程序，基于微信�
 
 ## 联系作者
 
-> 大家有任何问题或者建议都可以在 [issues](https://gitee.com/KyotoKing_tree/treeworld_Applets/issues) 中反馈给我，我逐渐慢慢完善项目。
-
-- QQ：996666908
-- QQ交流群：866619421
-- 我的微信：hstd528
-<img  align="middle" width="120"   src="https://treeworld-1258962601.cos.ap-guangzhou.myqcloud.com/md/6b9cb2156c5a151803ec6078ba71c6a.jpg">  
-2021.6.4更新
+> 大家有任何问题或者建议都可以在 issues中反馈给我，我逐渐慢慢完善项目。
 
 
 
