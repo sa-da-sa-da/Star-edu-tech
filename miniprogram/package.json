@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "@vant/weapp": "^1.6.9"
+  },
+  "permissions":{
+    "openapi": [
+      "openapi.subscribeMessage.send"
+    ]
   }
 }

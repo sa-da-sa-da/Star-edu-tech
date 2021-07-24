@@ -1,6 +1,7 @@
-
 var permission = require('/utils/permission.js');
-var {config} = require('/utils/config.js');
+var {
+  config
+} = require('/utils/config.js');
 App({
   config,
   onLaunch: function () {
@@ -11,7 +12,7 @@ App({
         env: this.config.env,
         traceUser: true,
       })
-      this.config.db=wx.cloud.database({
+      this.config.db = wx.cloud.database({
         env: config.env
       })
     }
@@ -29,10 +30,7 @@ App({
       }
     })
   },
-  globalData:{
-    type:0
-  }
-
-
-  
+  globalData: {
+    type: 0
+  },
 })
