@@ -1,7 +1,4 @@
 const cloud = require('wx-server-sdk')
-
-
-
 exports.main = async (event, context) => {
   cloud.init({
     env:event.env
@@ -9,8 +6,6 @@ exports.main = async (event, context) => {
   const db = cloud.database({
     env:event.env
   }) 
-
-
   if (event.Type) {
     const countResult = await db.collection(event.database).where({Type:event.Type}).count()
     const total = countResult.total

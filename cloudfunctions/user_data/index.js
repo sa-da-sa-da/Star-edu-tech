@@ -17,15 +17,10 @@ exports.main = async (event, context) => {
   let nt = await db.collection('note').where({
     _openid: wxContext.OPENID,
   }).count()
-  let tk = await db.collection('interview_collect').where({
-    _openid: wxContext.OPENID,
-  }).count()
-
 
   return {
     sc: sc.total,
     dz: dz.total,
-    nt: nt.total,
-    tk: tk.total
+    nt: nt.total
   }
 }

@@ -9,7 +9,7 @@ const db = cloud.database({
 
 exports.main = async (event, context) => {
   // 先取出集合记录总数
-  return await db.collection('User').limit(10).orderBy('sign', 'desc').get()
+  return await db.collection('userlist').limit(10).orderBy('addtime', 'desc').get()
 
 
 }

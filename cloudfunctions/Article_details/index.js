@@ -5,7 +5,7 @@ const cloud = require('wx-server-sdk')
 exports.main = async (event, context) => {
 
   cloud.init({
-    env: event.env
+    env: event.envs
   })
   const db = cloud.database({
     env: event.env
