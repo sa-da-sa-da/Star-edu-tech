@@ -2,7 +2,7 @@
     "miniprogramRoot": "miniprogram/",
     "cloudfunctionRoot": "cloudfunctions/",
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -14,11 +14,11 @@
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
-        "uglifyFileName": true,
+        "uglifyFileName": false,
         "checkInvalidKey": true,
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
+        "compileHotReLoad": true,
         "lazyloadPlaceholderEnable": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
@@ -38,7 +38,8 @@
     },
     "appid": "wx5a28d83ceeee2112",
     "projectname": "edutech",
-    "libVersion": "2.18.0",
+    "libVersion": "2.19.1",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {
             "list": []

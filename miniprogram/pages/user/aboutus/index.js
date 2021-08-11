@@ -105,8 +105,8 @@ Page({
    */
   onShareAppMessage: function (ops) {
     return {
-      title: '个人简历',
-      path: 'pages/index/index'
+      title: 'About me',
+      path: 'pages/aboutus/index'
     }
 
   }

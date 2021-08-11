@@ -1,8 +1,8 @@
-<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
 	<view slot="content">教技书库</view>
 </cu-custom>
 <view class="Book_hint">
-	<van-notice-bar color="#d69c63" background="#fff" wrapable left-icon="info-o"
+	<van-notice-bar scrollable color="#d69c63" background="#fff" left-icon="info-o"
 		text="书籍预览由微信文件助手提供服务，如果需要更好的浏览体验请下载pdf阅读器" />
 	<view class="tree_mt10">
 		<van-row gutter="10" >

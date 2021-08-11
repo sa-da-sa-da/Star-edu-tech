@@ -1,0 +1,38 @@
+<!--miniprogram/pages/search/result.wxml-->
+<cu-custom bgColor="bg-blue" isCustom="{{true}}">
+  
+  <view slot="content">搜索相关</view>
+</cu-custom>
+<van-notice-bar scrollable color="#d69c63" background="#fff" left-icon="info-o"
+  text="由于Gitee API限制每小时请求次数，请勿频繁访问。建议通过浏览器访问 Gitee 官网。" />
+<text>\n</text>
+
+<van-tabs active="{{ active }}" sticky bind:click="tabChange">
+  <van-tab title="相关仓库">
+    <van-skeleton title row="2" loading="{{ loading }}">
+      <view class="wrap">
+        <repo-item wx:for="{{repos}}" wx:key="index" repo-data="{{ item }}" />
+        <view wx:if="{{ repos.length === 0 }}" class="empty center">
+          <image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/方形logo.png" mode="widthFix"></image>
+          <text>- 暂无相关内容 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="2" loading="{{ loading }}" />
+  </van-tab>
+  <van-tab title="相关用户">
+    <van-skeleton avatar title row="1" loading="{{ loading }}">
+      <view class="wrap">
+        <user-item wx:for="{{users}}" wx:key="index" user-data="{{ item }}" />
+        <view wx:if="{{ users.length === 0 }}" class="empty center">
+          <image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/方形logo.png" mode="widthFix"></image>
+          <text>- 暂无相关用户 -</text>
+        </view>
+      </view>
+    </van-skeleton>
+    <van-skeleton wx:for="{{ [1, 2, 3, 4, 5] }}" wx:key="*this" title row="1" loading="{{ loading }}" />
+  </van-tab>
+</van-tabs>
+
+<image class="btm-loading" hidden="{{ !btmloading }}"
+  src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/loding.gif"></image>

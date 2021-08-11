@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-tree"  isBack="{{true}}">
+<cu-custom bgColor="bg-blue"  isBack="{{true}}">
 	<view slot="content">添加笔记</view>
 </cu-custom>
 <view class="main">
@@ -29,12 +29,13 @@
   wx:if="{{press_id}}"
     model:value="{{ly}}"
     label="来源"
-
     type="textarea"
     icon="share"
     autosize
     bind:click-icon="onClickIcon"
   />
 </van-cell-group>
-<view class="ck_buttom" bindtap="add">添加笔记 </view>
+<view class="ck_buttom" bindtap="add">添加笔记</view>
+<view class="ck_buttom" bindtap="update_list">更新笔记</view>
+<view class="ck_buttom" bindtap="delete_list">删除笔记 </view>
 </view>

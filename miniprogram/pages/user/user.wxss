@@ -5,7 +5,7 @@
 .user {
   background: #f8f8f8;
   width: 100%;
-  animation: fadeIn .9s;
+  animation: fadeIn .3s;
 }
 
 .cu-dialog{
@@ -70,7 +70,6 @@ button {
   border-radius: 6px 6px 0px 0px;
   overflow: hidden;
   /* background-color:rgba(255,255,255,0.6); */
-
 }
 
 .tj-sction,
@@ -83,8 +82,6 @@ button {
   justify-content: space-around;
   -webkit-align-content: center;
   align-content: center;
-
-
 }
 
 .user-section {
@@ -93,7 +90,8 @@ button {
   position: relative;
   background-size: cover;
   background-position: center center;
-  background-color: #122640
+  background-image: url('https://7472-treeworld-2g5yvz9s899bf4a6-1259429368.tcb.qcloud.la/user_bg1.png?sign=9a77fccae10229823136ec0595cb5678&t=1619763473');
+  background-color: #3963BC
 }
 
 .user-section .bg {
@@ -102,7 +100,6 @@ button {
   top: 0;
   width: 100%;
   height: 200px;
-
 }
 
 .cu-list {
@@ -233,7 +230,6 @@ button {
   position: relative;
   background-color: #fff;
   height: calc(100vh - 680rpx);
-
   padding-bottom: 20rpx;
 }
 
@@ -329,7 +325,7 @@ font-weight: 400!important;
 .dlo {
   color: #fff;
   background: linear-gradient(to top left, #f7ce9e, #d69c63);
-  animation: 1s fadeInLeft;
+  animation: .5s fadeInLeft;
   padding: 0px;
   height: auto;
   padding: 2px 20px;
@@ -351,11 +347,10 @@ font-weight: 400!important;
 .height {
   height: 100%;
 }
-
 .nav-li {
   padding: 30rpx;
   width: calc(50% - 20rpx);
-  background-image: url(https://image.weilanwl.com/color2.0/cardBg.png);
+
   background-size: cover;
   background-position: center;
   position: relative;

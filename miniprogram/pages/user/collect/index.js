@@ -12,9 +12,7 @@ Component({
     tab: [
       "收藏",
       "点赞",
-
     ]
-
   },
   pageLifetimes: {
     show: function () {

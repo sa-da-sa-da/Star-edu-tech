@@ -1,10 +1,9 @@
-<cu-custom bgColor="bg-gradual-tree">
-  <view slot="content">Star 勉励</view>
+<cu-custom bgColor="bg-blue">
+  <view slot="content">Star 专栏</view>
 </cu-custom>
-
 <view class="main">
   <view class="carousel">
-    <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{8000}}" circular="{{true}}">
+    <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{8000}}">
       <block wx:for="{{carousels}}" wx:for-item="x" wx:for-index="xi" wx:key="xi">
         <swiper-item class="swiper-item">
           <view class="carousel-item">
@@ -14,9 +13,9 @@
                 <view class="w1">{{x.tille}}</view>
                 <view class="w2">{{x.html}}</view>
               </view>
-              <view class="enter">
+              <!--<view class="enter">
                 <van-icon name="arrow" />
-              </view>
+              </view>-->
             </view>
           </view>
         </swiper-item>
@@ -29,7 +28,7 @@
         <scroll-view scroll-x="{{true}}">
           <view class="column-list">
             <block wx:for="{{columns}}" wx:for-item="xx" wx:for-index="xxi" wx:key="xxi">
-              <view class="item" data-id="{{xx._id}}" bindtap="tz" data-a="details/details_html/index">
+              <view class="item" data-id="{{xx._id}}" bindtap="tz" data-a="details/details_top/index">
                 <view class="thumbnail">
                   <image class="img" src="{{xx.img}}" mode="aspectFill"></image>
                   <view class="btn favorite">

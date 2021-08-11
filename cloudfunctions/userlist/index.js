@@ -1,15 +1,13 @@
 const cloud = require('wx-server-sdk')
 cloud.init({
-  env: event.env
+  env: cloud.DYNAMIC_CURRENT_ENV
 })
 const db = cloud.database({
-  env: event.env
+  env: cloud.DYNAMIC_CURRENT_ENV
 }) // 初始化数据库
 
 
 exports.main = async (event, context) => {
   // 先取出集合记录总数
-  return await db.collection('userlist').limit(10).orderBy('addtime', 'desc').get()
-
-
+  return await db.collection('User').limit(10).orderBy('sign', 'desc').get()
 }

@@ -4,7 +4,7 @@
 
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
-
+    "van-empty": "@vant/weapp/empty/index",
     "mp-html": "mp-weixin",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-grid": "@vant/weapp/grid/index",
@@ -14,6 +14,7 @@
     "van-button": "@vant/weapp/button/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
     "van-uploader": "@vant/weapp/uploader/index"
+
   }
 
 }

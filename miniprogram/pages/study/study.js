@@ -104,10 +104,15 @@ Component({
           tz_list: res
         })
       })
+      task.Tree_get( api.GET_periodical) .then(res => {
+        this.setData({
+          en_list: res
+        })
+      })
 
     },
-    tz: function (e) {
-      console.log(e.currentTarget.dataset.id)
+    tz(e) {
+
       wx.navigateTo({
         url: "../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
       })

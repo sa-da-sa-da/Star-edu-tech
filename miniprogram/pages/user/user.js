@@ -12,7 +12,7 @@ Component({
     show: false,
     coverTransform: "translateY(0px)",
     coverTransition: "0s",
-    moving: !1
+    moving: !1,
   },
   pageLifetimes: {
     show: function () {
@@ -24,6 +24,7 @@ Component({
   },
   created() {
     this.authorizer()
+    this.dj_list()
   },
   methods: {
     showQrcode: function () {
@@ -124,35 +125,29 @@ Component({
       })
 
     },
-    logout() {
-      var that = this;
-      wx.showModal({
-        title: '退出提醒',
-        content: '是否退出当前登录的码云帐号？',
-        showCancel: true,
-        confirmText: "退出",
-        confirmColor: "#ff4500",
-        cancelText: "返回",
-        success(res) {
-          if (res.confirm) {
-            app.logout();
-            wx.navigateTo({
-              url: "../../pages/user/gitee_login/index"
-            })
-          }
-        }
-      });
-    },
+
     user_list() {
       task.Tree_cloud('user_data').then(res => {
         this.setData({
           dz: res.dz,
           sc: res.sc,
-          nt: res.nt,
-          ld: res.ld,
+          nt: res.nt
         })
       })
     },
+
+    dj_list() {
+      let that = this
+      var dj
+      task.Tree_cloud('vip_grade').then(res => {
+        console.log(res)
+        that.setData({
+          jf: res.jf,
+          dj: res.dj,
+        })
+      })
+    },
+
     authorizer() {
       let that = this
       task.Tree_get(api.GET_User).then(res => {
@@ -163,6 +158,8 @@ Component({
             avatarUrl: res[0].avatarUrl,
             nickName: res[0].nickName,
             userin: res[0],
+            add_time: res[0].addtime,
+            _openid:res[0]._openid
           })
         } else {
           this.setData({
@@ -171,12 +168,12 @@ Component({
         }
       })
     },
+
     tz(e) {
       console.log(e.currentTarget.dataset.id)
       wx.navigateTo({
         url: "../../pages/" + e.currentTarget.dataset.a + "?id=" + e.currentTarget.dataset.id
       })
     },
-
   }
 })

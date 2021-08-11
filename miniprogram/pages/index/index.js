@@ -1,10 +1,11 @@
 const app = getApp()
-
+var {config} = require('../../utils/config.js');
+const db = wx.cloud.database({
+  env: config.env
+})
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
 Page({
-
-
   data: {
     page: 1,
     id: 0,
@@ -13,7 +14,7 @@ Page({
         icon: "",
         main: true
       },
-{
+      {
         name: "学习",
         icon: "",
         main: true
@@ -24,8 +25,9 @@ Page({
         main: true
       },
 
-    ]
-
+    ],
+    
+    topImgs: [],
   },
 
 
@@ -36,7 +38,7 @@ Page({
     })
   },
   initial() {
-    console.log("1123")
+
     let firstOpen = wx.getStorageSync("loadOpen")
     if (firstOpen == undefined || firstOpen == '') {
       this.setData({
@@ -50,24 +52,23 @@ Page({
 
     }
   },
-
-
+  
   tab_checked: function (e) {
     var id = e.currentTarget.dataset.id
     wx.pageScrollTo({
       scrollTop: 0
     })
-    console.log(id)
+
     this.setData({
       id: id
     })
   },
-  tab_xz(e){
+  tab_xz(e) {
     this.initial_study(e)
   },
 
   initial_study(e) {
-    console.log("asd")
+
     if (this.data.page == 1) {
       this.setData({
         loding: true
@@ -107,7 +108,6 @@ Page({
           loding: false
         })
       }
-
     })
 
   },
@@ -118,20 +118,25 @@ Page({
   onLoad: function (options) {
     this.initial(0)
     this.initial_study(0)
+    db.collection('carousel').get().then(res => {
+        this.setData({
+          topImgs: res
+        })
+      })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -157,8 +162,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
@@ -176,7 +180,5 @@ Page({
 
       }
     }
-
-
   }
 })

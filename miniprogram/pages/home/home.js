@@ -14,9 +14,9 @@ Component({
           xw_list: res 
         })
       })
-      task.Tree_get(api.GET_Article_top).then(res => {
+      task.Tree_get(api.GET_explain).then(res => {
         this.setData({
-          tz_list: res  // 推荐Top 列表
+          top_list: res  // 推荐Top 列表
         })
       })
       task.Tree_get(api.GET_notice).then(res =>{

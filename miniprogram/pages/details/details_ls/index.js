@@ -15,8 +15,6 @@ Page({
       })
     })
   },
-
-
   tz(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
@@ -28,7 +26,6 @@ Page({
       id: options.id
     })
     this.initial(options.id)
-
   },
 
 })

@@ -1,12 +1,10 @@
 // components/tree_list/index.js
 Component({
-  
   properties: {
     list: {
       type: Object,
       default: ''
     }, 
-    
     loding: {
       type:Boolean,
       default: true
@@ -35,15 +33,13 @@ Component({
           loding:false
         })
       }
-    
     }
   },
-
   methods: {
     tz(e) {
       console.log(e.currentTarget.dataset.id)
       wx.navigateTo({
-        url: "../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
+        url: "/pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
       })
     },
   }

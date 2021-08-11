@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-tree" isCustom="{{true}}" >
-	<view slot="backText">返回</view>
+<cu-custom bgColor="bg-blue" isBack="{{true}}" >
+	
 	<view slot="content">文章</view>
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
@@ -33,16 +33,14 @@
 
 	<view class="home-jcly">
 		<view class="cu-capsule">
-			<view class="cu-tag bg-gradual-tree">
+			<view class="cu-tag bg-blue">
 				文章来源
 			</view>
 			<view class="cu-tag line-tree">
 				{{xw_list.ly||'掘金'}}
 			</view>
 		</view>
-
 	</view>
-
 	<view class="detil">
 		<mp-html showLanguageName="{{true}}" content="{{html}}" selectable="{{true}}" />
 	</view>

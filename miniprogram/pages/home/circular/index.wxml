@@ -3,12 +3,12 @@
 <view class="pd" wx:if="{{loding}}">
     <van-skeleton title row="3" wx:for="{{3}}" wx:key="this" />
 </view>
-<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
     <view slot="content">公告</view>
 </cu-custom>
 <view class="home">
     <navigator class="home-list" wx:if="{{!loding}}" wx:for="{{nt_list}}" wx:key="this" wx:index="index"
-        wx:for-item="items" bindtap="tz" url="/pages/details/notice/notice?id={{items._id}}" hover-class="item-hover"
+        wx:for-item="items" url="/pages/details/notice/notice?id={{items._id}}" hover-class="item-hover"
         hover-stay-time="100">
         <view class="home-list_df" wx:if="{{items.img}}">
             <view class="home-list-right">

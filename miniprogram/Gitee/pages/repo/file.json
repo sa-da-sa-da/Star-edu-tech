@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "towxml": "../../towxml/towxml",
+    "cu-custom":"../../../components/cu-custom/index"
+  }
+}

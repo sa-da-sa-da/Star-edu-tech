@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-tree" isCustom="{{true}}">
-	<view slot="backText">返回</view>
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+	
 	<view slot="content">文章</view>
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
@@ -14,8 +14,8 @@
 
 <view class="de-main" wx:if="{{!loding}}">
 	<view class="detail_bg">
-		<view class="detail-tl bg-gradual-tree">
-			{{ xw_list.tille}}
+		<view class="detail-tl bg-blue">
+			{{xw_list.tille}}
 		</view>
 	</view>
 	<view class="detil">

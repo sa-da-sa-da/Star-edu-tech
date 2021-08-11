@@ -18,7 +18,7 @@ Page({
     });
   },
   post(){
-    task.Tree_get( api.GET_answer,true).then(res => {
+    task.Tree_get(api.GET_answer,true).then(res => {
       this.setData({
         as_list: res
       })

@@ -19,7 +19,7 @@ page {
 	--olive: #8dc63f;
 	--green: #39b54a;
 	--cyan: #1cbbb4;
-	--blue: #0081ff;
+	--blue: #3963BC;
 	--purple: #6739b6;
 	--mauve: #9c26b0;
 	--pink: #e03997;
@@ -132,8 +132,8 @@ image.loading::after {
 	font-size: 32rpx;
 	margin: auto;
 	color: #ccc;
-	-webkit-animation: cuIcon-spin 2s infinite linear;
-	animation: cuIcon-spin 2s infinite linear;
+	-webkit-animation: cuIcon-spin 1s infinite linear;
+	animation: cuIcon-spin 1s infinite linear;
 	display: block;
 }
 
@@ -1050,7 +1050,7 @@ button.icon.lg {
 }
 
 .cu-progress.active view {
-	animation: progress-stripes 2s linear infinite;
+	animation: progress-stripes 1s linear infinite;
 }
 
 @keyframes progress-stripes {
@@ -1081,7 +1081,7 @@ button.icon.lg {
 
 .cu-load.loading::before {
 	content: "\e67a";
-	animation: cuIcon-spin 2s infinite linear;
+	animation: cuIcon-spin 1s infinite linear;
 }
 
 .cu-load.loading::after {
@@ -1158,7 +1158,7 @@ button.icon.lg {
 	border-right: 6rpx solid rgba(0, 0, 0, 0.05);
 	border-bottom: 6rpx solid rgba(0, 0, 0, 0.05);
 	border-left: 6rpx solid var(--orange);
-	animation: cuIcon-spin 1s infinite linear;
+	animation: cuIcon-spin .5s infinite linear;
 	z-index: -1;
 }
 
@@ -2615,7 +2615,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 	height: 18rpx;
 	border-radius: 4px;
 	background-color: #d69c63;
-	animation: fadeIn .8s;
+	animation: fadeIn .3s;
 }
 
 .screen-swiper {

@@ -6,7 +6,7 @@
 }
 
 .tab_color {
-  background: linear-gradient(to top right, #f4c998, #d69c63);
+  background: linear-gradient(to top right, #5f85ee, #497ceb);
   color: #fff;
   width: 100rpx;
   position: absolute;
@@ -22,7 +22,7 @@
 }
 
 .checked {
-  color: #d69c63
+  color: #3963BC
 }
 .tab_icon{
 
@@ -33,3 +33,11 @@
   text-align: center;
   font-size: 40rpx;
 }
+
+.img{
+  margin:auto;
+  text-align:center;
+}
+
+
+

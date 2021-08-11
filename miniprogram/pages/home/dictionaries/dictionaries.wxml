@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-tree"   isBack="{{true}}" ><view slot="content">教技字典</view></cu-custom>
+<cu-custom bgColor="bg-blue"   isBack="{{true}}" ><view slot="content">教技字典</view></cu-custom>
 
 <view style="background-color: #fff;padding: 20px;"  wx:if="{{loding}}">
 	<van-skeleton title row="3" wx:for="{{5}}" wx:key="this" />

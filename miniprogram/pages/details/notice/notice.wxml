@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-tree" isCustom="{{true}}" wx:if="{{fx_show}}">
-	<view slot="backText">返回</view>
+<cu-custom bgColor="bg-blue" isBack="{{true}}" wx:if="{{fx_show}}">
+	
 	<view slot="content">文章</view>
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
@@ -23,16 +23,6 @@
 			<view class="tree_article_time">
 				<view>时间：{{article.add_time}}</view>
 				<view>{{article.type}}</view>
-			</view>
-		</view>
-	</view>
-	<view class="tree_artice">
-		<view class="cu-capsule">
-			<view class="cu-tag bg-gradual-tree">
-				文章来源
-			</view>
-			<view class="cu-tag line-tree">
-				{{article.ly||'原创'}}
 			</view>
 		</view>
 	</view>

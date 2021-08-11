@@ -1,8 +1,8 @@
-<cu-custom bgColor="bg-gradual-tree">
+<cu-custom bgColor="bg-blue">
 	<view slot="content">Star 教育技术</view>
 </cu-custom>
 <view class="main">
-	<view class="servic_top">
+	<!--<view class="servic_top">
 		<view>
 			<view class="servic_top_Wz1">前路无涯</view>
 			<view>路漫漫其修远兮，吾将上下而求索 </view>
@@ -10,9 +10,10 @@
 		<view class="servic_top_Img">
 			<image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/zx_top.png"></image>
 		</view>
-	</view>
+	</view>-->
+	
 	<van-tabs active="{{active}}" swipeable sticky offset-top="{{CustomBar}}" color="#d69c63" bind:chanqe="onClick">
-		<van-tab title="精选">
+		<van-tab title="教技精选">
 			<van-sticky offset-top="{{CustomBar+44}}" wx:if="{{active==0}}">
 				<view class="tab_list shadow">
 					<view class="tab_list_view" style="height:{{height}}">
@@ -28,10 +29,12 @@
 					</view>
 				</view>
 			</van-sticky>
-			<view class="scroll_box">
+
+			<!--<view class="scroll_box">
 				<scroll-view scroll-x>
-					<navigator hover-class="item-hover" url="/pages/details/details_html/index?id={{items._id}}"
-						class="item_list" wx:for="{{tz_list}}" wx:key="this" wx:for-item="items">
+					<navigator hover-class="item-hover" class="item_list" wx:for="{{en_list}}" wx:key="this"
+						wx:index="index" wx:for-item="items"
+						url="/pages/details/article_details/article_details?id={{items._id}}">
 						<view class="item_list_ds">
 							<view>
 								<view class="dis2">
@@ -58,27 +61,18 @@
 						</view>
 					</navigator>
 				</scroll-view>
-			</view>
-			<view class="study_list">
-				<list list="{{list}}" loding="{{loding}}"></list>
-			</view>
-			
-		</van-tab>
-		<!--
-			<scroll list="{{tz_list}}"></scroll>
-			<view class="study_list">
-				<list list="{{tz_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
 			</view>-->
-		
-		<van-tab title="热榜">
+			<view class="study_list">
+				<list list="{{list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
+			</view>
+
+		</van-tab>
+		<van-tab title="教技热榜">
 			<view class="study_list">
 				<list list="{{rb_list}}" phb="{{true}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
 			</view>
 		</van-tab>
-		<van-tab title="历史">
-			<history />
-		</van-tab>
-		<van-tab title="专栏">
+		<van-tab title="教技专栏">
 			<val />
 		</van-tab>
 	</van-tabs>

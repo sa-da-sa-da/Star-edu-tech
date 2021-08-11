@@ -1,72 +1,84 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/home/book/book",
-          "pathName": "pages/home/book/book",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/user/collect/index",
-          "pathName": "pages/user/collect/index",
-          "query": "id=undefined",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/user/favorite/favorite",
-          "pathName": "pages/user/favorite/favorite",
-          "query": "id=undefined",
-          "scene": null
-        },
-        {
-          "name": "pages/details/details_html/index",
-          "pathName": "pages/details/details_html/index",
-          "query": "id=b00064a760c804cd203632d232081460",
-          "scene": null
-        },
-        {
-          "name": "pages/details/article_details/article_details",
-          "pathName": "pages/details/article_details/article_details",
-          "query": "id=b00064a760c804cd203632d232081460",
-          "scene": null
-        },
-        {
-          "name": "pages/user/sign/index",
-          "pathName": "pages/user/sign/index",
-          "query": "id=undefined",
-          "scene": null
-        },
-        {
-          "name": "pages/user/sign/sign",
-          "pathName": "pages/user/sign/sign",
-          "query": "id=undefined",
-          "scene": null
-        },
-        {
-          "name": "pages/home/dictionaries/dictionaries",
-          "pathName": "pages/home/dictionaries/dictionaries",
-          "query": "id=b00064a760c804cd203632d232081460",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/user/note/index",
+                    "pathName": "pages/user/note/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "Gitee/pages/explore/explore",
+                    "pathName": "Gitee/pages/explore/explore",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/collect/index",
+                    "pathName": "pages/user/collect/index",
+                    "query": "id=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "todo/pages/dealtList/dealtList",
+                    "pathName": "todo/pages/dealtList/dealtList",
+                    "query": "id=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/study/study",
+                    "pathName": "pages/study/study",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/sign/index",
+                    "pathName": "pages/user/sign/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/user",
+                    "pathName": "pages/user/user",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "todo/pages/item/index",
+                    "pathName": "todo/pages/item/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/home/dictionaries/dictionaries",
+                    "pathName": "pages/home/dictionaries/dictionaries",
+                    "query": "id=b00064a760c804cd203632d232081460",
+                    "scene": null
+                },
+                {
+                    "name": "todo/pages/love/love",
+                    "pathName": "todo/pages/love/love",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "Gitee/pages/search/search",
+                    "pathName": "Gitee/pages/search/search",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

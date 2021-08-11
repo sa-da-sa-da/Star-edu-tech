@@ -3,7 +3,6 @@ import task from "../../utils/request.js"
 
 let app = getApp()
 Component({
-
   options: {
     addGlobalClass: true
   },
@@ -19,21 +18,15 @@ Component({
     latitude: "",
     // 当前精度
     longitude: "",
-
     signinNow: false
-
   },
-
   observers: {
-    'yesDate': function(typeList) {
-
+    'yesDate': function (typeList) {
       this.yesdate()
     }
   },
-
-
   lifetimes: {
-    attached(){
+    attached() {
       let t = this;
       let now = new Date();
       let year = now.getFullYear();
@@ -45,7 +38,6 @@ Component({
         month: Number(month),
         isToday: '' + year + month + now.getDate()
       });
-
     },
   },
   properties: {
@@ -53,13 +45,8 @@ Component({
       type: String,
       default: ''
     },
-
   },
-
-
   methods: {
-
-
     // 是否可以签到
     activeSign() {
       console.log(this.data.isToday)
@@ -116,30 +103,22 @@ Component({
         api.GET_User2.doc = t._id
         task.Tree_get(api.GET_User2).then(res => {
           let t = this;
-          let yesdate =res.sign_data ;
+          let yesdate = res.sign_data;
           let dateArr = t.data.dateArr;
-          if( dateArr && yesdate){
-          for (var i = 0; i < dateArr.length; i++) {
-            for (var j = 0; j < yesdate.length; j++) {
-              if (dateArr[i].isToday == yesdate[j]) {
-                dateArr[i].choose = true
-              }
-            };
-          }
-          t.setData({
-            dateArr: dateArr
-          })
+          if (dateArr && yesdate) {
+            for (var i = 0; i < dateArr.length; i++) {
+              for (var j = 0; j < yesdate.length; j++) {
+                if (dateArr[i].isToday == yesdate[j]) {
+                  dateArr[i].choose = true
+                }
+              };
+            }
+            t.setData({
+              dateArr: dateArr
+            })
           }
         })
       }
-
-
-
-
-
-
-
-   
     },
     // 日历
     dateInit: function (setYear, setMonth) {

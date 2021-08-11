@@ -8,7 +8,7 @@ Page({
     }, {
       id: 1,
         type: 'image',
-        url: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/1.jpg',
+        url: 'cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/cloudbase-cms/upload/2021-07-27/0jj8gzjeynyi9ep4cmyi1clmu3990syn_.jpg',
     },
     {
       id: 2,

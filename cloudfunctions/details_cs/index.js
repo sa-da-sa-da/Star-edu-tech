@@ -1,4 +1,3 @@
-// 云函数入口文件
 const cloud = require('wx-server-sdk')
 
 cloud.init({
@@ -22,7 +21,7 @@ exports.main = async (event, context) => {
     }).get()
     var data
     if(event.bl){
-      data = await db.collection('explain').doc(event.id).get()
+      data = await db.collection('press').doc(event.id).get()
     }
   
     return {

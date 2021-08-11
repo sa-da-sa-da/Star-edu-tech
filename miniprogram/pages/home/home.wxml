@@ -1,10 +1,31 @@
-<cu-custom bgColor="bg-gradual-tree">
+<cu-custom bgColor="bg-blue">
 	<view slot="content">Star 教技</view>
 </cu-custom>
 <view class="home">
 	<view class="home-top">
 	</view>
 	<tree_swiper></tree_swiper>
+	<van-grid :gutter="10" >
+			<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/gitee_logo.jpg"
+				url="../../Gitee/pages/explore/explore" text="Gitee" />
+				<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/方形logo.png"
+				url="/pages/study/history/index" text="使用说明" />
+				<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/做题.png"
+				url="../../todo/pages/dealtList/dealtList" text="Star待办" />
+				<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/shetuanlianhehui.jpg"
+				url="../../todo/pages/club/club" text="Star 组织"/>
+				<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/地图.png"
+				url="../../todo/pages/school-map/school-map" text="Star 校园"/>
+				<van-grid-item v-for="value in 8" :key="value"
+				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/表白.png"
+				url="../../todo/pages/love/love" text="Star 心路"/>
+		</van-grid>
+
 	<swiper class='home-gg' autoplay="true" vertical='true' circular='true' interval='3000'>
 		<block wx:for="{{nt_list}}" wx:key="this" wx:for-item="items">
 		<navigator url="/pages/home/circular/index">
@@ -12,12 +33,12 @@
 				<view>
 					<view data-id="{{items._id}}" bindtap="tz" data-a="details/notice/notice?id={{items._id}}">{{items.Type}}</view>
 				</view>
-				<view data-id="{{items._id}}"  data-a="details/notice/notice">{{items.tille}}</view>
-				
+				<view data-url="details/notice/notice">{{items.tille}}</view>
 			</swiper-item>
 		</navigator>
 		</block>
 	</swiper>
+	
 	<view class="home_sign">
 		<van-cell  url="">
 			<view slot="title">
@@ -26,7 +47,6 @@
 						<view class="cu-avatar round " wx:for="{{userlist}}" wx:if="{{index<4}}" wx:key="this" wx:index="index"
 							wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
 						</view>
-
 					</view>
 					<view class="tree_dis_c">等 <text class="text-yellow"> {{total}}</text> 名用户今天活跃 <van-icon name="arrow" /></view>
 				</view>
@@ -36,6 +56,7 @@
 		</van-cell>
 	</view>
 
+	
 	<view class='nav-list_df'>
 		<view class="nav-list-left">
 			<navigator hover-class='none' url="/pages/home/dictionaries/dictionaries" style="height:96%;" class="nav-li bg_kl">
@@ -73,7 +94,7 @@
 		</view>
 	</view>
 	<view class="home-jcly">
-		<list list="{{tz_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
+		<top_list list="{{top_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></top_list>
 	</view>
 	<van-divider contentPosition="center">到底啦，更多学习相关的内容请您跳转学习模块</van-divider>
 	<van-divider contentPosition="center"></van-divider>

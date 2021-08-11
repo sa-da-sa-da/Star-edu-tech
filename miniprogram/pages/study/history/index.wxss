@@ -1,8 +1,8 @@
 @import "../../../style/main.wxss";
 .study_tag2 {
-  color: #d69c63;
-  border: 1px solid #d69c63;
-  border-left-color: #122640;
+  color: #1cbbb4;
+  border: 1px solid #3963BC;
+  border-left-color: #1cbbb4;
 }
 .ls_but {
   float: right;

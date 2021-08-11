@@ -1,83 +1,118 @@
-<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true"
+	style="background-color: {{skin?'#030852':'#ffffff'}};">
 
-<cu-custom bgColor="bg-gradual-tree" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
-		<view slot="backText">返回</view>
+	<cu-custom bgColor="bg-blue" isBack="{{true}}">
+		
 		<view slot="content" class="text-shadow-meows">
-		<text class="text-white text-bold">简介</text>
+			<text class="text-white text-bold">简介</text>
 		</view>
-</cu-custom>
+	</cu-custom>
 
-<view class="padding">
-	<view class="padding-xl radius shadow-warp bg-white margin-top">
-		<view class="flex justify-center">
-			<image class="cu-avatar xl round" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/head_photo.jpg"></image>
-		</view>
-		<view class="flex justify-center margin-top-sm">
-			<text class="text-bold">颯龘</text>
-		</view>
-		<view class="flex justify-center margin-top-sm">
-			<text>期望职位：</text>
-			<text class="text-shadow text-orange">教师</text>
-		</view>
-		<view class="flex justify-center margin-top-sm">
-			<text>男</text>
-			<text class="margin-left-sm">22岁</text>
-			<text class="margin-left-sm">现居：陕西西安</text>
-		</view>
-		<view class="flex justify-around margin-top-sm">
-			<view bindtap="showQrcode1">
-				<text class="cuIcon-weixin text-xl text-blue"></text>
-				<text class="margin-left-xs">微信</text>
+	<view class="padding">
+		<view class="padding-xl radius shadow-warp bg-white margin-top">
+			<view class="flex justify-center">
+				<image class="cu-avatar xl round"
+					src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/head_photo.jpg"></image>
 			</view>
-			<view bindtap="showQrcode2">
-				<text class="cuIcon-wenzi text-xl text-blue"></text>
-				<text class="margin-left-xs">钉钉</text>
+			<view class="flex justify-center margin-top-sm">
+				<text class="text-bold">颯龘</text>
 			</view>
-			<view bindtap="phoneCall">
-				<text class="cuIcon-phone text-xl text-blue"></text>
-				<text class="margin-left-xs">电话</text>
+			<view class="flex justify-center margin-top-sm">
+				<text>期望职位：</text>
+				<text class="text-shadow text-orange">教师</text>
 			</view>
-			<view bindtap="saveContact">
-				<text class="cuIcon-addressbook text-xl text-blue"></text>
-				<text class="margin-left-xs">保存通讯录</text>
+			<view class="flex justify-center margin-top-sm">
+				<text>男</text>
+				<text class="margin-left-sm">22岁</text>
+				<text class="margin-left-sm">现居：陕西西安</text>
+			</view>
+			<view class="flex justify-around margin-top-sm">
+				<view bindtap="showQrcode1">
+					<text class="cuIcon-weixin text-xl text-blue"></text>
+					<text class="margin-left-xs">微信</text>
+				</view>
+				<view bindtap="showQrcode2">
+					<text class="cuIcon-wenzi text-xl text-blue"></text>
+					<text class="margin-left-xs">钉钉</text>
+				</view>
+				<view bindtap="phoneCall">
+					<text class="cuIcon-phone text-xl text-blue"></text>
+					<text class="margin-left-xs">电话</text>
+				</view>
+				<view bindtap="saveContact">
+					<text class="cuIcon-addressbook text-xl text-blue"></text>
+					<text class="margin-left-xs">保存通讯录</text>
+				</view>
+			</view>
+		</view>
+		<view class="padding-xl radius shadow-warp bg-white margin-top format">
+			<view class="cuIcon-group_fill text-xl text-blue text-center"></view>
+			<view class="edu margin-top text-center text-bold"></view>
+			<view class="margin-top">
+				<text class="cuIcon-time"></text>
+				<text class="margin-left-sm">2022年毕业</text>
+			</view>
+			<view class="margin-top-sm">
+				<text class="cuIcon-home"></text>
+				<text class="margin-left-sm">陕西师范大学</text>
+			</view>
+			<view class="margin-top-sm">
+				<text class="cuIcon-attentionfavor"></text>
+				<mp-icon icon="add" color="black" size="{{25}}"></mp-icon>
+				<text class="margin-left-sm">教育技术学专业/本科</text>
+			</view>
+		</view>
+		<view class="padding-xl radius shadow-warp bg-white margin-top">
+			<view class="cuIcon-medalfill text-xl text-blue text-center"></view>
+			<view class="medalfill margin-top text-center text-bold"></view>
+			<view class="margin-top evaluate-cont">
+				<text>阿里云云计算助理工程师认证（ACA）</text>
+				<text>阿里云云原生助理工程师认证（ACA）</text>
+				<text>阿里云Apsara Clouder基础技能认证：阿里巴巴编码规范</text>
+			</view>
+		</view>
+		<view class="padding-xl radius shadow-warp bg-white margin-top last-panel">
+			<view class="cuIcon-appreciatefill text-xl text-blue text-center"></view>
+			<view class="evaluate margin-top text-center text-bold"></view>
+			<view class="margin-top evaluate-cont">
+				<text>All at sea.</text>
+				<text>希望能成为一个有趣的人。希望能创造出可以成为他人回忆的事物。</text>
+				<text>21 岁，是学生。 成长 ing。</text>
+				<text>在下年满十八，遵纪守法，爱国爱家，不碰烟酒，善养鸡鸭，多素少荤，爱吃西瓜。</text>
+				<text>网络中文昵称从初一就在用了，全网除了重复，几乎就这一个名字了。英文：Sakaay、Sakay、sada……比较多，以后确定用Sakaay吧（这取决于这个域名还能续费多长时间）。</text>
+				<text>爱好：乒乓球、篮球、开源、Web、Serverless、摸鱼</text>
+				<text>喜欢：西瓜、睡觉、可爱的女孩子、萌宠、</text>
+				<text>讨厌：肥肉（啊，我是指吃的那种）</text>
+				<text>目标：前端工程师 || 高级工程师（不管什么工程师一定要高级） || 人民教师</text>
+				<text>梦想：插画师 && 漫画家 && 作家 && 动画人 && 独立游戏制作人 && 全职开源作者 && 🦸‍♂️（皆为不切实际的）</text>
+				<text>争取再搞个阿里云的MVP玩玩。</text>
+				<text>以及种花种草，养狗养猫，孤独终老。</text>
+			</view>
+		</view>
+		<view class="padding-xl radius shadow-warp bg-white margin-top last-panel">
+			<view class="cuIcon-appreciatefill text-xl text-blue text-center"></view>
+			<view class="evaluate margin-top text-center text-bold"></view>
+			<view class="margin-top evaluate-cont">
+				<text>大部分社交方式都已放在下面了，你可以选择你喜欢的方式联系我或找我玩。</text>
+				<text>网络上见到的 颯龘 或者 Sakaay或者sada 的 ID 大部分应该是我，如果重名我会加一个后缀。</text>
+				<text>Email：3206908770@qq.com，QQ邮箱</text>
+				<text>Github：sa-da-sa-da，菜鸡乱开坑。</text>
+				<text>Gitee：Sakay，菜鸡乱开坑。</text>
+				<text>微博：颯龘，说了也白说，但不说白不说。文明守法，因为自己实在没有有趣的经历可以装 B。</text>
+				<text>哔哩哔哩：颯龘dx，只看不点赞，不评论。</text>
+				<text>知乎：颯龘，泻药，人在美国刚下飞机。只看不答，文明守法，因为自己实在没有有趣的经历可以装 B。</text>
+				<text>网易云音乐：颯龘dx，好听就行，音乐素养 = 0。</text>
+				<text>😜 如果你觉得本小程序还算有趣或有用，可以经常来看或者添加我的小程序。</text>
+			</view>
+		</view>
+		<view class="padding-xl radius shadow-warp bg-white margin-top last-panel">
+			<view class="cuIcon-appreciatefill text-xl text-blue text-center"></view>
+			<view class="evaluate margin-top text-center text-bold"></view>
+			<view class="margin-top evaluate-cont">
+				<text>不务正业的闲聊 QQ 号：3206908770（欢迎来聊）</text>
+				<text>留言板：有啥想说的，欢迎通过各种方式联系我</text>
 			</view>
 		</view>
 	</view>
-	<view class="padding-xl radius shadow-warp bg-white margin-top format">
-		<view class="cuIcon-group_fill text-xl text-blue text-center"></view>
-		<view class="edu margin-top text-center text-bold"></view>
-		<view class="margin-top">
-			<text class="cuIcon-time"></text>
-			<text class="margin-left-sm">2022年毕业</text>
-		</view>
-		<view class="margin-top-sm">
-			<text class="cuIcon-home"></text>
-			<text class="margin-left-sm">陕西师范大学</text>
-		</view>
-		<view class="margin-top-sm">
-			<text class="cuIcon-attentionfavor"></text><mp-icon icon="add" color="black" size="{{25}}"></mp-icon>
-			<text class="margin-left-sm">教育技术学专业/本科</text>
-		</view>
-	</view>
-	<view class="padding-xl radius shadow-warp bg-white margin-top">
-		<view class="cuIcon-medalfill text-xl text-blue text-center"></view>
-		<view class="medalfill margin-top text-center text-bold"></view>
-		<view class="margin-top evaluate-cont">
-			<text>阿里云云计算助理工程师认证（ACA）</text>
-			<text>阿里云云原生助理工程师认证（ACA）</text>
-			<text>阿里云Apsara Clouder基础技能认证：阿里巴巴编码规范</text>
-			<text>阿里云Apsara Clouder专项技能认证：实现调用API接口</text>
-		</view>
-	</view>
-	<view class="padding-xl radius shadow-warp bg-white margin-top last-panel">
-		<view class="cuIcon-appreciatefill text-xl text-blue text-center"></view>
-		<view class="evaluate margin-top text-center text-bold"></view>
-		<view class="margin-top evaluate-cont">
-			<text>工作认真负责，能很好完成领导交代的任务。 </text>
-			<text>喜欢研究新技术，平时有时间就看视频，补不足。</text>
-			<text>喜欢逛码云、gitHub找一些有意思的开源项目或者功能学习然后加到自己个人项目中，已有个人博客、个人简历等三个开源项目。</text>
-		</view>
-	</view>
-</view>
 
 </scroll-view>

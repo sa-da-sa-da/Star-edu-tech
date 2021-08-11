@@ -394,7 +394,7 @@ background-color: #fff;
   height: 40px;
 }
 .de-main {
-  animation: fadeInUp .8s;
+  animation: fadeInUp .3s;
   background-color:  #f8f8f8;
 }
 

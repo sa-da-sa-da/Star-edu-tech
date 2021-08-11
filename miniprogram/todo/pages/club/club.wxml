@@ -1,0 +1,43 @@
+<!--miniprogram/pages/club/club.wxml-->
+<view>
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  
+  <view slot="content">Star 组织</view>
+</cu-custom>
+
+ <!--搜索框 
+ <view class="top-search">
+	<view class="search">
+		<icon type="search"></icon>
+		<input type="text" class="search-box" placeholder="请输入机构名称" bindinput='getinputvalue' value="{{inputValue}}"></input>
+	</view>
+</view>
+
+<!-- 导航栏 -->
+<scroll-view id="scrollx1" scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="true">
+		<view wx:for="{{typeList}}" wx:for-index="i" wx:key="*this" data-current="{{i}}" class="tab-item {{currentTab==i?'active':''}}" bindtap="swichNav">
+			{{item}}
+		</view>
+</scroll-view>
+
+<swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+	<swiper-item wx:for="{{typeList}}" wx:key="*this" wx:for-index="type">
+		<scroll-view scroll-y="true" class="scoll-h">
+			<view class="scroll-content">
+				<view class="none-tip" wx:if="{{!allData[typeList[type]]||allData[typeList[type]].length==0}}">暂无信息</view>
+				<block wx:for="{{allData[typeList[type]]}}"  wx:for-item="organization" wx:key="_id" >
+					<view class="item-ans" bindtap="selectOrganization" data-organization="{{organization}}">
+						<view class="avatar">
+							<image class="img" src="{{organization.logo}}"></image>
+						</view>
+						<view class="expertInfo">
+							<view class="name">{{organization.name}}</view>
+							<view class="tag">{{organization.introduce}}</view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</scroll-view>
+	</swiper-item>
+</swiper>
+</view>

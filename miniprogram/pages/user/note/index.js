@@ -1,27 +1,29 @@
 import api from "../../../utils/api.js"
 import task from "../../../utils/request.js"
-var {config} = require('../../../utils/config.js');
+var {
+  config
+} = require('../../../utils/config.js');
 const db = wx.cloud.database({
   env: config.env
 })
 
 const app = getApp()
 Component({
-  options:{
-    addGlobalClass:true
+  options: {
+    addGlobalClass: true
   },
 
-  ready(){
+  ready() {
     this.initial()
   },
 
-  created(){
+  created() {
     this.Load_list()
   },
 
   methods: {
-
-    initial(){
+    
+    initial() {
       task.Tree_get(api.GET_note).then(res => {
         this.setData({
           note_list: res
@@ -36,21 +38,28 @@ Component({
       })
     },
 
-    Load_list(){
-      let openid = wx.getStorageSync("openid")
-      db.collection('note').where({
-        _openid: openid
-      }).get().then(res=>{
+    Load_list() {
+      var that = this;
+      db.collection('note')
+      .where({status:true})
+      .orderBy('time','desc')
+      .watch({
+        onChange: function (snapshot) {
+          console.log(snapshot)
+          that.setData({
+            note_list: snapshot.docs
+          })
+        },
+        onError: function (err) {
+          console.error('the watch closed because of error', err)
+        }
+      })
+
+      /*.get().then(res=>{
       this.setData({
         note_list: res
       })
-      })
+      })*/
     },
-    delete_list(){
-      let openid = wx.getStorageSync("openid")
-      db.collection('note').where({
-        _openid: openid
-      })
-    }
   },
 })

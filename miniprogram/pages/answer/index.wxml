@@ -1,0 +1,128 @@
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="content">教技题库</view>
+</cu-custom>
+<view class="page-box">
+  <view class="ans_bst">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action sub-title">
+        <text class="text-xl text-bold  text-tree">笔试题 105题</text>
+        <text class="bg-tree"></text>
+      </view>
+      <navigator class="ntp" url="/pages/answer/fl_problem/index">查看更多
+        <van-icon name="arrow" />
+      </navigator>
+    </view>
+    <view class="scroll_box">
+      <scroll-view scroll-x>
+        <navigator hover-class="item-hover" url="/pages/details/details_pro/index?id={{items._id}}" class="item_list"
+          wx:for="{{ xw_list}}" wx:key="this" wx:for-item="items">
+          <view class="item_list_ds">
+            <view class="dis2">
+              <view class="item_top_Wz">热</view>
+              <view class="item_top_Wz2"> {{items.problem}}</view>
+            </view>
+          </view>
+        </navigator>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="ans_xzt">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action sub-title">
+        <text class="text-xl text-bold  text-tree">选择题</text>
+        <text class="bg-tree"></text>
+        <!-- last-child选择器-->
+      </view>
+    </view>
+    <view class="order">
+      <view class="top">
+        <view class="left">
+          <view class="cuIcon-titles text-blue"></view>
+          <view class="store">STEAM教育</view>
+        </view>
+        <view class="right">
+          <text class="text-blue"></text>
+          <view class="progressBox">
+            <view class="cu-progress radius striped active">
+              <view class="bg-tree" style="width:{{loading?'25%':''}};">25%</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="item" wx-for="{{dataList.goodsList}}" :key="index">
+        <view class="left">
+          <image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/steam_001.png"
+            mode="aspectFill"></image>
+        </view>
+        <view class="content">
+          <view class="type">
+            STEM是科学（Science），技术（Technology），工程（Engineering），数学（Mathematics）四门学科英文首字母的缩写，其中科学在于认识世界、解释自然界的客观规律；技术和工程则是在尊重自然规律的基础上改造世界、实现与自然界的和谐共处、解决社会发展过程中遇到的难题；数学则作为技术与工程学科的基础工具。
+          </view>
+        </view>
+      </view>
+      <view class="fgx" color="#f1f1f1" margin="24rpx 0 15rpx 0"></view>
+      <view class="bottom">
+        <view>
+          <text class="text-tree">题库题目{{ js_L}}道</text>
+        </view>
+        <navigator class="btnBox" url="/pages/answer/details_ans/index?id=Js">
+          <view bindtap="goClass" class="evaluate btn">开始答题</view>
+        </navigator>
+      </view>
+    </view>
+    <view class="order">
+      <view class="top">
+        <view class="left">
+          <view class="cuIcon-titles text-blue"></view>
+          <view class="store">教育技术</view>
+        </view>
+        <view class="right">
+          <text class="text-blue"></text>
+          <view class="progressBox">
+            <view class="cu-progress radius striped active">
+              <view class="bg-tree" style="width:{{loading?'30%':''}};">30%</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="item" wx-for="{{dataList.goodsList}}" :key="index">
+        <view class="left">
+          <image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/edutech_001.png"
+            mode="aspectFill"></image>
+        </view>
+        <view class="content">
+          <view class="type">教育技术指在教育中应用现代科学技术。20
+            世纪后，随着现代科学技术的发展，幻灯、投影、电影、录音、录像、广播、电视等现代技术被广泛应用于教育，扩大了教育、教学活动范围，提高了效率与质量。1974
+            年，美国发射第一颗专用于教学的“实用技术卫星”，标志现代教育技术发展到一个新的阶段。此后，人们进一步探索电子计算机、微电子技术、光纤通信的最新成果给发展教育技术带来的新课题。</view>
+        </view>
+      </view>
+      <view class="fgx" color="#f1f1f1" margin="24rpx 0 15rpx 0"></view>
+      <view class="bottom">
+        <view>
+          <text class="text-tree">题库题目{{ CS_L}}道</text>
+        </view>
+        <navigator class="btnBox" url="/pages/answer/details_ans/index?id=CSS">
+          <view bindtap="goClass" class="evaluate btn">开始答题</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="study_list">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action sub-title">
+        <text class="text-xl text-bold  text-tree">教资精讲</text>
+        <text class="bg-tree"></text>
+        <!-- last-child选择器-->
+      </view>
+
+    </view>
+    <list list="{{wz_list}}"></list>
+  </view>
+</view>
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+  }
+  module.exports.format = format
+</wxs>

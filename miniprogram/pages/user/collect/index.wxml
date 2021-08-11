@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}" >
+<cu-custom bgColor="bg-blue" isBack="{{true}}" >
   <view slot="content"></view>
 </cu-custom>
 <view class="main">

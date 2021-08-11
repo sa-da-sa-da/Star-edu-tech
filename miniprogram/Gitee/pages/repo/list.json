@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "仓库",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "repo-item": "../../components/repoitem/index",
+    "cu-custom":"../../../components/cu-custom/index"
+  }
+}

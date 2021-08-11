@@ -1,4 +1,5 @@
 var permission = require('/utils/permission.js');
+
 var {
   config
 } = require('/utils/config.js');
@@ -29,7 +30,9 @@ App({
         }
       }
     })
+    
   },
+
   globalData: {
     type: 0
   },

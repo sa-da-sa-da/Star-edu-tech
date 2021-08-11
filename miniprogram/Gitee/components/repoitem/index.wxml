@@ -1,0 +1,25 @@
+<!--components/repoitem/index.wxml-->
+<view class="repo-item">
+  <navigator url="../../pages/repo/home?path={{ repoData.repo_path || repoData.full_name }}" hover-class="none">
+    <view class="repo-title">
+      <image class="icon" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/repo.png" mode="widthFix"></image>
+      <text>{{ repoData.repo_title || repoData.human_name }}</text>
+    </view>
+    <view wx:if="{{repoData.repo_desc || repoData.description}}" class="repo-desc">{{ repoData.repo_desc || repoData.description }}</view>
+    <view wx:if="{{ repoData.owner_url || repoData.human_name }}" class="repo-social">
+      <view class="repo-icon">
+        <image class="icon" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/watch.png" mode="widthFix"></image>
+        {{ repoData.watch || repoData.watchers_count || 0 }}
+      </view>
+      <view class="repo-icon">
+        <image class="icon" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/star.png" mode="widthFix"></image>
+        {{ repoData.star || repoData.stargazers_count || 0 }}
+      </view>
+      <view class="repo-icon">
+        <image class="icon" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/fork.png" mode="widthFix"></image>
+        {{ repoData.fork || repoData.forks_count || 0 }}
+      </view>
+      <view wx:if="{{ repoData.repo_lang || repoData.language }}" class="repo-lang">{{ repoData.repo_lang || repoData.language }}</view>
+    </view>
+  </navigator>
+</view>

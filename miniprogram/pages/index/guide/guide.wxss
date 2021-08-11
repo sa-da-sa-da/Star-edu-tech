@@ -18,7 +18,7 @@
   width: 51px;
   height: 61px;  
   margin:15% 0 4% 74%;
-  animation:jello 4s;
+  animation:jello 2s;
 }
 .tree_wz{
   float:right;
@@ -30,7 +30,7 @@
   text-align:center;
   border-radius:34rpx;
   margin: 0 0 0 15%;
-  animation:fadeInLeft 1s ;
+  animation:fadeInLeft 0.5s ;
 }
 /* .cont>view:nth-child(1){
   animation:fadeInLeft 2s ;
@@ -123,7 +123,7 @@
 } */
 .tree_bottom{
   width:60%;
-  animation: fadeIn 7s ;
+  animation: fadeIn 3s ;
   font-size:30rpx;
   line-height:72rpx;
   text-align:center;

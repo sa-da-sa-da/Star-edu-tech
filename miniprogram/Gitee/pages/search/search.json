@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "cu-custom":"../../../components/cu-custom/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  }
+}

@@ -1,7 +1,6 @@
 const app = getApp()
-var {config} = require('../../../utils/config.js');
 const db = wx.cloud.database({
-  env: config.env
+  env: "treeworld-2g5yvz9s899bf4a6"
 })
 /**
  * 页面的初始数据

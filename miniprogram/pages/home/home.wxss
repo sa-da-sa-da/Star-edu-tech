@@ -1,6 +1,9 @@
 @import '/style/icon.wxss';
 @import "../../style/main.wxss";
 
+.zdy-color{
+  background-color:#3963BC;
+}
 .home {
   padding-bottom: 60px;
 }
@@ -45,11 +48,9 @@
 .home-top {
   height: 135px;
   padding-top: 14px;
-  background: linear-gradient(to top, #1d4259, #122640);
+  background: linear-gradient(to top,#f7f7f7, #3963BC);
   width: 100%;
   position: absolute;
-
-
 }
 
 .home_board_wz2 {
@@ -135,9 +136,8 @@
 
 
 .index_tb {
-  background-color: #122640;
+  background-color: #3963BC;
   color: white;
-
 }
 
 .dis {
@@ -185,7 +185,7 @@
   background: #f8f8f8;
   height: 99.5%;
   width: 100%;
-  animation: fadeIn .6s;
+  animation: fadeIn .3s;
   min-height: 99.5vh;
 }
 

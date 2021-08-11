@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
-  <view slot="content">教技书库</view>
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="content">题目自测</view>
 </cu-custom>
 <view class="page-box">
   <view class="ans_bst">
@@ -15,7 +15,7 @@
     <view class="scroll_box">
       <scroll-view scroll-x>
         <navigator hover-class="item-hover" url="/pages/details/details_pro/index?id={{items._id}}" class="item_list"
-          wx:for="{{ xw_list}}" wx:key="this" wx:for-item="items">
+          wx:for="{{xw_list}}" wx:key="this" wx:for-item="items">
           <view class="item_list_ds">
             <view class="dis2">
               <view class="item_top_Wz">热</view>
@@ -53,7 +53,7 @@
       <view class="item" wx-for="{{dataList.goodsList}}" :key="index">
         <view class="left">
           <image
-            src="cloud://demo-8gww0qau03b0af5a.7472-demo-8gww0qau03b0af5a-1259429368/263b1249013bbd23267d8beacf256d19.jpeg"
+            src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/1.jpg"
             mode="aspectFill"></image>
         </view>
         <view class="content">
@@ -63,7 +63,7 @@
       <view class="fgx" color="#f1f1f1" margin="24rpx 0 15rpx 0"></view>
       <view class="bottom">
         <view>
-          <text class="text-tree">题库题目{{ js_L}}道</text>
+          <text class="text-tree">题库题目{{js_L}}道</text>
         </view>
         <navigator class="btnBox" url="/pages/answer/details_ans/index?id=Js">
           <view bindtap="goClass" class="evaluate btn">开始答题</view>
@@ -88,7 +88,7 @@
       <view class="item" wx-for="{{dataList.goodsList}}" :key="index">
         <view class="left">
           <image
-            src="cloud://demo-8gww0qau03b0af5a.7472-demo-8gww0qau03b0af5a-1259429368/c83d70cf3bc79f3ddd3c5e18b7a1cd11728b293c.png"
+            src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/1.jpg"
             mode="aspectFill"></image>
         </view>
         <view class="content">

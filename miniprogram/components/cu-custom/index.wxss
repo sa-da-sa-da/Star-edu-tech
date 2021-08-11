@@ -2,9 +2,6 @@
 .servic_top {
 
   padding-top: 14px;
-
-
-
   display: flex;
   color: #Fff;
   padding: 15px 15px;
