@@ -5,61 +5,55 @@
 	<view class="home-top">
 	</view>
 	<tree_swiper></tree_swiper>
-	<van-grid :gutter="10" >
-			<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/gitee_logo.jpg"
-				url="../../Gitee/pages/explore/explore" text="Gitee" />
-				<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/方形logo.png"
-				url="/pages/study/history/index" text="使用说明" />
-				<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/做题.png"
-				url="../../todo/pages/dealtList/dealtList" text="Star待办" />
-				<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/shetuanlianhehui.jpg"
-				url="../../todo/pages/club/club" text="Star 组织"/>
-				<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/地图.png"
-				url="../../todo/pages/school-map/school-map" text="Star 校园"/>
-				<van-grid-item v-for="value in 8" :key="value"
-				icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/表白.png"
-				url="../../todo/pages/love/love" text="Star 心路"/>
+	<view class="home_sign">
+		<van-grid :border="false" clickable :gutter="0" column-num="5">
+			<van-grid-item v-for="value in 8" :key="value" icon="location-o"
+				url="../../todo/pages/school-map/school-map" text="Star 校园" />
+			<van-grid-item v-for="value in 8" :key="value" icon="friends-o" url="../../todo/pages/club/club"
+				text="Star 组织" />
+			<van-grid-item v-for="value in 8" :key="value" icon="records" url="../../todo/pages/dealtList/dealtList"
+				text="Star 待办" />
+			<van-grid-item v-for="value in 8" :key="value" icon="like-o" url="../../todo/pages/love/love"
+				text="Star 心路" />
+			<van-grid-item v-for="value in 8" :key="value" icon="newspaper-o" url=""
+				text="Star 周历" />
 		</van-grid>
-
+	</view>
 	<swiper class='home-gg' autoplay="true" vertical='true' circular='true' interval='3000'>
 		<block wx:for="{{nt_list}}" wx:key="this" wx:for-item="items">
-		<navigator url="/pages/home/circular/index">
-			<swiper-item class="home-gg2">
-				<view>
-					<view data-id="{{items._id}}" bindtap="tz" data-a="details/notice/notice?id={{items._id}}">{{items.Type}}</view>
-				</view>
-				<view data-url="details/notice/notice">{{items.tille}}</view>
-			</swiper-item>
-		</navigator>
+			<navigator url="/pages/home/circular/index">
+				<swiper-item class="home-gg2">
+					<view>
+						<view data-id="{{items._id}}" bindtap="tz" data-a="details/notice/notice?id={{items._id}}">
+							{{items.Type}}</view>
+					</view>
+					<view data-url="details/notice/notice">{{items.tille}}</view>
+				</swiper-item>
+			</navigator>
 		</block>
 	</swiper>
-	
 	<view class="home_sign">
-		<van-cell  url="">
+		<van-cell url="">
 			<view slot="title">
 				<view class="dis_fl">
 					<view class="cu-avatar-group">
-						<view class="cu-avatar round " wx:for="{{userlist}}" wx:if="{{index<4}}" wx:key="this" wx:index="index"
-							wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
+						<view class="cu-avatar round " wx:for="{{userlist}}" wx:if="{{index<4}}" wx:key="this"
+							wx:index="index" wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
 						</view>
 					</view>
-					<view class="tree_dis_c">等 <text class="text-yellow"> {{total}}</text> 名用户今天活跃 <van-icon name="arrow" /></view>
+					<view class="tree_dis_c">等 <text class="text-blue"> {{total}}</text> 名用户今天活跃
+						<van-icon name="arrow" />
+					</view>
 				</view>
-
 			</view>
-
 		</van-cell>
 	</view>
 
-	
+
 	<view class='nav-list_df'>
 		<view class="nav-list-left">
-			<navigator hover-class='none' url="/pages/home/dictionaries/dictionaries" style="height:96%;" class="nav-li bg_kl">
+			<navigator hover-class='none' url="/pages/home/dictionaries/dictionaries" style="height:96%;"
+				class="nav-li bg_kl">
 				<view class="nav-title">教技字典</view>
 				<view class="mt10 nav-name ">
 					千里之行<view>始于足下</view>
@@ -86,15 +80,14 @@
 	<view class="main_title">
 		<view class="min_height cu-bar">
 			<view class="action sub-title">
-				<text class="text-xl text-bold text-tree">推荐Top </text>
-				<text class="text-ABC text-tree">推荐Top</text>
+				<text class="text-ABC text-bold text-blue" style="width: 160rpx; height: 68rpx; display: block; box-sizing: border-box; left: -8rpx; top: -5rpx; position: relative; font-size: 20px">推荐Top </text>
+				<text class="text-ABC text-bold text-blue" style="width: 160rpx; height: 100rpx; display: block; box-sizing: border-box; left: -8rpx; top: 14rpx; position: absolute">推荐Top</text>
 			</view>
 		</view>
-		<view>
-		</view>
 	</view>
+	
 	<view class="home-jcly">
-		<top_list list="{{top_list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></top_list>
+		<top_list list="{{top_list}}"></top_list>
 	</view>
 	<van-divider contentPosition="center">到底啦，更多学习相关的内容请您跳转学习模块</van-divider>
 	<van-divider contentPosition="center"></van-divider>

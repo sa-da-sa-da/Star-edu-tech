@@ -124,11 +124,11 @@ Page({
     if (options.id) {
       this.initial(options.id)
     }
-    if (options.wzid) {
+    if (options.id) {
       this.setData({
-        press_id: options.wzid
+        press_id: options.id
       })
-      db.collection('press').doc(options.wzid).get().then(res => {
+      db.collection('press').doc(options.id).get().then(res => {
         console.log(res.data)
         this.setData({
           ly: res.data.tille

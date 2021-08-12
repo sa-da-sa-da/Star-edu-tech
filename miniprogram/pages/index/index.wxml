@@ -1,6 +1,6 @@
 <view class="main">
 	<van-notify id="van-notify" top="{{180}}" />
-	<guide />
+	<guide/>
 	<view>
 		<home popr="{{hd_op}}" wx:if="{{id==0}}" />
 		<!-- <question wx:if="{{id==1}}" /> -->

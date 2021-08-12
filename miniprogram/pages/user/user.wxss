@@ -91,7 +91,9 @@ button {
   background-size: cover;
   background-position: center center;
   background-image: url('https://7472-treeworld-2g5yvz9s899bf4a6-1259429368.tcb.qcloud.la/user_bg1.png?sign=9a77fccae10229823136ec0595cb5678&t=1619763473');
-  background-color: #3963BC
+  background-color: (to top left, #000000, #434343);
+  background-image: var(--gradualBlue);
+	color: var(--white);
 }
 
 .user-section .bg {
@@ -141,7 +143,7 @@ button {
 
 .user-info-box .username2 {
   font-size: 24rpx;
-  color: #d69c63;
+  color: #220f6e;
   margin-left: 30rpx;
 }
 
@@ -215,7 +217,7 @@ button {
 }
 
 .bg_fe {
-  background-color: #ffc168;
+  background-color: #6890ff;
   color: #fff
 }
 

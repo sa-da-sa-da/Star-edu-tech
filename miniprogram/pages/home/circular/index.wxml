@@ -6,47 +6,27 @@
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
     <view slot="content">公告</view>
 </cu-custom>
-<view class="home">
-    <navigator class="home-list" wx:if="{{!loding}}" wx:for="{{nt_list}}" wx:key="this" wx:index="index"
-        wx:for-item="items" url="/pages/details/notice/notice?id={{items._id}}" hover-class="item-hover"
-        hover-stay-time="100">
-        <view class="home-list_df" wx:if="{{items.img}}">
-            <view class="home-list-right">
-                <view class="home-list-right_tille">{{items.tille}}</view>
-                <view class="home-list-right_mec">
-                    {{items.mec}}
-                </view>
-            </view>
-            <view class="home-list-left shadow">
-                <view class="">
-                    <image src="{{items.img}}"></image>
-                </view>
-            </view>
+<view class="cu-card article" wx:if="{{!loding}}" wx:for="{{nt_list}}" wx:key="this" wx:index="index"
+    wx:for-item="items" data-id="{{items._id}}" bindtap="tz" data-url="details/notice/notice"
+    hover-class="item-hover" hover-stay-time="100">
+    <view class="cu-item shadow ">
+      <view class="title">
+        {{items.tille}}
+        <view class="cu-tag bg-blue light sm radius text-left">{{items.Type}}</view>
+      </view>
+      <view class="content">
+        <image src="{{items.img}}" mode="aspectFill" style="position: relative; left: -2rpx; top: 0rpx"></image>
+        <view class="desc">
+          <view class="text-content"> {{items.mec}}</view>
+          <view class="text-gray text-sm text-right ">
+            <van-icon name="clock" />{{m1.format(items.add_time)}}<text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>
+            <van-icon name="fire" />{{items.browse||0}}<text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;</text>
+          </view>
         </view>
-        <view class="home-list-dlimg" wx:if="{{!items.img}}">
-            <view class="home-list-dlimg_tl">
-                {{items.tille}}
-            </view>
-            <view class="home-list-dlimg_mc">
-                {{items.mec}}
-            </view>
-        </view>
-        <view class="home-list-bottom">
-            <view class="dis">
-                <view class="home-list-type2">{{items.Type}}</view>
-                <view>
-                    <van-icon name="clock-o" />
-                    <view class="icon_wz">{{m1.format(items.add_time)}}</view>
-                </view>
-                <view>
-                    <van-icon name="fire" />
-                    <view class="icon_wz">{{items.browse||0}}</view>
-                </view>
-            </view>
-        </view>
-    </navigator>
-    <view><van-divider contentPosition="center">到底啦！再去看看别的吧！</van-divider></view>
-</view>
+      </view>
+    </view>
+  </view>
+  <view><van-divider contentPosition="center">到底啦！再去看看别的吧！</van-divider></view> 
 
 <wxs module="m1">
     function format(ts) {

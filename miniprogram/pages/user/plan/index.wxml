@@ -1,10 +1,8 @@
-<!--pages/signin/signin.wxml-->
-<cu-custom bgColor="bg-gradual-tree" isBack="{{true}}">
-  <view slot="content">Star Plan</view>
-</cu-custom>
-
 <view class="main">
-  <view class="sign_top" style="padding-top:{{StatusBar}}px">
+  <cu-custom bgColor="bg-blue " isBack="{{true}}">
+	<view slot="content">Star 周历</view>
+</cu-custom>
+  <view class="sign_top" >
     <view class="contant">
       <!-- 日历年月 -->
       <view class='calendar_title layer_center'>
@@ -25,9 +23,8 @@
           </view>
         </view>
         <view class='date-box'>
-          <block wx:for='{{date}}' wx:key='index'>
+          <block wx:for='{{dateArr}}' wx:key='index'>
             <view class='{{ isToday == item.isToday ? "nowDay" :item.choose?"nowsDay":""  }}'>
-
               <view class='date-head font28' data-year='{{year}}' bindtap="data_time" data-month='{{month}}'
                 data-datenum='{{year+""+(month<10?"0"+month:month) +""+item.dateNum}}'>
                 <view>{{item.dateNum}}</view>
@@ -35,31 +32,8 @@
             </view>
           </block>
         </view>
-
-
-      </view>
-
-    </view>
-
-
-  </view>
-
-  <view class="cu-list">
-    <view class="cu-item show">
-      <view class="content">
-        <view class="text-grey"></view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">
-            <text class="cuIcon-infofill text-red  margin-right-xs"></text> 
-          </text>
-        </view>
-      </view>
-      <view class="action">
-        <view class="text-grey text-xs"></view>
-        <view class="cu-tag round bg-grey sm"></view>
       </view>
     </view>
-
   </view>
-
+  <van-empty image="search" description="暂无内容" />
 </view>

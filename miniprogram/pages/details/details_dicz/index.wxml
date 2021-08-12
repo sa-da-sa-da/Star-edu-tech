@@ -7,9 +7,7 @@
 		<image class="loding_img" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/loding.gif">
 		</image>
 	</view>
-
 	<view class="mt10"> 数据加载中</view>
-
 </view>
 
 <view class="de-main" wx:if="{{!loding}}">

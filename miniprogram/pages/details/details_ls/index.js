@@ -18,7 +18,7 @@ Page({
   tz(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: "../../../pages/" + e.currentTarget.dataset.url + "?wzid=" + e.currentTarget.dataset.id
+      url: "../../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
     })
   },
   onLoad(options) {

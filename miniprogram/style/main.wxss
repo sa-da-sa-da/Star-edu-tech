@@ -2239,8 +2239,8 @@ button.icon.lg {
 	display: block;
 	background-color: var(--white);
 	overflow: hidden;
-	border-radius: 10rpx;
-	margin: 30rpx;
+	border-radius: 5rpx;
+	margin: 15rpx;
 }
 
 .cu-card>.cu-item.shadow-blur {

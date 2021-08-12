@@ -17,10 +17,10 @@
 			<view class="flex justify-center margin-top-sm">
 				<text class="text-bold">颯龘</text>
 			</view>
-			<view class="flex justify-center margin-top-sm">
+			<!--<view class="flex justify-center margin-top-sm">
 				<text>期望职位：</text>
 				<text class="text-shadow text-orange">教师</text>
-			</view>
+			</view>-->
 			<view class="flex justify-center margin-top-sm">
 				<text>男</text>
 				<text class="margin-left-sm">22岁</text>

@@ -30,7 +30,7 @@
   text-align:center;
   border-radius:34rpx;
   margin: 0 0 0 15%;
-  animation:fadeInLeft 0.5s ;
+  animation:fadeInLeft 0.1s ;
 }
 /* .cont>view:nth-child(1){
   animation:fadeInLeft 2s ;
@@ -123,7 +123,7 @@
 } */
 .tree_bottom{
   width:60%;
-  animation: fadeIn 3s ;
+  animation: fadeIn 1s ;
   font-size:30rpx;
   line-height:72rpx;
   text-align:center;

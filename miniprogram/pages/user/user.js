@@ -13,7 +13,10 @@ Component({
     coverTransform: "translateY(0px)",
     coverTransition: "0s",
     moving: !1,
+    
+
   },
+
   pageLifetimes: {
     show: function () {
       this.authorizer()
@@ -36,7 +39,7 @@ Component({
 
     sz() {
       wx.openSetting({
-        success: function (res) {}
+        success: function (res) { }
       })
     },
     ql() {
@@ -46,7 +49,22 @@ Component({
       })
       wx.clearStorage()
     },
-
+    SubmitSussgest() {
+      wx.navigateToMiniProgram({
+        appId: "wx8abaf00ee8c3202e",
+        path: 'page/index/index?id=123',
+        extraData: {
+          id: "344351",
+          customData: {
+            clientInfo: `iPhone OS 10.3.1 / 3.2.0.43 / 0`,
+            imei: '7280BECE2FC29544172A2B858E9E90D0'
+          }
+        },
+        success(res) {
+          console.log("打开成功。")
+        }
+      })
+    },
     hideModal() {
       this.setData({
         show: false
@@ -159,7 +177,7 @@ Component({
             nickName: res[0].nickName,
             userin: res[0],
             add_time: res[0].addtime,
-            _openid:res[0]._openid
+            _openid: res[0]._openid
           })
         } else {
           this.setData({

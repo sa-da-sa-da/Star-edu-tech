@@ -1,3 +1,4 @@
+@import "../../../style/main.wxss";
 .home-list-left {
   position: relative;
   width: 124px;

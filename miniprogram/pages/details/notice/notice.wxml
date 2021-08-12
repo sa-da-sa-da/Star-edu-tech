@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-blue" isBack="{{true}}" wx:if="{{fx_show}}">
 	
-	<view slot="content">文章</view>
+	<view slot="content">公告</view>
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
 	<view>
@@ -30,3 +30,4 @@
 		<mp-html showLanguageName="{{true}}" content="{{html}}" selectable="{{true}}" />
 	</view>
 </view>
+

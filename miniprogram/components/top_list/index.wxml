@@ -3,61 +3,29 @@
   <view class="pd" wx:if="{{loding}}">
     <van-skeleton title row="3" wx:for="{{3}}" wx:key="this" />
   </view>
-  <view class="home-list" wx:if="{{!loding}}" wx:for="{{top_list}}" wx:key="this" wx:for-item="items" data-id="{{items._id}}"
-    data-url="details/details_top/index" bindtap="tz" hover-class="item-hover" hover-stay-time="100">
-    <view class="home-list_df" wx:if="{{items.img}}">
-      <view class="home-list-right">
-        <view class="home-list-right_tille">{{items.tille}}</view>
-        <view class="home-list-right_mec">
-          {{items.mec}}
-        </view>
-      </view>
-
-      <view class="home-list-left shadow">
-        <view class="">
-          <image src="{{items.img}}"></image>
-        </view>
-        <!--<view>{{items.type}}</view> -->
-      </view>
-    </view>
-    <view class="home-list-dlimg" wx:if="{{!items.img}}">
-      <view class="home-list-dlimg_tl">
+  <view class="cu-card article" wx:if="{{!loding}}" wx:for="{{top_list}}" wx:key="this" wx:index="index"
+    wx:for-item="items" data-id="{{items._id}}" bindtap="tz" data-url="details/details_top/index"
+    hover-class="item-hover" hover-stay-time="100">
+    <view class="cu-item shadow ">
+      <view class="title">
         {{items.tille}}
+        <view class="cu-tag bg-blue light sm radius">{{items.ly}}</view>
       </view>
-      <view class="home-list-dlimg_mc">
-        {{items.mec}}
-      </view>
-    </view>
-    <view class="home-list-bottom">
-      <view class="dis">
-        <view class="home-list-type2" wx:if="{{circular_type}}">{{items.Type}}</view>
-        <view>
-          <van-icon name="good-job-o" />
-          <view class="icon_wz">{{items.statr}}</view>
+      <view class="content">
+        <image src="{{items.img}}" mode="aspectFill" style="position: relative; left: -2rpx; top: 0rpx"></image>
+        <view class="desc">
+          <view class="text-content"> {{items.mec}}</view>
+          <view class="text-gray text-sm text-right ">
+            <van-icon name="clock" />{{m1.format(items.add_time)}}<text decode="{{true}}">&nbsp;&nbsp;</text>
+            <van-icon name="star" />{{items.collect||0}}<text decode="{{true}}">&nbsp;&nbsp;</text>
+            <van-icon name="good-job" />{{items.statr||0}}<text decode="{{true}}">&nbsp;&nbsp;</text>
+            <van-icon name="fire" />{{items.browse||0}}<text decode="{{true}}"></text>
+          </view>
         </view>
-        <view>
-          <van-icon name="star-o" />
-          <view class="icon_wz">{{items.collect}}</view>
-        </view>
-        <view>
-          <van-icon name="clock-o" />
-          <view class="icon_wz">{{m1.format(items.add_time)}}</view>
-        </view>
-        <view>
-          <van-icon name="fire" />
-          <view class="icon_wz">{{items.browse||0}}</view>
-        </view>
-        <!-- <view>
-            <van-icon name="send-gift-o" />
-            <view class="icon_wz">{{items.type}}</view>
-          </view> -->
       </view>
     </view>
-    <!-- <view class="home-list-type2 ">{{index+1}}</view> -->
-
   </view>
 </view>
-
 <wxs module="m1">
   function format(ts) {
     var d = getDate(ts)

@@ -6,7 +6,7 @@
 }
 
 .study_tag {
-  color: #d69c63;
+  color: #6378d6;
 }
 
 
@@ -37,13 +37,13 @@
 
 
 .study_bg {
-  background-color: #d69c63;
+  background-color: #636fd6;
   color: #fff;
   animation: fadeIn .5s;
 }
 
 .xl_show {
-  background-color: #d69c63;
+  background-color: #636fd6;
   color: #fff;
   width: 10%;
   height: 40%;

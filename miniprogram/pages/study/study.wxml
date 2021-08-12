@@ -62,15 +62,14 @@
 					</navigator>
 				</scroll-view>
 			</view>-->
-			<view class="study_list">
-				<list list="{{list}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
-			</view>
-
+			
+				<list list="{{list}}"  loding="{{loding}}"></list>
+			
 		</van-tab>
 		<van-tab title="教技热榜">
-			<view class="study_list">
-				<list list="{{rb_list}}" phb="{{true}}" star="{{true}}" collect="{{true}}" loding="{{loding}}"></list>
-			</view>
+			
+				<list list="{{rb_list}}" phb="{{true}}" loding="{{loding}}"></list>
+			
 		</van-tab>
 		<van-tab title="教技专栏">
 			<val />

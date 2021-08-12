@@ -210,17 +210,16 @@
   margin: 10px;
   min-height: 400px;
   padding-top: 1px;
-  background: #fff;
   margin-top: 0px;
 }
 
 .bg_kl {
-  background: #c16550;
+  background: #506ec1;
   color: #fff
 }
 
 .bg_kl2 {
-  background: #40749c;
+  background: #136cb1;
   color: #fff
 }
 
@@ -233,7 +232,7 @@
 }
 
 .bg_kl3 {
-  background: #f2bf80;
+  background: #4539b3;
   color: #fff
 }
 

@@ -7,7 +7,6 @@
 		</image>
 	</view>
 	<view class="mt10"> 数据加载中</view>
-
 </view>
 
 <view style="background-color: #fff;padding: 20px;" wx:if="{{loding}}">
@@ -15,26 +14,33 @@
 </view>
 
 <view class="main" wx:if="{{!loding}}">
-	<view>
-		<view wx:if="{{article.img}}" class="de_Img">
-			<image src="{{article.img}}" alt="" />
-		</view>
-		<view class="tree_article_tl">
-			{{ article.tille}}
-		</view>
-		<view>
+	<view
+		style="background-image:url('https://7465-test-4gn9gu0ucc6657ba-1304273986.tcb.qcloud.la/zx_top_new.png?sign=e5625217828be9e6f74c8aa5d92ea70c&t=1628297418')">
+		<view class="detail_bg">
+			<view class="tree_article_tl">
+				{{ article.tille}}
+			</view>
 			<view class="tree_article_time ">
 				<view>时间：{{article.add_time}}</view>
 				<view>{{article.type}}</view>
 			</view>
+			<view class='text-gray text-lg text-right '>
+				<van-icon name="good-job" size="18px" color="pink" />
+				<text decode>{{article.statr}}&nbsp;&nbsp;</text>
+				<van-icon name="star" size="18px" color="orange" />
+				<text decode>{{article.collect}}&nbsp;&nbsp;</text>
+				<van-icon name="fire" size="18px" color="red" />
+				<text decode>{{article.browse}}&nbsp;&nbsp;</text>
+			</view>
 		</view>
 	</view>
+
 	<view class="tree_artice">
 		<view class="cu-capsule">
-			<view class="cu-tag bg-blue">
+			<view class="cu-tag bg-gradual-blue">
 				文章来源
 			</view>
-			<view class="cu-tag line-tree">
+			<view class="cu-tag line-blue">
 				{{article.ly||'掘金'}}
 			</view>
 		</view>
@@ -44,12 +50,12 @@
 	</view>
 	<view class="dbu">
 		<!-- 评论 -->
-		<view class="search-form search-round search-index " maxlength="300" cursor-spacing="10" data-id="{{xw_list._id}}"
-			data-url="user/note/add_note/index">
+		<view class="search-form search-round search-index " maxlength="300" cursor-spacing="10"
+			data-id="{{xw_list._id}}" data-url="user/note/add_note/index">
 			<text class="cuIcon-write text-bold text-lg bg-grey light"> </text>
 			<input bindinput='commentInput' confirm-type="send" bindfocus="onInputFocus" name="inputComment"
-				value="{{commentContent}}" placeholder-style="color:#39b54a" placeholder="{{placeholder}}" focus="{{focus}}"
-				bindblur="onReplyBlur" />
+				value="{{commentContent}}" placeholder-style="color:#39b54a" placeholder="{{placeholder}}"
+				focus="{{focus}}" bindblur="onReplyBlur" />
 		</view>
 		<!-- 笔记 -->
 		<!-- <view bindtap="tz" data-id="{{xw_list._id}}" data-url="user/note/add_note/index" wx:if="{{!isFocus}}">
@@ -57,27 +63,31 @@
 		</view> -->
 		<!-- 收藏/取消 -->
 		<view bindtap="statr_sc" data-id="collect" wx:if="{{sc_show}}">
-			<van-icon name="star" size="20px" color="orange" />
-			<view class="dbu_wz ">{{article.collect}}</view>
+			<van-icon name="star" size="30px" color="orange" />
+			<!--<view class="dbu_wz ">{{article.collect}}</view>-->
 		</view>
 		<view bindtap="statr_sc" data-id="collect" wx:else>
-			<van-icon name="star-o" size="20px" color="grey" />
-			<view class="dbu_wz ">{{article.collect}}</view>
+			<van-icon name="star-o" size="30px" color="grey" />
+			<!--<view class="dbu_wz ">{{article.collect}}</view>-->
 		</view>
 		<!-- 点赞/取消 -->
 		<view bindtap="statr_sc" data-id="statr" wx:if="{{dz_show}}">
-			<van-icon name="good-job" size="20px" color="orange" />
-			<view class="dbu_wz ">{{article.statr}}</view>
+			<van-icon name="good-job" size="30px" color="orange" />
+			<!--<view class="dbu_wz ">{{article.statr}}</view>-->
 		</view>
 		<view style="margin-right: -10rpx;" bindtap="statr_sc" data-id="statr" wx:else>
-			<van-icon name="good-job-o" size="20px" color="grey" />
-			<view class="dbu_wz ">{{article.statr}}</view>
+			<van-icon name="good-job-o" size="30px" color="grey" />
+			<!--<view class="dbu_wz ">{{article.statr}}</view>-->
 		</view>
-		<view bindtap="statr_sc" data-id="statr" class="cg_sp">
+		<!--<view bindtap="statr_sc" data-id="statr" class="cg_sp">
 			<van-icon name="fire" size="20px" />
 			<view class="dbu_wz ">{{article.browse}}</view>
+		</view>-->
+		<view style="margin-right: 16rpx; margin-top: 4rpx;">
+			<button class="btn_share" open-type="share" data-index="1">
+				<van-icon name="share-o" size="30px" color="grey"> </van-icon>
+			</button>
 		</view>
-
 		<!-- 发送评论 -->
 		<button class='cu-btn bg-green shadow-blur' style="height:8vw;width: 16vw;margin-right: 8rpx;"
 			bindtap="submitCommend" wx:if="{{isFocus}}">发送</button>
@@ -101,8 +111,8 @@
 				<view class="cu-avatar round" style="background-image:url({{item.cAvatarUrl}});" data-id="{{item._id}}"
 					data-name="{{item.cNickName}}" data-openid="{{item.cOpenId}}" bindtap="focusComment"></view>
 				<view class='content'>
-					<view class='text-grey' data-id="{{item._id}}" data-name="{{item.cNickName}}" data-openid="{{item.cOpenId}}"
-						bindtap="focusComment" wx:if="{{item.isVip}}" style="color:red">
+					<view class='text-grey' data-id="{{item._id}}" data-name="{{item.cNickName}}"
+						data-openid="{{item.cOpenId}}" bindtap="focusComment" wx:if="{{item.isVip}}" style="color:red">
 						{{item.cNickName}}
 					</view>
 					<view class='text-grey light' data-id="{{item._id}}" data-name="{{item.cNickName}}"
@@ -113,9 +123,10 @@
 					<view class='padding-xs radius  text-sm text-gray'>
 						<view class="bg-gray lighty flex" wx:for="{{item.childComment}}" wx:key="id" wx:for-index="id"
 							wx:for-item="childItem">
-							<view data-id="{{item._id}}" data-name="{{childItem.cNickName}}" data-openid="{{childItem.cOpenId}}"
-								bindtap="focusComment">
-								<view class='text-grey' wx:if="{{childItem.isVip}}" style="color:red">{{childItem.cNickName}}：</view>
+							<view data-id="{{item._id}}" data-name="{{childItem.cNickName}}"
+								data-openid="{{childItem.cOpenId}}" bindtap="focusComment">
+								<view class='text-grey' wx:if="{{childItem.isVip}}" style="color:red">
+									{{childItem.cNickName}}：</view>
 								<view class='text-grey' wx:else>{{childItem.cNickName}}：</view>
 							</view>
 							<view class='flex-sub'>{{childItem.comment}}</view>
@@ -133,8 +144,5 @@
 		</view>
 		<view style="padding:50rpx"></view>
 	</view>
-	<view class="share">
-		<button class="btn1" open-type="share" data-index="1"> <text class="cuIcon-share  "> </text> </button>
-	</view>
-	
+
 </view>

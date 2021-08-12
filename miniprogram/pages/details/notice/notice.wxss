@@ -121,13 +121,13 @@ image {
 }
 
 .loding_bg {
-  background: #122640;
+  background: #3963BC;
   display: flex;
   justify-content: center;
   color: #fff
 }
 
 .loding_img {
-  width: 100px;
+  width: 40px;
   height: 40px;
 }

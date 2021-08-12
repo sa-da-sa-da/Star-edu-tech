@@ -22,6 +22,7 @@
         "pages/user/user",
         "pages/user/favorite/favorite",
         "pages/user/aboutus/index",
+        "pages/user/plan/index",
         "pages/user/note/index",
         "pages/user/note/add/index",
         "pages/user/collect/index",

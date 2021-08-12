@@ -1,3 +1,5 @@
+@import "../../style/icon.wxss";
+@import "../../style/animated.wxss";
 .fixedc {
   position: fixed;
   bottom: 0;

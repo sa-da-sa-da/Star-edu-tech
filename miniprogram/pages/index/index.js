@@ -3,6 +3,7 @@ var {config} = require('../../utils/config.js');
 const db = wx.cloud.database({
   env: config.env
 })
+
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
 Page({
