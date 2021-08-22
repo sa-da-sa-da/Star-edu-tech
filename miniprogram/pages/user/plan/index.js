@@ -1,7 +1,7 @@
 // pages/signin/signin.js
-import envId from "../../../utils/config.js"
+import { config } from "../../../utils/config.js"
 const db = wx.cloud.database({
-  env: envId.envId
+  env: config.env
 })
 const _ = db.command
 var util = require('../../../utils/time.js');

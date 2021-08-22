@@ -217,13 +217,14 @@ button {
 }
 
 .bg_fe {
-  background-color: #6890ff;
-  color: #fff
+  background-image: var(--gradualBlue);
+	color: var(--white);
 }
 
 .bg_te {
-  background-color: #56a0d3;
-  color: #fff
+  background-image: var(--gradualBlue);
+	color: var(--white);
+  
 }
 
 .cover-container {
@@ -233,12 +234,14 @@ button {
   background-color: #fff;
   height: calc(100vh - 680rpx);
   padding-bottom: 20rpx;
+  
 }
 
 .user_jx {
   display: flex;
   padding: 20rpx;
   justify-content: space-between;
+  
 }
 
 .cover-container .arc {
@@ -360,3 +363,12 @@ font-weight: 400!important;
   border-radius: 6px;
 }
 
+.info-img{
+  position: fixed;
+  width: 400rpx;
+  height: 400rpx; 
+  left: 480rpx; 
+  top: 85rpx; 
+  display: inline-block; 
+  box-sizing: border-box;
+}

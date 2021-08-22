@@ -1,13 +1,9 @@
 // pages/signin/signin.js
-import {config} from "../../../utils/config.js"
-const db = wx.cloud.database({
-  env: config.env
-})
+import { config } from "../../../utils/config.js"
+const db = wx.cloud.database({ env: config.env })
 const _ = db.command
 var util = require('../../../utils/time.js');
-
 let app = getApp()
-const key = app.globalData.key
 Page({
 
   /**
@@ -15,6 +11,7 @@ Page({
    */
   data: {
     // 日历
+    show: true,
     year: 0,
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
@@ -36,83 +33,69 @@ Page({
 
   // 获取用户当前地理位置
 
-
   // 是否可以签到
   activeSign() {
     let t = this;
     let nowdate = t.data.isToday;
     let dateArr = t.data.dateArr;
     let yesDate = t.data.yesDate;
-
     // wx.requestSubscribeMessage({
-      // tmplIds: ['K7WmbKR5PRE_8c8Rv674eHXGayNyC4DHi1GrAs4exp4'],
-      // success(res) {
-        for (var i = 0; i < dateArr.length; i++) {
-          console.log(nowdate)
-          if (Number(dateArr[i].isToday) == Number(nowdate)) {
-            dateArr[i].choose = true;
-            if (wx.getStorageSync("userInfo._id._openid")) {
-              console.log("asd")
-              db.collection('User').doc(wx.getStorageSync("userInfo._id._openid")).update({
-                data: {
-                  sign_data: _.push(nowdate),
-                  sign: _.inc(1)
-                },
-                success: function (res) {
-                  t.yesdate()
-                  console.log("--------------------------")
-                  t.setData({
-                    singDone: true
-                  })
-                  wx.showToast({
-                    title: '签到成功',
-                    icon: 'none',
-                  })
-                  db.collection('User').doc(wx.getStorageSync("userInfo._id._openid")).get().then(res => {
-
-                    function getCurrentTime() {
-                      let date = new Date()
-                      let Y = date.getFullYear()
-                      let M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
-                      let D = date.getDate() < 10 ? ('0' + date.getDate()) : date.getDate()
-                      let hours = date.getHours()
-                      let minutes = date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes()
-                      let seconds = date.getSeconds() < 10 ? ('0' + date.getSeconds()) : date.getSeconds()
-                      date = Y + '.' + M + '.' + D + ' ' + hours + ':' + minutes + ':' + seconds
-                      return date
-                    }
-                    console.log(res.data)
-                    wx.cloud.callFunction({
-                      name: 'answer',
-                      data: {
-                        name: res.data.nickName,
-                        date: getCurrentTime(),
-                      },
-                      success: function (res) {
-                        console.log(res.result.sum) // 3
-                      },
-                      fail: console.error
-                    })
-                  })
-                  t.userlist()
-                }
-              })
+    // tmplIds: ['K7WmbKR5PRE_8c8Rv674eHXGayNyC4DHi1GrAs4exp4'],
+    // success(res) {
+    for (var i = 0; i < dateArr.length; i++) {
+      console.log(nowdate)
+      if (Number(dateArr[i].isToday) == Number(nowdate)) {
+        dateArr[i].choose = true;
+        console.log(wx.getStorageSync('userInfo'))
+        if (wx.getStorageSync("userInfo")._openid) {
+          db.collection('User').doc(wx.getStorageSync("userInfo")._id).update({
+            data: {
+              sign_data: _.push(nowdate),
+              sign: _.inc(1)
+            },
+            success: function (res) {
+              t.yesdate()
+              console.log("--------------------------")
               t.setData({
-                signinNow: true,
-                yesDate: yesDate
+                singDone: true
               })
-            } else {
               wx.showToast({
-                title: '您未登录不能签到',
+                title: '签到成功',
                 icon: 'none',
               })
+              db.collection('User').doc(wx.getStorageSync("userInfo")._id).get().then(res => {
+                function getCurrentTime() {
+                  let date = new Date()
+                  let Y = date.getFullYear()
+                  let M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
+                  let D = date.getDate() < 10 ? ('0' + date.getDate()) : date.getDate()
+                  let hours = date.getHours()
+                  let minutes = date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes()
+                  let seconds = date.getSeconds() < 10 ? ('0' + date.getSeconds()) : date.getSeconds()
+                  date = Y + '.' + M + '.' + D + ' ' + hours + ':' + minutes + ':' + seconds
+                  return date
+                }
+                console.log(res.data)
+              })
+              t.userlist()
             }
-          }
-        };
-        t.setData({
-          dateArr: dateArr
-        })
-      // }
+          })
+          t.setData({
+            signinNow: true,
+            yesDate: yesDate
+          })
+        } else {
+          wx.showToast({
+            title: '您未登录不能签到',
+            icon: 'none',
+          })
+        }
+      }
+    };
+    t.setData({
+      dateArr: dateArr
+    })
+    // }
     // })
   },
   // 签到过
@@ -125,13 +108,15 @@ Page({
         userlist: res.result.data
       })
       console.log(this.data.userlist)
+
     })
   },
 
+
   yesdate() {
     let t = this;
-    if (wx.getStorageSync("userInfo._id._openid")) {
-      db.collection('User').doc(wx.getStorageSync("userInfo._id._openid")).get().then(res => {
+    if (wx.getStorageSync("userInfo")._id) {
+      db.collection('User').doc(wx.getStorageSync("userInfo")._id).get().then(res => {
         wx.hideLoading()
         let yesdate = res.data.sign_data
         let dateArr = t.data.dateArr;
@@ -247,43 +232,7 @@ Page({
     t.dateInit(year, month);
     t.yesdate()
   },
-  // getLocation: function () {
-  //   var that = this
-  //   wx.getLocation({
-  //     type: 'wgs84',
-  //     success: function (res) {
-  //       console.log(res);
-  //       var latitude = res.latitude || 28.13551;
-  //       var longitude = res.longitude || 113.03555;
-  //       that.getWeather(`${latitude},${longitude}`)
-  //     },
-  //   })
-  // },
-  // getWeather(location) {
-  //   wx.request({
-  //     url: `${app.globalData.requestUrl.weather}`,
-  //     data: {
-  //       location,
-  //       key,
-  //     },
-  //     success: (res) => {
-  //       console.log(res)
-  //       if (res.statusCode === 200) {
-  //         let data = res.data.HeWeather6[0];
-  //         console.log(data);
-  //         if (data.status === 'ok') {
-  //           this.success(data, location)
-  //         }
-  //       }
-  //     },
-  //     fail: () => {
-  //       wx.showToast({
-  //         title: '查询失败',
-  //         icon: 'none',
-  //       })
-  //     },
-  //   })
-  // },
+
   success(data, location) {
     this.setData({
       openSettingButtonShow: false,
@@ -318,8 +267,13 @@ Page({
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中…',
-      mask: true
+      mask: true,
+
     })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+
     let t = this;
     let now = new Date();
     let year = now.getFullYear();

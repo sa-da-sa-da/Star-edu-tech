@@ -12,22 +12,29 @@ Page({
     id: 0,
     tab: [{
         name: "首页",
-        icon: "",
-        main: true
+        icon: "iconfont icon-shouye",
+        main: false
       },
+      /*{
+        name:"活动",
+        icon: "iconfont icon-yunchucun",
+        main:false,
+      },*/
       {
         name: "学习",
-        icon: "",
-        main: true
+        icon: "iconfont icon-shuye",
+        main: false
 
-      }, {
+      },{
+        name:"专栏",
+        icon:"iconfont icon-shangpin",
+        main: false,
+      },{
         name: "我的",
-        icon: "",
-        main: true
+        icon: "iconfont icon-yonghu",
+        main: false
       },
-
     ],
-    
     topImgs: [],
   },
 
@@ -125,15 +132,12 @@ Page({
         })
       })
   },
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -145,7 +149,6 @@ Page({
   onHide: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面卸载
    */
@@ -156,14 +159,13 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
-
+  onPullDownRefresh: function () {},
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {},
+  onReachBottom: function () {
+    
+  },
 
   /**
    * 用户点击右上角分享

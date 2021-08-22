@@ -2,7 +2,14 @@
     "setting": {},
     "condition": {
         "plugin": {
-            "list": []
+            "list": [
+                {
+                    "name": "pages/user/user",
+                    "pathName": "pages/user/user",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         },
         "game": {
             "list": []
@@ -13,27 +20,9 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/user/note/index",
-                    "pathName": "pages/user/note/index",
+                    "name": "pages/activity/index",
+                    "pathName": "pages/activity/index",
                     "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "Gitee/pages/explore/explore",
-                    "pathName": "Gitee/pages/explore/explore",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/user/collect/index",
-                    "pathName": "pages/user/collect/index",
-                    "query": "id=undefined",
-                    "scene": null
-                },
-                {
-                    "name": "todo/pages/dealtList/dealtList",
-                    "pathName": "todo/pages/dealtList/dealtList",
-                    "query": "id=undefined",
                     "scene": null
                 },
                 {
@@ -43,8 +32,26 @@
                     "scene": null
                 },
                 {
-                    "name": "pages/user/sign/index",
-                    "pathName": "pages/user/sign/index",
+                    "name": "todo/pages/school-bus/index",
+                    "pathName": "todo/pages/school-bus/index",
+                    "query": "id=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "todo/pages/weather/weather",
+                    "pathName": "todo/pages/weather/weather",
+                    "query": "id=undefined",
+                    "scene": null
+                },
+                {
+                    "name": "pages/study/warehouse/index",
+                    "pathName": "pages/study/warehouse/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "todo/pages/starmeet/index",
+                    "pathName": "todo/pages/starmeet/index",
                     "query": "",
                     "scene": null
                 },
@@ -55,8 +62,8 @@
                     "scene": null
                 },
                 {
-                    "name": "todo/pages/item/index",
-                    "pathName": "todo/pages/item/index",
+                    "name": "todo/pages/activity/index",
+                    "pathName": "todo/pages/activity/index",
                     "query": "",
                     "scene": null
                 },
@@ -73,8 +80,8 @@
                     "scene": null
                 },
                 {
-                    "name": "Gitee/pages/search/search",
-                    "pathName": "Gitee/pages/search/search",
+                    "name": "todo/pages/indexes/indexes",
+                    "pathName": "todo/pages/indexes/indexes",
                     "query": "",
                     "scene": null
                 }

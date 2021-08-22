@@ -1,5 +1,25 @@
-@import '/style/icon.wxss';
+@import "../../style/icon.wxss";
 @import "../../style/main.wxss";
+
+@font-face {
+  font-family: "iconfont"; /* Project id 2468306 */
+  src: url('//at.alicdn.com/t/font_2468306_2p874p8cdmt.woff2?t=1620890022823') format('woff2'),
+       url('//at.alicdn.com/t/font_2468306_2p874p8cdmt.woff?t=1620890022823') format('woff'),
+       url('//at.alicdn.com/t/font_2468306_2p874p8cdmt.ttf?t=1620890022823') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-qiandao:before {
+  content: "\e653";
+}
 
 .zdy-color{
   background-color:#3963BC;
@@ -232,10 +252,14 @@
 }
 
 .bg_kl3 {
-  background: #4539b3;
+  background: #3963BC;
   color: #fff
 }
 
 .cu-avatar-group {
   padding-left: 10rpx;
+}
+.van-cell{
+  background-color: rgb(255, 255, 255);
+  background-color: var(--cell-background-color, rgb(252, 252, 252))
 }

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    memu: false,
+    memu: true,
     selectMarkerContent: '',
     latitude: 34.20351,
     longitude: 108.951672,
@@ -76,30 +76,9 @@ Page({
          longitude: 108.893045,
          width: 32,
          height: 30
-       }
+       },
+
     ]
-  },
-  enlargeMap: function (e) {
-    let scale = this.data.scale
-    console.log('放大', scale)
-    scale = scale + 1
-    if (scale > 20) {
-      scale = 20
-    }
-    this.setData({
-      scale
-    })
-  },
-  lessenMap: function (e) {
-    let scale = this.data.scale
-    console.log('缩小', scale)
-    scale = scale - 1
-    if (scale < 3) {
-      scale = 3
-    }
-    this.setData({
-      scale
-    })
   },
   /**
    * VR地图按钮，弹窗提示复制网址
@@ -128,168 +107,11 @@ Page({
       }
     })
   },
-  bindregionchangeMap: function (e) {
-    // console.log(e)
-    let that = this
-    if (e.type == 'end' && (e.causedBy == 'scale' || e.causedBy == 'drag')) {
-      let mapContext = wx.createMapContext("fosumap")
-      mapContext.getCenterLocation({
-        success: function (res) {
-          console.log(res)
-          that.setData({
-            latitude: res.latitude,
-            longitude: res.longitude
-          })
-        }
-      })
-    }
-
+  clickButton: function (e) {
+    //console.log(this.data.fullscreen)
+    //打印所有关于点击对象的信息
+    this.setData({ fullscreen: !this.data.fullscreen })
   },
-  /**
-   * 点击地图事件，增加标记
-   */
-  bindtapMap: function (e) {
-    // console.log(e.detail.latitude)
-    // console.log(e.detail.longitude)
-    let timestamp = new Date().getTime()
-    // console.log(timestamp)
-    let m = {
-      id: timestamp,
-      iconPath: "cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/icon/marker.png",
-      latitude: e.detail.latitude,
-      longitude: e.detail.longitude,
-      width: 16,
-      height: 16,
-      zIndex: -1,
-      callout: {
-        content: '标记' + timestamp,
-        fontSize: 16,
-        padding: 4,
-        anchorY: 6,
-        display: 'ALWAYS'
-      }
-    }
-    wx.showLoading({
-      title: '添加中',
-    })
-    let that = this
-    wx.cloud.callFunction({
-      name: 'addMarker',
-      data: {
-        marker: m
-      },
-      success: res => {
-        console.log(res)
-        that.loadMarkers()
-      },
-      fail: res => {
-        console.log(res)
-      }
-    })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1500)
-  },
-
-  /**
-   * 输入标记修改内容
-   */
-  memuInput: function (e) {
-    content = e.detail.value
-  },
-
-  /**
-   * 修改标记
-   */
-  updateMarker: function (e) {
-    let markers = this.data.markers
-    let that = this
-    wx.cloud.callFunction({
-      name: 'updateMarker',
-      data: {
-        _id: markers[selectMarker]._id,
-        content: content
-      },
-      success: res => {
-        console.log(res)
-        that.loadMarkers()
-      },
-      fail: res => {
-        console.log(res)
-      }
-    })
-    wx.showLoading({
-      title: '修改中',
-    })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1500)
-    this.setData({
-      memu: false
-    })
-  },
-
-  /**
-   * 删除标记按钮
-   */
-  delMarker: function (e) {
-    wx.showLoading({
-      title: '删除中',
-    })
-    let markers = this.data.markers
-    let that = this
-    wx.cloud.callFunction({
-      name: 'delMarker',
-      data: {
-        _id: markers[selectMarker]._id,
-      },
-      success: res => {
-        console.log(res)
-        that.loadMarkers()
-      },
-      fail: res => {
-        console.log(res)
-      }
-    })
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1500)
-    this.setData({
-      memu: false
-    })
-  },
-
-  /**
-   * 关闭菜单按钮
-   */
-  closeMemu: function (e) {
-    this.setData({
-      memu: false
-    })
-  },
-
-  /**
-   * 点击标记事件，打开弹窗菜单，选中对应的标记
-   */
-  bindmarkertapMap: function (e) {
-    console.log(e.detail)
-    // console.log(this.data.markers)
-    let markers = this.data.markers
-    for (let i = 0; i < markers.length; i++) {
-      if (markers[i].id == e.detail.markerId) {
-        // console.log(markers[i])
-        selectMarker = i
-      }
-    }
-    console.log(markers[selectMarker])
-    console.log(markers[selectMarker].latitude)
-    console.log(markers[selectMarker].longitude)
-    this.setData({
-      memu: true,
-      selectMarkerContent: markers[selectMarker].callout.content
-    })
-  },
-
   /**
    * 选择校区
    */
@@ -318,7 +140,7 @@ Page({
   },
 
   /**
-   * 选择底部tab地点
+   * 选择顶部tab地点
    */
   selectPlace: function (e) {
     // console.log(e.currentTarget.dataset.id)
@@ -364,17 +186,14 @@ Page({
         success: res => {
           let markers = res.result.data
           console.log(markers.length)
+          console.log(res.result.data)
           app.globalData.markers=markers
           that.setData({
-            markers: markers
+            markers: markers,
+            details:res.result.data.details
           })
           setTimeout(function () {
             wx.hideLoading()
-            wx.showToast({
-              title: '开启手机定位可显示自己所在位置',
-              icon: 'none',
-              duration: 3000
-            })
           }, 1000)
         },
         fail: res => {

@@ -1,6 +1,6 @@
 /* pages/signin/signin.wxss */
 /* 日历 */
-@import "../../../style/icon.wxss";
+
 @import "../../../style/animated.wxss";
 
 .contant {
@@ -20,10 +20,11 @@
 .iconfont {
   position: absolute;
   margin: 0 auto;
-  color: #3963BC;
+  /*color: #3963BC;*/
   font-size: 30px;
   left: 20rpx;
-  animation: rubberBand 1s;
+  animation: rubberBand .5s;
+  
 }
 
 .sign_top {
@@ -36,12 +37,14 @@
 
 .main2 {
   padding: 1px;
+  height: 2000rpx;
   color: white;
-  /* background-image: url('https://7472-test-4gn9gu0ucc6657ba-1259429368.tcb.qcloud.la/sin_bg.png?sign=de9d6ea379af989cbf4891d10462b909&t=1619749513'); */
+  background-image: url('https://6465-demo-8gww0qau03b0af5a-1304763314.tcb.qcloud.la/sign_bg.jpg?sign=30f0c2294abb82b1acc9fd071e831b26&t=1629218761'); 
   background-size: cover;
   background-position: center;
+  background-repeat:round;
   position: relative;
-  animation: fadeIn .8s;
+  animation: fadeIn .3s;
   background-color: #3963BC
 }
 
@@ -96,19 +99,19 @@
 }
 
 .nowDtae {
-  color: rgba(233, 213, 172, 1);
+  color: #ffffff;
   margin: 0 20rpx;
   font-size: 30rpx;
 }
 
 .icon_xz {
   font-size: 38rpx;
-  color: rgba(233, 213, 172, 1);
+  color: #ffffff;
 }
 
 /* 日历 */
 .calendar {
-  background: linear-gradient(94deg, rgba(192, 160, 105, 1), rgba(233, 213, 172, 1));
+
   box-shadow: 0px 3px 12px 0px rgba(195, 164, 110, 0.23);
   border-radius: 20rpx;
   padding: 0 0 20rpx;
@@ -168,6 +171,16 @@
   color: #fff;
 }
 
+.date-now{
+  color: #ffffff;
+  font-size: large;
+}
+
+.date-after{
+  color: #0081ff;
+  font-size: large;
+}
+
 .nowDay .date-head {
   width: 60rpx;
   border-radius: 50%;
@@ -182,6 +195,7 @@
 }
 
 .userlist {
+  
   display: flex;
   justify-content: space-between;
 }
@@ -194,18 +208,16 @@
   font-size: 14px;
   display: inline-block;
   padding-left: 10px;
-  color: #ffffff;
   padding: 4px 8px;
   margin-top: 20px;
   border-radius: 0px 6px 0px 0px;
-  background: linear-gradient(to top right, #f4c998, #d69c63);
 }
 
 .user_phb {
   margin: 10px;
   border-radius: 12px;
   overflow-y: scroll;
-  animation: bounceInLeft 1s
+  animation: bounceInLeft .5s
 }
 
 .user_img {
@@ -239,7 +251,7 @@
   padding-top: 12px;
   text-align: center;
   color: #fff !important;
-  background: linear-gradient(to top right, #f4c998, #d69c63);
+  background: linear-gradient(to top right, #0081ff, #1cbbb4);
   /* border: 4px solid #FEE6C3; */
   position: fixed;
   bottom: 0;
@@ -268,3 +280,4 @@
   padding: 60rpx 0;
   box-sizing: border-box;
 }
+

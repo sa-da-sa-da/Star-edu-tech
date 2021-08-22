@@ -1,0 +1,123 @@
+.navigation-bar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  color: #fff;
+  background: #45b9e5;
+  z-index: 999999999999;
+  text-align: center;
+  transition: 300ms;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 70rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon {
+  display: inline-block;
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: bold;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  font-size: 38rpx;
+}
+
+.style-simple {
+  display: flex;
+  margin-left: 16rpx;
+  align-items: center;
+}
+.icon-right:before{
+  content: "\e600";
+}
+.icon-down:before{
+  content: "\e601";
+}
+.style-simple .icon-fanhui:before {
+  content: "\e642";
+}
+
+.style-simple .back-home {
+  width: auto;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.black {
+  /* background: #fff; */
+  border-color: #e5e5e5 !important;
+}
+
+.white {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.style-normal {
+  border: 1px solid #ededed;
+  border-radius: 32rpx;
+  height: 64rpx;
+  width: 176rpx;
+  display: flex;
+  margin-left: 16rpx;
+  align-items: center;
+}
+
+.style-normal .icon-fanhui {
+  line-height: 64rpx;
+  width: 87rpx;
+  font-size: 44rpx;
+}
+
+.style-normal .icon-fanhui:before {
+  content: "\e677";
+}
+
+.style-normal .back-home {
+  width: 87rpx;
+  text-align: center;
+  font-size: 44rpx;
+}
+
+.style-normal .back-home:before {
+  content: "\e676";
+}
+
+.style-normal .split {
+  border-left: 1rpx solid #e5e5e5;
+  height: 32rpx;
+  width: 1rpx;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.navigation-bar-holder {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1296176 */
+  src: url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.eot');
+  src: url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1296176_nxgptwx7e2q.svg#iconfont') format('svg');
+}

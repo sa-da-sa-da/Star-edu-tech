@@ -1,0 +1,25 @@
+<!--components/column/index.wxml-->
+<view>
+  <wxs src="../timeHelper.wxs" module="t" />
+  <view class="ex-mall-panel column">
+    <view class="{{['ex-mall-panel-content',$root.m12]}}">
+      <scroll-view class="swiper-disabled" scroll-x="{{true}}">
+        <view class="column-list">
+          <block wx:if="{{!loading}}" wx:for="{{list}}" wx:for-item="items" wx:for-index="index" wx:key="this">
+            <view class="item" data-id="{{items._id}}" bindtap="tz" data-url="/details/column/index">
+              <view class="thumbnail">
+                <image class="img" src="{{items.img}}" mode="aspectFill"></image>
+                <view class="btn favorite">
+                  <van-icon name="label-o" />
+                </view>
+              </view>
+              <view class="{{['info',x.m13]}}">
+                <view class="title">{{items.tille}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

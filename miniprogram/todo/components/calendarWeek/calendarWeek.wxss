@@ -65,19 +65,19 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  border: 1px solid #1cbbb4;
+  border: 1px solid #3963BCBC;
   border-radius: 100%;
-  background: #1cbbb4;
+  background: #3963BCBC;
   opacity: 0.1;
   z-index: -1;
 }
 
 .day text.active {
-  color: #1cbbb4
+  color: #3963BCBC
 }
 
 .day text.reds {
-  color: #1cbbb4;
+  color: #3963BCBC;
 }
 
 /*开始*/

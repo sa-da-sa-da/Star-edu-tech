@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "cu-custom":"../../../components/cu-custom/index"
+    "cu-custom":"../../../components/cu-custom/index",
+    "van-overlay": "@vant/weapp//overlay/index",
+    "mp-html": "../../../miniprogram_npm/mp-weixin/index",
+    "van-button": "@vant/weapp//button/index"
   }
 
 }

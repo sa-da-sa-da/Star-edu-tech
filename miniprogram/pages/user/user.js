@@ -13,9 +13,34 @@ Component({
     coverTransform: "translateY(0px)",
     coverTransition: "0s",
     moving: !1,
-    
+    //分享面板
+    showShare: false,
+    options_sada: [{
+        name: '微信',
+        icon: 'wechat',
+        openType: 'share'
+      },
+      {
+        name: '微博',
+        icon: 'weibo'
+      },
+      {
+        name: '复制链接',
+        icon: 'link'
+      },
+      {
+        name: '分享海报',
+        icon: 'poster'
+      },
+      {
+        name: '二维码',
+        icon: 'qrcode'
+      },
+    ],
 
   },
+
+
 
   pageLifetimes: {
     show: function () {
@@ -36,10 +61,43 @@ Component({
         urls: ['cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/78D917437FB9E50C5AE0259FFBF09105.jpg']
       })
     },
+    onClick(event) {
+      this.setData({
+        showShare: true
+      });
+    },
+
+    onClose() {
+      this.setData({
+        showShare: false
+      });
+    },
+
+    onSelect(event) {
+
+      console.log(event.detail.name)
+      if (event.detail.name == '复制链接') {
+        // 绑定分享参数
+        wx.setClipboardData({
+          data: '#小程序://Star教技/教育技术/S2GCdL9SZMx1Zyn',
+        })
+
+      } else if (event.detail.name == '分享海报') {
+        wx.previewImage({
+          urls: ['https://6465-demo-8gww0qau03b0af5a-1304763314.tcb.qcloud.la/1.jpg?sign=ad1e0cf51a646dae6bf6dfc7fee729ad&t=1629386219'],
+        })
+      } else if (event.detail.name == '二维码') {
+        wx.previewImage({
+          urls: ['https://6465-demo-8gww0qau03b0af5a-1304763314.tcb.qcloud.la/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%8C%E7%BB%B4%E7%A0%81.png?sign=e38dadc5da40a1244beac5271ddff4ca&t=1629387272'],
+        })
+
+      }
+      this.onClose();
+    },
 
     sz() {
       wx.openSetting({
-        success: function (res) { }
+        success: function (res) {}
       })
     },
     ql() {

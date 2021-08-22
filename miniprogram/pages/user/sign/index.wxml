@@ -1,5 +1,5 @@
 <!--pages/signin/signin.wxml-->
-<view class="main2" style="  height:100vh">
+<view class="main2" style="height:100vh">
   <view class="sign_top">
     <view class="sign_wz">{{time}}
       <text class="sign_wz2">{{week}}</text>
@@ -13,37 +13,34 @@
       <view bindtap='lastMonth'>
         <van-icon class="icon_xz" name="arrow-left" />
       </view>
-      <view class="nowDtae ">{{year}}年{{month}}月</view>
+      <view class="nowDtae"> {{year}} 年 {{month}} 月</view>
       <view bindtap='nextMonth'>
         <van-icon class="icon_xz" name="arrow" />
       </view>
     </view>
+    <view style="font-size: 20rpx;margin: 0 0 0 450rpx; color: dimgrey;">* 签到过后，日期会变蓝色。</view>
     <!-- 日历主体 -->
     <view class='calendar'>
       <view class='header'>
         <view wx:for='{{date}}' wx:key='index' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}} '>
           {{item}}
-          <view></view>
         </view>
       </view>
       <view class='date-box'>
         <block wx:for='{{dateArr}}' wx:key='index'>
-          <view class='{{isToday == item.isToday ? "nowDay":""}}'>
+          <view>
             <view class='date-head font28' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
-              <span wx:if='{{item.choose?"nowsDay":""}}' class="iconfont  icon-yiqiandao"></span>
-              <view>{{item.dateNum}}</view>
+              <view wx:if='{{item.choose?"nowsDay":""}}' class="date-after">{{item.dateNum}}</view>
+              <view wx:else='{{item.choose?"nowsDay":""}}' class="date-now">{{item.dateNum}}</view>
             </view>
           </view>
         </block>
       </view>
     </view>
   </view>
-
+  
   <view class="flex_center_rank" bindtap="activeSign" wx:if="{{!signinNow}}">
-    <van-button type="primary" color="linear-gradient(to top right, #f4c998 ,  #d69c63);">立即签到</van-button>
-  </view>
-  <view class="flex_center_rank" wx:else>
-    <van-button disabled type="primary" color="linear-gradient(to top right, #f4c998 ,  #d69c63);">今日已签到</van-button>
+    <van-button type="primary" color="linear-gradient(to top right,  #0081ff, #1cbbb4);">立即签到</van-button>
   </view>
 
   <view class="user_phb" wx:if="{{singDone||signinNow}}">
@@ -55,7 +52,7 @@
       <van-cell wx:for='{{userlist}}' wx:key='index'>
         <view slot="title" class="userlist">
           <view class="user_dix">
-            <view class="van-cell-text">{{index+1}}</view>
+            <view class="van-cell-text">{{index + 1}}</view>
             <view class="user_img">
               <image src="{{item.avatarUrl}}"></image>
             </view>
@@ -65,7 +62,5 @@
         </view>
       </van-cell>
     </van-cell-group>
-
   </view>
-
 </view>

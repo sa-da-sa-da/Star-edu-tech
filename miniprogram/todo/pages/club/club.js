@@ -1,32 +1,45 @@
 // miniprogram/pages/organization/organization.js 
 var app = getApp();
-let allDataObject={}
+let allDataObject = {}
 Page({
   data: {
-    typeList:['校级','教育','电信','医学','法学','人文','经管',
-    '环化','材能','工陶','机电','食品','交建','物电','生科','粤台'],
-    winHeight: "",//窗口高度 
+    typeList: ['校级', '教育', '哲政', '马院', '化院', '心理', '音乐',
+      '计科', '地科', '新传', '生科', '食品', '文学', '外院',
+      '体育', "数科", "美术", "物信", "国商", "材料", "民教"
+    ],
+    winHeight: "", //窗口高度 
     currentTab: 0, //预设当前项的值 
     scrollLeft: 0, //tab标题的滚动条位置 
-    allData:{}
+    allData: {},
+    isRuleTrue: false
   },
-  selectOrganization(e){
+
+
+
+  showRule: function (e) {
     console.log(e.currentTarget.dataset.organization)
-    let organization=e.currentTarget.dataset.organization
-    if(organization.img&&organization.img.length>0){
-      wx.previewImage({
-        current: organization.img[0], 
-        urls: organization.img
+    let organization = e.currentTarget.dataset.organization
+    if (organization.introduce && organization.details.length > 0) {
+      this.setData({
+        isRuleTrue: true,
+        title: organization.name,
+        content: organization.details,
       })
-    }else{
+    } else {
       wx.showToast({
         title: '暂无该机构详情内容',
         icon: 'none',
         duration: 1500
       })
     }
-    
   },
+  //关闭透明层
+  hideRule: function () {
+    this.setData({
+      isRuleTrue: false
+    })
+  },
+
   // 滚动切换标签样式 
   switchTab: function (e) {
     this.setData({
@@ -42,17 +55,17 @@ Page({
   },
   //判断当前滚动，设置tab标题滚动条。 
   checkCor: function (direction) {
-    let that=this
+    let that = this
     let query = wx.createSelectorQuery()
     query.select('.active').boundingClientRect()
     query.selectViewport().scrollOffset()
-    query.exec(function(res){
+    query.exec(function (res) {
       // console.log(res)
-      if (that.data.currentTab >1) {
+      if (that.data.currentTab > 1) {
         that.setData({
-          scrollLeft: res[0].width*(that.data.currentTab-1)
+          scrollLeft: res[0].width * (that.data.currentTab - 1)
         })
-      }else{
+      } else {
         that.setData({
           scrollLeft: 0
         })
@@ -70,32 +83,32 @@ Page({
         console.log(res)
         var clientHeight = res.windowHeight;
         var clientWidth = res.windowWidth;
-        var  rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR ;
+        var rpxR = 750 / clientWidth;
+        var calc = clientHeight * rpxR;
         console.log(calc)
         that.setData({
           winHeight: calc
         });
       }
     });
-    if(JSON.stringify(allDataObject) === '{}'){
+    if (JSON.stringify(allDataObject) === '{}') {
       console.log('加载数据')
       wx.cloud.callFunction({
         name: 'getOrganization'
-      }).then(res =>{
+      }).then(res => {
         console.log(res.result.data)
-        let allDataList=res.result.data
-        for(let i=0;i<allDataList.length;i++){
-          if(!allDataObject.hasOwnProperty(allDataList[i].type)){
-            allDataObject[allDataList[i].type]=[]
+        let allDataList = res.result.data
+        for (let i = 0; i < allDataList.length; i++) {
+          if (!allDataObject.hasOwnProperty(allDataList[i].type)) {
+            allDataObject[allDataList[i].type] = []
           }
           allDataObject[allDataList[i].type].push(allDataList[i]);
         }
         that.setData({
-          allData:allDataObject
+          allData: allDataObject
         })
         wx.hideLoading()
-      }).catch(res=>{
+      }).catch(res => {
         wx.hideLoading()
         console.log(res)
         wx.showToast({
@@ -104,9 +117,9 @@ Page({
           duration: 2000
         })
       })
-    }else{
+    } else {
       this.setData({
-        allData:allDataObject
+        allData: allDataObject
       })
       wx.hideLoading()
     }
@@ -120,4 +133,4 @@ Page({
       path: '../../../todo/pages/club/club'
     }
   }
-}) 
+})

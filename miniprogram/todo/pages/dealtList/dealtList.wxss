@@ -42,7 +42,7 @@ page {
   font-size: 28rpx;
   width: 80rpx;
   height: 80rpx;
-  background-color: #122640;
+  background-color: #3963BCBC;
   border-radius: 50%;
   line-height: 80rpx;
   text-align: center;
@@ -65,7 +65,7 @@ page {
 .btn>view {
   margin-right: 15rpx;
   font-size: 28rpx;
-  color: #1cbbb4;
+  color: #3963BCBC;
 }
 
 .note {
@@ -75,7 +75,7 @@ page {
 }
 
 .add-btn {
-  background-color: #122640;
+  background-color: #3963BC;
   color: #fff;
   width: 90rpx;
   height: 90rpx;

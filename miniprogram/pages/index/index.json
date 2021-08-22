@@ -3,6 +3,7 @@
     "guide": "./guide/guide",
     "home": "../home/home",
     "study":"../study/study",
-    "user":"../user/user"
+    "user":"../user/user",
+    "warehouse": "../study/warehouse/index"
   }
 }

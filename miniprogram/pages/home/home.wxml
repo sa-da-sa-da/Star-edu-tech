@@ -1,22 +1,38 @@
 <cu-custom bgColor="bg-blue">
-	<view slot="content">Star 教技</view>
+	<view slot="content">
+		Star 教技
+	</view>
+	<view slot="right">
+		<view class="action">
+			<navigator  url="/pages/user/sign/index" hover-class="none">
+				<image class="iconfont icon-qiandao" bindtap="BackPage"></image>
+			</navigator>
+		</view>
+	</view>
 </cu-custom>
 <view class="home">
 	<view class="home-top">
 	</view>
-	<tree_swiper></tree_swiper>
+	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+		duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+		<swiper-item wx:for="{{swiperList}}" wx:key="ids" class="{{cardCur==index?'cur':''}}" id="{{item.goto}}"
+			bindtap="tz_swiper" data-url="{{item.navigateTo}}">
+			<view class="swiper-item">
+				<image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+				<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}"
+					objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+			</view>
+		</swiper-item>
+	</swiper>
 	<view class="home_sign">
-		<van-grid :border="false" clickable :gutter="0" column-num="5">
+		<van-grid :border="false" clickable :gutter="0" column-num="4">
+			<van-grid-item v-for="value in 6" :key="value" icon="friends-o" bindtap="yg" text="陕 Star" />
 			<van-grid-item v-for="value in 8" :key="value" icon="location-o"
 				url="../../todo/pages/school-map/school-map" text="Star 校园" />
-			<van-grid-item v-for="value in 8" :key="value" icon="friends-o" url="../../todo/pages/club/club"
-				text="Star 组织" />
 			<van-grid-item v-for="value in 8" :key="value" icon="records" url="../../todo/pages/dealtList/dealtList"
 				text="Star 待办" />
 			<van-grid-item v-for="value in 8" :key="value" icon="like-o" url="../../todo/pages/love/love"
-				text="Star 心路" />
-			<van-grid-item v-for="value in 8" :key="value" icon="newspaper-o" url=""
-				text="Star 周历" />
+				text="Star 心声" />
 		</van-grid>
 	</view>
 	<swiper class='home-gg' autoplay="true" vertical='true' circular='true' interval='3000'>
@@ -30,9 +46,11 @@
 					<view data-url="details/notice/notice">{{items.tille}}</view>
 				</swiper-item>
 			</navigator>
+
 		</block>
 	</swiper>
-	<view class="home_sign">
+	<view class="home_sign"
+		style="background-color: rgb(255, 255, 255);background-color: var(--cell-background-color, rgb(255, 255, 255))">
 		<van-cell url="">
 			<view slot="title">
 				<view class="dis_fl">
@@ -41,7 +59,7 @@
 							wx:index="index" wx:for-item="items" style="background-image:url({{items.avatarUrl}});">
 						</view>
 					</view>
-					<view class="tree_dis_c">等 <text class="text-blue"> {{total}}</text> 名用户今天活跃
+					<view class="tree_dis_c" style="color: black;">等 <text class="text-blue"> {{total}}</text> 名用户今天活跃
 						<van-icon name="arrow" />
 					</view>
 				</view>
@@ -80,16 +98,22 @@
 	<view class="main_title">
 		<view class="min_height cu-bar">
 			<view class="action sub-title">
-				<text class="text-ABC text-bold text-blue" style="width: 160rpx; height: 68rpx; display: block; box-sizing: border-box; left: -8rpx; top: -5rpx; position: relative; font-size: 20px">推荐Top </text>
-				<text class="text-ABC text-bold text-blue" style="width: 160rpx; height: 100rpx; display: block; box-sizing: border-box; left: -8rpx; top: 14rpx; position: absolute">推荐Top</text>
-			</view>
+				<text class="text-ABC text-bold text-blue"
+					style="width: 160rpx; height: 68rpx; display: block; box-sizing: border-box; left: -8rpx; top: -5rpx; position: relative; font-size: 20px">推荐Top
+				</text>
+				<text class="text-ABC text-bold text-blue"
+					style="width: 160rpx; height: 100rpx; display: block; box-sizing: border-box; left: -8rpx; top: 14rpx; position: absolute">推荐Top</text>
+			</view>.
 		</view>
 	</view>
-	
+
 	<view class="home-jcly">
 		<top_list list="{{top_list}}"></top_list>
 	</view>
-	<van-divider contentPosition="center">到底啦，更多学习相关的内容请您跳转学习模块</van-divider>
+
+	<iframe width="503" height="501" src="https://cybermap.kaspersky.com/cn/widget/dynamic/dark"
+		frameborder="0"></iframe>
+	<van-divider contentPosition="center">到底啦，快去发现更多内容吧</van-divider>
 	<van-divider contentPosition="center"></van-divider>
 </view>
 <wxs module="m1">

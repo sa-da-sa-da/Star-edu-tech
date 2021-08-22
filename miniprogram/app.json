@@ -1,17 +1,13 @@
 {
     "pages": [
         "pages/index/index",
-
         "pages/home/dictionaries/dictionaries",
         "pages/home/book/book",
         "pages/home/circular/index",
         "pages/home/answer/chatbot/index",
-
         "pages/study/study",
         "pages/study/warehouse/index",
-
         "pages/answer/index",
-
         "pages/details/article_details/article_details",
         "pages/details/notice/notice",
         "pages/details/details_ls/index",
@@ -26,7 +22,9 @@
         "pages/user/note/index",
         "pages/user/note/add/index",
         "pages/user/collect/index",
-        "pages/user/sign/index"
+        "pages/user/sign/index",
+        "pages/home/book/weekly/weakly",
+        "pages/details/column/index"
     ],
     "subpackages": [
         {
@@ -54,7 +52,9 @@
                 "pages/dealtAdd/dealtAdd",
                 "pages/school-map/school-map",
                 "pages/club/club",
-                "pages/love/love"
+                "pages/love/love",
+                "pages/activity/index",
+                "pages/indexes/indexes"
             ]
         }
     ],

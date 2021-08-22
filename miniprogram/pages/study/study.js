@@ -15,9 +15,6 @@ Component({
       name: "全部",
       id: "全部"
     }, {
-      name: "杂谈",
-      id: "zt"
-    }, {
       name: "STEM教育",
       id: "stem"
     }, {
@@ -41,7 +38,11 @@ Component({
     }, {
       name: "教育装备",
       id: "jy"
-    }]
+    },{
+      name: "其他",
+      id: "zt"
+    },],
+    pubshow:false,
   },
   created() {
     this.list()
@@ -65,6 +66,13 @@ Component({
     },
   },
   methods: {
+    onChangepubshow(event){
+      this.setData({
+        pubshow:true,
+        type:"最热",
+      })
+    },
+
     show_xl() {
       if (this.data.height == "auto") {
         this.setData({
@@ -89,7 +97,8 @@ Component({
     onChange(e) {
       this.setData({
         loding: true,
-        type: e.currentTarget.dataset.type
+        type: e.currentTarget.dataset.type,
+        pubshow:false,
       })
       this.triggerEvent('tab_xz', e.currentTarget.dataset.type)
     },

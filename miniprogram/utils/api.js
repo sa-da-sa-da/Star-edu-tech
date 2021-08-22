@@ -88,7 +88,6 @@ module.exports = {
     collec: 'press'
   },
 
-
   GET_Article_ms: {
     collec: 'press',
     limit: 4,
@@ -174,7 +173,13 @@ module.exports = {
     collec: 'topic',
     orderBy
   },
-
+  GET_banner:{
+    collec: 'banner',
+    orderBy,
+    where:{
+      show:true,
+    },
+  },
 
   GET_Interview_ms: {
     collec: 'interview',

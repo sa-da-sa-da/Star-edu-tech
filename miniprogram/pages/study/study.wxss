@@ -37,13 +37,13 @@
 
 
 .study_bg {
-  background-color: #636fd6;
+  background-color: #3963BC;
   color: #fff;
   animation: fadeIn .5s;
 }
 
 .xl_show {
-  background-color: #636fd6;
+  background-color: #3963BC;
   color: #fff;
   width: 10%;
   height: 40%;
@@ -55,12 +55,12 @@
 
 .tab_list {
   background-color: #fff;
-  padding: 10rpx;
-  padding-right: 0px;
+  padding: auto;
+  padding-right: 0rpx;
   overflow: hidden;
   overflow-x: scroll;
   display: flex;
-  line-height: 30px;
+  line-height: 30rpx;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
 }
 

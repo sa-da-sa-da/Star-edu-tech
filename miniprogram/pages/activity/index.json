@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cu-custom":"../../components/cu-custom/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

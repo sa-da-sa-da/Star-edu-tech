@@ -59,7 +59,7 @@ async function addPostComment(event) {
   console.info(process.env.author)
  
   if (process.env.author == event.commentContent.cOpenId) {
-    event.commentContent.cNickName = "作者"
+    event.commentContent.cNickName = event.commentContent.cNickName
   }
 
    let task = db.collection('mini_posts').doc(event.commentContent.postId).update({
@@ -88,7 +88,7 @@ async function addPostChildComment(event) {
   });
 
   if (process.env.author == event.comments[0].cOpenId) {
-    event.comments[0].cNickName = "作者"
+    event.comments[0].cNickName = event.comments[0].cNickName
   }
   event.comments[0].flag = 0
   await db.collection('mini_comments').doc(event.id).update({

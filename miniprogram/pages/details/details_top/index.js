@@ -168,7 +168,6 @@ Page({
       title: this.data.article.tille,
       path: '/pages/index/index?id=' + this.data.id + "&share=true",
       imageUrl: this.data.article.img || "",
-
     }
   },
 

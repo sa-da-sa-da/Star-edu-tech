@@ -56,7 +56,6 @@ function Tree_get(data, func) {
         data: method === POST ? JSON.stringify(data) : data,
         header: header,
         success(res) {
-
         },
         fail(err) {
           reject(err)

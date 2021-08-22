@@ -1,5 +1,8 @@
+import {
+  config
+} from "../../../utils/config.js"
 const db = wx.cloud.database({
-  env: "demo-8gww0qau03b0af5a",
+  env: config.env
 })
 const _ = db.command
 const app = getApp()
@@ -12,12 +15,7 @@ Component({
 
   },
   methods: {
-    tz(e) {
-      console.log(e.currentTarget.dataset.id)
-      wx.navigateTo({
-        url: "../../pages/" + e.currentTarget.dataset.a + "?id=" + e.currentTarget.dataset.id
-      })
-    },
+
     post() {
       db.collection('encourage').get().then(res => {
         this.setData({
@@ -25,13 +23,54 @@ Component({
         })
       })
 
-      db.collection('periodical').get().then(res => {
+      db.collection('periodical').where({
+        style: "my"
+      }).get().then(res => {
         this.setData({
-          columns: res.data
+          columns_my: res.data
+        })
+      })
+
+      db.collection('periodical').where({
+        style: "sj"
+      }).get().then(res => {
+        this.setData({
+          columns_ms: res.data
+        })
+      })
+
+      db.collection('periodical').where({
+        style: "yd"
+      }).get().then(res => {
+        this.setData({
+          columns_yd: res.data
+        })
+      })
+
+      db.collection('periodical').where({
+        style: "yg"
+      }).get().then(res => {
+        this.setData({
+          columns_yg: res.data
         })
         console.log(res)
       })
-    }
+
+      db.collection('periodical').where({
+        style: "ms"
+      }).get().then(res => {
+        this.setData({
+          columns_ms: res.data
+        })
+        console.log(res)
+      })
+    },
+    tz(e) {
+      console.log(e.currentTarget.dataset.id)
+      wx.navigateTo({
+        url: "../pages/" + e.currentTarget.dataset.a + "?id=" + e.currentTarget.dataset.id
+      })
+    },
   }
 
 });

@@ -2,79 +2,33 @@
 	<view slot="content">Star 教育技术</view>
 </cu-custom>
 <view class="main">
-	<!--<view class="servic_top">
-		<view>
-			<view class="servic_top_Wz1">前路无涯</view>
-			<view>路漫漫其修远兮，吾将上下而求索 </view>
-		</view>
-		<view class="servic_top_Img">
-			<image src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/zx_top.png"></image>
-		</view>
-	</view>-->
-	
-	<van-tabs active="{{active}}" swipeable sticky offset-top="{{CustomBar}}" color="#d69c63" bind:chanqe="onClick">
-		<van-tab title="教技精选">
-			<van-sticky offset-top="{{CustomBar+44}}" wx:if="{{active==0}}">
-				<view class="tab_list shadow">
-					<view class="tab_list_view" style="height:{{height}}">
-						<view class="padding-xs" wx:for="{{tab}}" wx:key="index" wx:for-item="items" bindtap="onChange"
-							data-type="{{items.id}}">
-							<view class="cu-tag line-{{item.name}} {{type==items.id?'study_bg':'study_tag'}} ">
-								{{items.name}}
-							</view>
-						</view>
-					</view>
-					<view bindtap="show_xl" class="xl_show">
-						<van-icon name="wap-nav" />
+	<van-sticky offset-top="{{CustomBar}}" wx:if="{{active==0}}">
+		<view class="tab_list shadow">
+			<view class="tab_list_view" style="height:{{height}}">
+				<view class="padding-xs" bindtap="onChangepubshow">
+					<view class=" cu-tag line-{{item.name}} {{pubshow?'study_bg':'study_tag'}} ">
+						最热
 					</view>
 				</view>
-			</van-sticky>
+				<view class="padding-xs" wx:for="{{tab}}" wx:key="index" wx:for-item="items" bindtap="onChange"
+					data-type="{{items.id}}">
+					<view class="cu-tag line-{{item.name}} {{type==items.id?'study_bg':'study_tag'}} ">
+						{{items.name}}
+					</view>
+				</view>
+			</view>
+			<view bindtap="show_xl" class="xl_show">
+				<van-icon name="arrow-down" />
+			</view>
+		</view>
+	</van-sticky>
 
-			<!--<view class="scroll_box">
-				<scroll-view scroll-x>
-					<navigator hover-class="item-hover" class="item_list" wx:for="{{en_list}}" wx:key="this"
-						wx:index="index" wx:for-item="items"
-						url="/pages/details/article_details/article_details?id={{items._id}}">
-						<view class="item_list_ds">
-							<view>
-								<view class="dis2">
-									<view class="item_top_Wz">荐</view>
-									<view class="item_top_Wz2"> {{items.tille}}</view>
-								</view>
-								<view class="home-list-bottom">
-									<view class="dis">
-										<view>
-											<van-icon name="clock-o" />
-											<view class="icon_wz">{{m1.format(items.add_time)}}</view>
-										</view>
-										<view>
-											<van-icon name="fire" />
-											<view class="icon_wz">{{items.browse||0}}</view>
-										</view>
-
-									</view>
-								</view>
-							</view>
-							<view class="ikl">
-								<image mode='scaleToFill' src="{{items.img}}"></image>
-							</view>
-						</view>
-					</navigator>
-				</scroll-view>
-			</view>-->
-			
-				<list list="{{list}}"  loding="{{loding}}"></list>
-			
-		</van-tab>
-		<van-tab title="教技热榜">
-			
-				<list list="{{rb_list}}" phb="{{true}}" loding="{{loding}}"></list>
-			
-		</van-tab>
-		<van-tab title="教技专栏">
-			<val />
-		</van-tab>
-	</van-tabs>
+	<view wx:if="{{pubshow}}">
+		<list list="{{rb_list}}" phb="{{true}}" loding="{{loding}}"></list>
+	</view>
+	<view wx:else="{{pubshow}}">
+		<list list="{{list}}" loding="{{loding}}"></list>
+	</view>
 	<van-divider contentPosition="center">到底啦！再去看看别的吧！</van-divider>
 </view>
 <wxs module="m1">
