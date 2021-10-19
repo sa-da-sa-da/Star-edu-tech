@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "towxml": "../../towxml/towxml",
-    "cu-custom":"../../../components/cu-custom/index"
-  }
-}

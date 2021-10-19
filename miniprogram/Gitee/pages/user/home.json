@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "cu-custom":"../../../components/cu-custom/index"
-  }
-}
