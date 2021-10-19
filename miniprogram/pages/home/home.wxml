@@ -11,6 +11,7 @@
 	</view>
 </cu-custom>
 <view class="home">
+	<guide/>
 	<view class="home-top">
 	</view>
 	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
@@ -25,15 +26,6 @@
 		</swiper-item>
 	</swiper>
 	<view class="home_sign">
-		<van-grid :border="false" clickable :gutter="0" column-num="4">
-			<van-grid-item v-for="value in 6" :key="value" icon="friends-o" bindtap="yg" text="陕 Star" />
-			<van-grid-item v-for="value in 8" :key="value" icon="location-o"
-				url="../../todo/pages/school-map/school-map" text="Star 校园" />
-			<van-grid-item v-for="value in 8" :key="value" icon="records" url="../../todo/pages/dealtList/dealtList"
-				text="Star 待办" />
-			<van-grid-item v-for="value in 8" :key="value" icon="like-o" url="../../todo/pages/love/love"
-				text="Star 心声" />
-		</van-grid>
 	</view>
 	<swiper class='home-gg' autoplay="true" vertical='true' circular='true' interval='3000'>
 		<block wx:for="{{nt_list}}" wx:key="this" wx:for-item="items">
@@ -66,7 +58,6 @@
 			</view>
 		</van-cell>
 	</view>
-
 
 	<view class='nav-list_df'>
 		<view class="nav-list-left">

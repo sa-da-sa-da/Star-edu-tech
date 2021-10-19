@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "cu-custom":"../../../components/cu-custom/index"
-  },
-  "navigationBarTitleText": "Star 校园"
-}

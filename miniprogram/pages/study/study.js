@@ -1,10 +1,7 @@
 const app = getApp()
 import api from "../../utils/api.js"
 import task from "../../utils/request.js"
-Component({
-  options: {
-    addGlobalClass: true
-  },
+Page({
   data: {
     CustomBar: app.globalData.CustomBar,
     height: "40px",
@@ -44,28 +41,11 @@ Component({
     },],
     pubshow:false,
   },
-  created() {
+  onLoad() {
     this.list()
   },
-  properties: {
-    list: {
-      type: Object,
-      default: ''
-    },
-    loding: {
-      type: Boolean,
-      default: true
-    },
-  },
-  watch: {
-    'active': function (a, b) {
-      console.log(a)
-      wx.pageScrollTo({
-        scrollTop: 0
-      })
-    },
-  },
-  methods: {
+
+
     onChangepubshow(event){
       this.setData({
         pubshow:true,
@@ -126,5 +106,5 @@ Component({
         url: "../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
       })
     },
-  },
+
 })

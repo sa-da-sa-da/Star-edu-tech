@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/index/index",
+        "pages/home/home",
         "pages/home/dictionaries/dictionaries",
         "pages/home/book/book",
         "pages/home/circular/index",
@@ -14,7 +14,6 @@
         "pages/details/details_dicz/index",
         "pages/details/details_top/index",
         "pages/details/details_scoller/index",
-        
         "pages/user/user",
         "pages/user/favorite/favorite",
         "pages/user/aboutus/index",
@@ -26,38 +25,32 @@
         "pages/home/book/weekly/weakly",
         "pages/details/column/index"
     ],
-    "subpackages": [
-        {
-            "root": "Gitee",
-            "name": "gitee",
-            "pages": [
-                "pages/explore/explore",
-                "pages/search/search",
-                "pages/search/result",
-                "pages/user/home",
-                "pages/user/fans",
-                "pages/repo/home",
-                "pages/repo/list",
-                "pages/repo/dir",
-                "pages/repo/file",
-                "pages/repo/issue",
-                "pages/repo/comment"
-            ]
-        },
-        {
-            "root": "todo",
-            "name": "todo",
-            "pages": [
-                "pages/dealtList/dealtList",
-                "pages/dealtAdd/dealtAdd",
-                "pages/school-map/school-map",
-                "pages/club/club",
-                "pages/love/love",
-                "pages/activity/index",
-                "pages/indexes/indexes"
-            ]
-        }
-    ],
+    "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#3963BC",
+        "borderStyle": "white",
+        "list": [{
+            "selectedIconPath": "/images/shome.png",
+            "iconPath": "/images/home.png",
+            "pagePath": "pages/home/home",
+            "text": "首页"
+          },{
+            "selectedIconPath": "/images/sfound.png",
+            "iconPath": "/images/found.png",
+            "pagePath": "pages/study/study",
+            "text": "发现"
+          },{
+            "selectedIconPath": "/images/ssocialstackflow.png",
+            "iconPath": "/images/socialstackflow.png",
+            "pagePath": "pages/study/warehouse/index",
+            "text": "专栏"
+          },{
+            "selectedIconPath": "/images/suser.png",
+            "iconPath": "/images/user.png",
+            "pagePath": "pages/user/user",
+            "text": "我的"
+          }]
+      },
     "window": {
         "backgroundColor": "#f7f7f7",
         "backgroundTextStyle": "light",
@@ -90,11 +83,11 @@
     },
     "plugins": {
         "chatbot": {
-            "version": "1.2.22",
+            "version": "1.2.23",
             "provider": "wx8c631f7e9f2465e1"
         },
         "WechatSI": {
-            "version": "0.3.4",
+            "version": "0.3.5",
             "provider": "wx069ba97219f66d99"
         }
     },

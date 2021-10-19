@@ -1,7 +1,0 @@
-{
-  
-  "usingComponents": {
-    "cu-custom":"../../../components/cu-custom/index",
-    "van-notice-bar": "@vant/weapp/notice-bar/index"
-  }
-}

@@ -45,7 +45,6 @@
 				<navigator class="bd_user" hover-class='none' url="../user/sign/index"
 					style="position: fixed; left: 654rpx; top: 161rpx">
 					签到</navigator>
-
 			</view>
 
 		</view>
@@ -64,7 +63,6 @@
 		<view class="vip-card-box">
 			<view class="b-btn" bindtap="onClick">
 				立刻分享
-
 			</view>
 			<text>Star 教育技术</text>
 			<view class="tit"></view>
@@ -98,15 +96,8 @@
 		</view>
 		<view class="cu-list menu">
 			<van-grid :border="false" clickable :gutter="0px" column-num="4">
-				<van-grid-item v-for="value in 8" :key="value" icon="friends-o" url="../../todo/pages/club/club"
-					text="Star 组织" />
 				<van-grid-item v-for="value in 6" :key="value" icon="description" url="/pages/study/history/index"
 					text="使用说明" />
-				<van-grid-item v-for="value in 6" :key="value" icon="bulb-o" url="../../pages/activity/index"
-					text="Star 活动" />
-				<van-grid-item v-for="value in 6" :key="value"
-					icon="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/gitee_logo.jpg"
-					url="../../Gitee/pages/explore/explore" text="Gitee 码云" />
 				<van-grid-item v-for="value in 6" :key="value" bindtap="SubmitSussgest" icon="flower-o" text="建议反馈" />
 				<van-grid-item v-for="value in 6" :key="value" icon="friends-o" url="/pages/user/aboutus/index"
 					text="关于我" />
