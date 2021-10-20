@@ -1,32 +1,24 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
+const db = cloud.database()
+const _ = db.command
 exports.main = async (event, context) => {
-
-  cloud.init({
-    env: event.envs
-  })
-  const db = cloud.database({
-    env: event.env
-  })
-  const wxContext = cloud.getWXContext()
-  const _ = db.command
-
-    let collect = await db.collection('collect').where({
-      _id: event.id + wxContext.OPENID
+    let like = await db.collection('collect').where({
+      Article_id: event.id
     }).count()
-    let statr = await db.collection('statr').where({
-      _id: event.id + wxContext.OPENID
+    let star = await db.collection('statr').where({
+      Article_id: event.id
     }).count()
     var data
     if(event.bl){
       data = await db.collection('press').doc(event.id).get()
     }
-  
     return {
-      collect: collect.total==1? true : false,
-      statr: statr.total==1? true : false,
-      data:event.bl?data.data:''
+      like: like.total==1? true : false,
+      star: star.total==1? true : false,
+      data: event.bl?data.data:''
     }
-  
-
 }
