@@ -1,23 +1,20 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
+cloud.init({
+  env: cloud.DYNAMIC_CURRENT_ENV
+})
+const db = cloud.database()
+const _ = db.command
 exports.main = async (event, context) => {
-  cloud.init({
-    env: event.env
-  })
-  const db = cloud.database({
-    env: event.env
-  })
-  const _ = db.command
-
   async function pota() {
     await db.collection('press').doc(event.id).update({
       data: {
-        browse: _.inc(1),
+        Article_Temperature: _.inc(1),
       }
     })
-    let details = await db.collection('press').doc(event.id).get()
+    let Article_List = await db.collection('press').doc(event.id).get()
     return {
-      details: details.data,
+      Article_details: Article_List.data,
     }
   }
   return await pota()
