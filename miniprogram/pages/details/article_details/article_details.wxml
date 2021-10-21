@@ -1,36 +1,30 @@
+<!--pages/Page_Artical/Artical/index.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}" wx:if="{{fx_show}}">
 	<view slot="content">文章</view>
 </cu-custom>
 <view class="loding_bg" wx:if="{{loding}}">
 	<view>
-		<image class="loding_img" src="cloud://demo-8gww0qau03b0af5a.6465-demo-8gww0qau03b0af5a-1304763314/loding.gif">
+		<image class="loding_img" src="./../../../images/loding.gif">
 		</image>
 	</view>
 	<view class="mt10"> 数据加载中</view>
-</view>
-
-<view style="background-color: #fff;padding: 20px;" wx:if="{{loding}}">
-	<van-skeleton title row="3" wx:if="{{loding}}" wx:for="{{5}}" wx:key="this" />
 </view>
 
 <view class="main" wx:if="{{!loding}}">
 	<view
 		style="background-image:url('https://7465-test-4gn9gu0ucc6657ba-1304273986.tcb.qcloud.la/zx_top_new.png?sign=e5625217828be9e6f74c8aa5d92ea70c&t=1628297418')">
 		<view class="detail_bg">
-			<view class="tree_article_tl">
-				{{ article.tille}}
+			<view class="tree_Article_tl">
+				{{Article.Article_TiTle}}
 			</view>
-			<view class="tree_article_time ">
-				<view>时间：{{article.add_time}}</view>
-				<view>{{article.type}}</view>
+			<view class="tree_Article_time text-center ">
+				<text class="cuIcon-timefill  margin-lr-xs">发布时间：{{Article._createTime||'2021-10-01'}}</text>
 			</view>
-			<view class='text-gray text-lg text-right '>
-				<van-icon name="good-job" size="18px" color="pink" />
-				<text decode>{{article.statr}}&nbsp;&nbsp;</text>
-				<van-icon name="star" size="18px" color="orange" />
-				<text decode>{{article.collect}}&nbsp;&nbsp;</text>
-				<van-icon name="fire" size="18px" color="red" />
-				<text decode>{{article.browse}}&nbsp;&nbsp;</text>
+			<view class='text-lg text-right'>
+				<text class="cuIcon-appreciatefill margin-lr-xs text-pink"></text>{{Article.Article_Like||0}}
+				<text class="cuIcon-favorfill margin-lr-xs text-yellow">{{Article.Article_Star||0}}</text>
+				<text class="cuIcon-messagefill margin-lr-xs text-orange">{{Article.Article_Comment||0}}</text>
+				<text class="cuIcon-hotfill margin-lr-xs text-red">{{Article.Article_Temperature||0}}</text>
 			</view>
 		</view>
 	</view>
@@ -41,12 +35,12 @@
 				文章来源
 			</view>
 			<view class="cu-tag line-blue">
-				{{article.ly||'掘金'}}
+				{{Article.Article_Origin||'原创'}}
 			</view>
 		</view>
 	</view>
 	<view class="detil">
-		<mp-html showLanguageName="{{true}}" content="{{html}}" selectable="{{true}}" />
+		<mp-html showLanguageName="{{true}}" content="{{Article_Content}}" selectable="{{true}}" />
 	</view>
 	<view class="dbu">
 		<!-- 评论 -->
@@ -92,7 +86,6 @@
 		<button class='cu-btn bg-green shadow-blur' style="height:8vw;width: 16vw;margin-right: 8rpx;"
 			bindtap="submitCommend" wx:if="{{isFocus}}">发送</button>
 	</view>
-
 	<!-- 评论列表 -->
 	<view class="bg-white margin-top-xs" id="the_id">
 		<!-- 评论数 -->
@@ -111,8 +104,8 @@
 				<view class="cu-avatar round" style="background-image:url({{item.cAvatarUrl}});" data-id="{{item._id}}"
 					data-name="{{item.cNickName}}" data-openid="{{item.cOpenId}}" bindtap="focusComment"></view>
 				<view class='content'>
-					<view class='text-grey' data-id="{{item._id}}" data-name="{{item.cNickName}}"
-						data-openid="{{item.cOpenId}}" bindtap="focusComment" wx:if="{{item.isVip}}" style="color:red">
+					<view class='text-grey' data-id="{{item._id}}" data-name="{{item.cNickName}}" data-openid="{{item.cOpenId}}"
+						bindtap="focusComment" wx:if="{{item.isVip}}" style="color:red">
 						{{item.cNickName}}
 					</view>
 					<view class='text-grey light' data-id="{{item._id}}" data-name="{{item.cNickName}}"
@@ -123,8 +116,8 @@
 					<view class='padding-xs radius  text-sm text-gray'>
 						<view class="bg-gray lighty flex" wx:for="{{item.childComment}}" wx:key="id" wx:for-index="id"
 							wx:for-item="childItem">
-							<view data-id="{{item._id}}" data-name="{{childItem.cNickName}}"
-								data-openid="{{childItem.cOpenId}}" bindtap="focusComment">
+							<view data-id="{{item._id}}" data-name="{{childItem.cNickName}}" data-openid="{{childItem.cOpenId}}"
+								bindtap="focusComment">
 								<view class='text-grey' wx:if="{{childItem.isVip}}" style="color:red">
 									{{childItem.cNickName}}：</view>
 								<view class='text-grey' wx:else>{{childItem.cNickName}}：</view>
@@ -144,5 +137,4 @@
 		</view>
 		<view style="padding:50rpx"></view>
 	</view>
-
 </view>
