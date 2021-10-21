@@ -1,13 +1,11 @@
+//Study 页面文章组件
 import {config} from "../../../utils/config.js"
 const api = require('../../../utils/api.js');
 const time = require('../../../utils/time.js')
 const db = wx.cloud.database({
-  env: config.env
+  env: config.EnvID
 })
-
 const app = getApp()
-
-import task from "../../../utils/request.js"
 import f from "../replace"
 Page({
 
@@ -16,11 +14,11 @@ Page({
    */
   data: {
     id: "",
-    html: "",
+    Article_Content: "",
     sc_show: false,
     dz_show: false,
     fx_show: true,
-    data:{},
+    data: {},
     commentContent: "",
     commentPage: 1,
     commentList: [],
@@ -34,117 +32,8 @@ Page({
     // 是否授权
     isLogin: false,
     show: false,
+    backTop: false,
   },
-  pageLifetimes: {
-    show: function () {
-      this.sq()
-    },
-  },
-  top() {
-    wx.pageScrollTo({
-      scrollTop: 0,
-      duration: 300
-    })
-  },
-  // input聚焦时
-  onInputFocus() {
-    this.setData({
-      isFocus: true
-    });
-  },
-  initial: function (id) {
-    this.setData({
-      loding: true
-    })
-    task.Tree_cloud("Article_details2", {
-      id: this.data.id,
-    }).then(res => {
-      let result = res.details.html
-      this.setData({
-        loding: false
-      })
-      result = f.replace(result)
-      this.setData({
-        html: result,
-        article: res.details
-      })
-      console.log(this.data.article)
-    })
-
-  },
-  initial_tx: function () {
-    task.Tree_cloud("Article_details", {
-      id: this.data.id,
-      bl: true
-    }).then(res => {
-      console.log(res)
-      this.setData({
-        sc_show: res.collect,
-        dz_show: res.statr,
-        article: res.data,
-      })
-    })
-  },
-
-  tz(e) {
-    wx.navigateTo({
-      url: "../../../pages/" + e.currentTarget.dataset.url + "?id=" + e.currentTarget.dataset.id
-    })
-  },
-  details_cs(bl) {
-    console.log(this.data.id)
-    task.Tree_cloud('Article_details', {
-      id: this.data.id,
-      bl
-    }).then(res => {
-      if (bl) {
-        this.setData({
-          article: res.data,
-        })
-      }
-      this.setData({
-        sc_show: res.collect,
-        dz_show: res.statr
-      })
-    })
-  },
-  statr_sc(e) {
-    let userInfo = wx.getStorageSync("userInfo")
-    if (userInfo._openid) {
-      let that = this
-      wx.showToast({
-        title: "Star加载中",
-        icon: 'loading',
-        mask: true,
-        duration: 2000
-      })
-      let data = this.data.article
-      data.press_id = data._id
-      console.log(data)
-
-      task.Tree_cloud(e.currentTarget.dataset.id, {
-        press: this.data.article
-      }).then(res => {
-        wx.showToast({
-          title: res,
-          duration: 1000,
-          icon: 'none',
-          mask: true
-        })
-        this.details_cs(true)
-
-      })
-    } else {
-      wx.showToast({
-        title: '您尚未登录',
-        duration: 1000,
-        icon: 'none',
-        mask: true
-      })
-    }
-  },
-
-
   onLoad: function (options) {
     this.setData({
       id: options.id
@@ -155,28 +44,171 @@ Page({
       menus: ['shareAppMessage', 'shareTimeline']
     });
     this.details_cs()
+  },
+  pageLifetimes: {
+    show: function () {
+      this.sq()
+    },
+  },
+  showModal: async function (e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+    try {
+      let that = this;
+      if (that.data.nomore === true)
+        return;
+      let page = that.data.commentPage;
+      let commentList = await api.getPostComments(page, that.data.Article._id)
+      if (commentList.data.length === 0) {
+        that.setData({
+          nomore: true
+        })
+        if (page === 1) {
+          that.setData({
+            nodata: true
+          })
+        }
+      } else {
+        that.setData({
+          commentPage: page + 1,
+          commentList: that.data.commentList.concat(commentList.data),
+        })
+      }
+    } catch (err) {
+      console.info(err)
+    } finally {
+      wx.hideLoading()
+    }
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  onPageScroll: function (e) {
+    var that = this
+    var scrollTop = e.scrollTop
+    var backTop = scrollTop > 100 ? true : false
+    that.setData({
+      backTop: backTop
+    })
+  },
 
+  top() {
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    })
+  },
+  initial(id) {
+    this.setData({
+      loding: true
+    })
+    wx.cloud.callFunction({
+      name: 'Article_details2',
+      data: {
+        id: id,
+      }
+    }).then(res => {
+      console.log(res)
+      console.log(res.result.Article_details)
+      let result = res.result.Article_details.Article_Content
+      this.setData({
+        loding: false
+      })
+      result = f.replace(result)
+      this.setData({
+        Article_Content: result,
+        Article: res.result.Article_details
+      })
+    })
+  },
 
+  
+  
+  statr_sc(e) {
+    let userInfo = wx.getStorageSync("userInfo")
+    if (userInfo._openid) {
+      let that = this
+      wx.showToast({
+        title: 'Star加载中',
+        icon: 'loading',
+        mask: true,
+        duration: 2000
+      })
+      //console.log(that.data)
+      that.data.Article.Article_id = that.data.Article._id
+      //console.log(that.data.Article)
+      //console.log(e.currentTarget.dataset.id)
+      wx.cloud.callFunction({
+        name: e.currentTarget.dataset.id,
+        data: {
+          Article: that.data.Article
+        }
+      }).then(res => {
+        wx.showToast({
+          title: res.result,
+          duration: 1000,
+          icon: 'none',
+          mask: true
+        })
+        this.details_cs(true)
+      })
+    } else {
+      wx.showToast({
+        title: '您尚未登录',
+        duration: 1000,
+        icon: 'none',
+        mask: true
+      })
+    }
+  },
+  details_cs(bl) {
+    //console.log(this.data.id)
+    wx.cloud.callFunction({
+      name: 'Article_details',
+      data: {
+        id: this.data.id,
+        bl
+      }
+    }).then(res => {
+      //console.log(res.result)
+      if (bl) {
+        this.setData({
+          Article: res.result.data,
+        })
+      }
+      this.setData({
+        star_show: res.result.star,
+        like_show: res.result.like
+      })
+    })
+  },
+
+  // input聚焦时
+  onInputFocus() {
+    this.setData({
+      isFocus: true
+    });
   },
   onShareAppMessage: function (res) {
-    console.log(this.data.article.img)
+    console.log(this.data.Article.Article_Img)
     this.setData({
       fx_show: false
     })
     return {
-      title: this.data.article.tille,
-      path: '/pages/index/index?id=' + this.data.id + "&share=true",
-      imageUrl: this.data.article.img || "",
-
+      title: this.data.Article.Article_TiTle,
+      path: '/pages/Page_Article/Article/index?id=' + this.data.Article._id + "&share=true",
+      imageUrl: this.data.Article.Article_Img || "",
     }
   },
 
   onShareTimeline: function (res) {
     console.log(res)
-
     return {
-      title: this.data.article.tille,
-      imageUrl: this.data.article.img
+      title: this.data.Article.tille,
+      imageUrl: this.data.Article.img
     }
   },
 
@@ -189,8 +221,6 @@ Page({
     })
   },
 
-
-
   commentInput: function (e) {
     this.setData({
       commentContent: e.detail.value
@@ -199,12 +229,14 @@ Page({
   sq() {
     let that = this
     db.collection('User').get().then(res => {
-      if (res.data[0].avatarUrl) {
+      if (res) {
+        console.log(res.data[0])
         that.setData({
-          avatarUrl: res.data[0].avatarUrl,
-          nickName: res.data[0].nickName,
+          avatarUrl: res.data[0].User_AvatarUrl,
+          nickName: res.data[0].User_NickName,
           userin: res.data[0],
         })
+        console.log()
       } else {
         this.setData({
           show: true
@@ -249,8 +281,9 @@ Page({
           }
           // 评论文章
           if (that.data.commentId === "") {
+            console.log(that.data)
             var data = {
-              postId: that.data.article._id,
+              postId: that.data.Article._id,
               cNickName: that.data.nickName,
               cAvatarUrl: that.data.avatarUrl,
               cOpenId: app.globalData.openid,
@@ -275,9 +308,9 @@ Page({
               tOpenId: that.data.toOpenId,
               flag: 1,
             }]
-            await api.addPostChildComment(that.data.commentId, that.data.article._id, childData, '')
+            await api.addPostChildComment(that.data.commentId, that.data.Article._id, childData, '')
           }
-          let commentList = await api.getPostComments(commentPage, that.data.article._id)
+          let commentList = await api.getPostComments(commentPage, that.data.Article._id)
           if (commentList.data.length === 0) {
             that.setData({
               nomore: true
@@ -288,8 +321,8 @@ Page({
               })
             }
           } else {
-            let article = that.data.article;
-            article.totalComments = article.totalComments + 1
+            let Article = that.data.Article;
+            Article.Article_Comment = Article.Article_Comment + 1
             that.setData({
               isFocus: false,
               commentPage: commentPage + 1,
@@ -297,7 +330,7 @@ Page({
               commentContent: "",
               nomore: false,
               nodata: false,
-              article: article,
+              Article: Article,
               commentId: "",
               placeholder: "评论",
               focus: false,
@@ -360,7 +393,7 @@ Page({
       if (that.data.nomore === true)
         return;
       let page = that.data.commentPage;
-      let commentList = await api.getPostComments(page, that.data.article._id)
+      let commentList = await api.getPostComments(page, that.data.Article._id)
       if (commentList.data.length === 0) {
         that.setData({
           nomore: true
