@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "详情内容",
   "navigationBarTextStyle": "white",
-
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-empty": "@vant/weapp/empty/index",
@@ -14,7 +13,5 @@
     "van-button": "@vant/weapp/button/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
     "van-uploader": "@vant/weapp/uploader/index"
-
   }
-
 }
